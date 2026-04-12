@@ -1678,6 +1678,7 @@ function getLabDayFromTeacher(teacherText) {
 
         if (localStorage.getItem(joinedKey) === 'yes') {
             return;
+			await handleSharedLink();
         }
 
         let count = parseInt(localStorage.getItem(key)) || 0;
@@ -1697,12 +1698,12 @@ function getLabDayFromTeacher(teacherText) {
             if (result.isConfirmed) {
                 localStorage.setItem(joinedKey, 'yes');
                 window.open('https://chat.whatsapp.com/B9vRwSqcdCHG36Bso5EMjS?mode=wwt', '_blank');
+				await handleSharedLink();
             } else {
                 localStorage.setItem(key, count + 1);
+				await handleSharedLink();
             }
         }
-
-		await handleSharedLink();
     }
 
     window.__appInitialized = false;
