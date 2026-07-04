@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,47 +39,50 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://yourms.netlify.app/yourms-icon.png">
 
-<!-- Web App Manifest -->
-<link rel="manifest" href="https://yourms.netlify.app/manifest.json">
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="https://yourms.netlify.app/manifest.json">
 
-<!-- Apple Touch Icon -->
-<link rel="apple-touch-icon" sizes="180x180" href="https://yourms.netlify.app/yourms-icon.png">
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://yourms.netlify.app/yourms-icon.png">
 
-<!-- Theme Color -->
-<meta name="theme-color" content="#00AEEF"> 
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#00AEEF">
+
+
+
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "YouRMS",
-    "url": "https://yourms.netlify.app",
-    "description": "YouRMS is a responsive web application for ULAB students to manage courses, class schedules, daily timetables and exam plans. Detect conflicts, track progress and share schedules easily.",
-    "applicationCategory": "EducationApplication",
-    "operatingSystem": "Web",
-    "creator": {
-      "@type": "Person",
-      "name": "Md. Shahriar Alam"
-    },
-    "keywords": [
-      "ULAB course scheduler",
-      "ULAB exam planner",
-      "ULAB class schedule",
-      "ULAB student timetable",
-      "University of Liberal Arts Bangladesh schedule",
-      "ULAB academic planner",
-      "ULAB course tracker",
-      "ULAB study planner",
-      "ULAB course management",
-      "ULAB exam timetable",
-      "ULAB daily schedule",
-      "ULAB university courses",
-      "ULAB online timetable",
-      "ULAB routine maker",
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "YouRMS",
+      "url": "https://yourms.netlify.app",
+      "description": "YouRMS is a responsive web application for ULAB students to manage courses, class schedules, daily timetables and exam plans. Detect conflicts, track progress and share schedules easily.",
+      "applicationCategory": "EducationApplication",
+      "operatingSystem": "Web",
+      "creator": {
+        "@type": "Person",
+        "name": "Md. Shahriar Alam"
+      },
+      "keywords": [
+        "ULAB course scheduler",
+        "ULAB exam planner",
+        "ULAB class schedule",
+        "ULAB student timetable",
+        "University of Liberal Arts Bangladesh schedule",
+        "ULAB academic planner",
+        "ULAB course tracker",
+        "ULAB study planner",
+        "ULAB course management",
+        "ULAB exam timetable",
+        "ULAB daily schedule",
+        "ULAB university courses",
+        "ULAB online timetable",
+        "ULAB routine maker",
 
-    ]
-  }
+      ]
+    }
   </script>
 
   <!-- Extra SEO Boost: Alternate Titles and Descriptions -->
@@ -88,48 +92,4545 @@
 
 
 
-<link rel="stylesheet" href="install.css">
-<script src="install.js"></script> 
+
+  <link rel="stylesheet" href="https://yourms.netlify.app/install.css">
+  <script src="https://yourms.netlify.app/install.js"></script>
 
 
 
-  
-  <title>Loading...</title>
+
+  <title>YouRMS - University Course Scheduler & Exam Planner for ULAB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,560;9..144,650&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script type="text/javascript">
+    (function(c, l, a, r, i, t, y) {
+      c[a] = c[a] || function() {
+        (c[a].q = c[a].q || []).push(arguments)
+      };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "meetwzqgp2");
+  </script>
+  <script src="262/course_data.js"></script>
+  <script src="262/course_name.js"></script>
+  <script src="262/search.js"></script>
+  <script src="262/popup.js"></script>
   <style>
-    /* Center the text vertically and horizontally */
-    body, html {
-      height: 100%;
+    :root {
+      --paper: #f7f4ee;
+      --paper-raised: #fffdf9;
+      --ink: #1d1a16;
+      --ink-soft: #6b6458;
+      --ink-faint: #9a9385;
+      --line: #e6e0d2;
+      --line-strong: #d7cfba;
+      --accent: #b14323;
+      --accent-ink: #7c2c14;
+      --accent-soft: #f3e3d6;
+      --good: #2f6b4f;
+      --good-soft: #e2eee5;
+      --bad: #ad3434;
+      --bad-soft: #f6e2e1;
+      --radius-sm: 8px;
+      --radius: 14px;
+      --radius-lg: 22px;
+      --shadow-sm: 0 1px 2px rgba(29, 26, 22, .05);
+      --shadow-md: 0 10px 30px -8px rgba(29, 26, 22, .16);
+      --shadow-lg: 0 24px 60px -16px rgba(29, 26, 22, .28);
+      --ease: cubic-bezier(.22, .8, .32, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 4.5rem;
+    }
+
+    ::selection {
+      background: var(--accent-soft);
+      color: var(--accent-ink);
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--line-strong);
+      border-radius: 10px;
+      border: 2px solid var(--paper);
+    }
+
+    a {
+      color: var(--accent-ink);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      color: var(--ink);
+      letter-spacing: -.01em;
+      font-weight: 560;
+    }
+
+    /* ── Nav ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      background: rgba(247, 244, 238, .82);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      border-bottom: 1px solid transparent;
+      transition: border-color .35s var(--ease), box-shadow .35s var(--ease);
+    }
+
+    .site-nav.is-scrolled {
+      border-bottom-color: var(--line);
+      box-shadow: 0 8px 24px -16px rgba(29, 26, 22, .25);
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: .7rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-brand img {
+      height: 34px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.85rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      position: relative;
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-weight: 500;
+      font-size: .92rem;
+      padding: .3rem 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 1.5px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .3s var(--ease);
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .btn-restart {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      padding: .5rem 1.05rem;
+      font-size: .85rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background .2s, border-color .2s, transform .15s;
+    }
+
+    .btn-restart:hover {
+      background: var(--paper-raised);
+      border-color: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .btn-restart:active {
+      transform: scale(.96);
+    }
+
+    .btn-restart i {
+      transition: transform .4s var(--ease);
+    }
+
+    .btn-restart:hover i {
+      transform: rotate(-90deg);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--ink);
+      font-size: 1.05rem;
+    }
+
+    @media(max-width:760px) {
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        background: var(--paper-raised);
+        border-bottom: 1px solid var(--line);
+        box-shadow: var(--shadow-md);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .35s var(--ease);
+        padding: 0 1.5rem;
+      }
+
+      .site-nav.nav-open .nav-links {
+        max-height: 280px;
+        padding: .5rem 1.5rem 1rem;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: .7rem 0;
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .nav-links .btn-restart {
+        margin: .4rem 0 .6rem;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+    }
+
+    /* ── Layout ── */
+    .selected-container,
+    #daily-schedule-summary,
+    #schedule-container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto 2.25rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .justify-content-between {
+      justify-content: space-between;
+    }
+
+    .align-items-center {
+      align-items: center;
+    }
+
+    .gap-2 {
+      gap: .6rem;
+    }
+
+    .mb-3 {
+      margin-bottom: 1.1rem;
+    }
+
+
+    /* ── Calendar (px-based, mobile-safe) ── */
+    #daily-schedule-summary {
+      margin-top: 1.75rem;
+      animation: riseIn .5s var(--ease) both;
+    }
+
+    .cal-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: .65rem;
+    }
+
+    .cal-section-title {
+      font-size: .92rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    .cal-section-title i {
+      color: var(--accent);
+    }
+
+    .cal-wrap {
+      background: var(--paper-raised);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .cal-inner {
+      display: flex;
+      min-width: calc(52px + 80px * var(--cal-day-count, 3));
+    }
+
+    .cal-gutter {
+      width: 52px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--line);
+      background: var(--paper);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cal-gutter-spacer {
+      height: 32px;
+      flex-shrink: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cal-gutter-body {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .cal-hour-label {
+      position: absolute;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      text-align: right;
+      padding-right: 6px;
+      font-size: .6rem;
+      color: var(--ink-faint);
+      font-weight: 500;
+      white-space: nowrap;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .cal-columns {
+      display: flex;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cal-col {
+      flex: 1;
+      min-width: 80px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cal-col:last-child {
+      border-right: none;
+    }
+
+    .cal-col-head {
+      height: 32px;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #333;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--ink);
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
     }
-    .message {
-      text-align: center;
+
+    .cal-col-body {
+      position: relative;
+      flex-shrink: 0;
+      background: var(--paper-raised);
     }
-    .spinner {
-      margin: 20px auto;
-      width: 40px;
-      height: 40px;
-      border: 5px solid #ccc;
-      border-top-color: #0077cc;
+
+    .cal-gridline {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--line);
+      pointer-events: none;
+    }
+
+    .cal-block {
+      position: absolute;
+      left: 5%;
+      right: 5%;
+      border-radius: 7px;
+      padding: 4px 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      overflow: hidden;
+      cursor: default;
+      transition: filter .15s var(--ease), transform .15s var(--ease);
+      min-height: 18px;
+      box-shadow: 0 2px 8px -3px rgba(0, 0, 0, .28);
+    }
+
+    .cal-block:hover {
+      filter: brightness(1.1);
+      transform: scaleX(1.03);
+      z-index: 2;
+    }
+
+    .cal-block-name {
+      font-size: .7rem;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.2;
+    }
+
+    .cal-block-time {
+      font-size: .6rem;
+      color: rgba(255, 255, 255, .88);
+      white-space: nowrap;
+      line-height: 1.2;
+    }
+
+    .cal-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem .9rem;
+      padding: .5rem 1rem;
+      border-top: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .cal-legend-item {
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .74rem;
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+
+    .cal-legend-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    @media(max-width:600px) {
+      .cal-gutter {
+        width: 40px;
+      }
+
+      .cal-hour-label {
+        font-size: .55rem;
+        padding-right: 3px;
+      }
+
+      .cal-col {
+        min-width: 60px;
+      }
+
+      .cal-col-head {
+        font-size: .64rem;
+      }
+
+      .cal-block-time {
+        display: none;
+      }
+    }
+
+    /* ── Selected courses ── */
+    .selected-container h1 {
+      font-size: 1.65rem;
+      margin: 0;
+    }
+
+    .sel-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .65rem;
+      margin-bottom: 1rem;
+    }
+
+    .sel-topbar-right {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+    }
+
+    .icon-action-btn {
+      background: var(--paper-raised);
+      border: 1px solid var(--line-strong);
       border-radius: 50%;
-      animation: spin 1s linear infinite;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: .85rem;
+      color: var(--ink-soft);
+      transition: background .18s, color .18s, border-color .18s;
     }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+
+    .icon-action-btn:hover {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    .view-toggle {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .view-toggle-btn {
+      background: none;
+      border: none;
+      padding: .38rem .75rem;
+      font-size: .78rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--ink-soft);
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      transition: background .18s, color .18s;
+      font-family: inherit;
+    }
+
+    .view-toggle-btn.active {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .view-toggle-btn:not(.active):hover {
+      background: var(--paper-raised);
+    }
+
+    .selected-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1rem;
+    }
+
+    .selected-card {
+      background: var(--paper-raised);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.3rem 1.4rem;
+      position: relative;
+      animation: riseIn .45s var(--ease) both;
+      transition: border-color .2s, box-shadow .2s, transform .15s;
+    }
+
+    .selected-card:hover {
+      border-color: var(--line-strong);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .selected-card h3 {
+      font-size: 1.08rem;
+      color: var(--accent-ink);
+      margin: 0 0 .55rem;
+      padding-right: 1.6rem;
+    }
+
+    .selected-card p {
+      font-size: .88rem;
+      color: var(--ink-soft);
+      margin: .22rem 0;
+    }
+
+    .selected-card p strong {
+      color: var(--good);
+      font-weight: 600;
+    }
+
+    .selected-card .delete-btn {
+      position: absolute;
+      top: 1.15rem;
+      right: 1.15rem;
+      background: none;
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      color: var(--ink-faint);
+      cursor: pointer;
+      transition: background .2s, color .2s, transform .15s;
+    }
+
+    .selected-card .delete-btn:hover {
+      background: var(--bad-soft);
+      color: var(--bad);
+    }
+
+    .selected-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+    }
+
+    .selected-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .86rem;
+      background: var(--paper-raised);
+    }
+
+    .selected-table thead tr {
+      background: var(--paper);
+      border-bottom: 2px solid var(--line-strong);
+    }
+
+    .selected-table th {
+      text-align: left;
+      padding: .65rem 1rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+
+    .selected-table td {
+      padding: .7rem 1rem;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
+      vertical-align: middle;
+    }
+
+    .selected-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .selected-table tr:hover td {
+      background: var(--paper);
+    }
+
+    .selected-table .tbl-code {
+      font-weight: 700;
+      color: var(--accent-ink);
+      white-space: nowrap;
+    }
+
+    .selected-table .tbl-exam {
+      font-size: .78rem;
+      color: var(--good);
+      font-weight: 600;
+    }
+
+    .selected-table .tbl-del {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--ink-faint);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .18s, color .18s;
+    }
+
+    .selected-table .tbl-del:hover {
+      background: var(--bad-soft);
+      color: var(--bad);
+    }
+
+    /* ── Course section/option cards ── */
+    #schedule-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .course {
+      background: var(--paper-raised);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .course-header {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: .75rem 1.4rem;
+    }
+
+    .course-header h2 {
+      font-size: 1.05rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: .01em;
+      margin: 0;
+      flex: 1;
+    }
+
+    .course-del-btn {
+      background: none;
+      border: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      color: var(--ink-faint);
+      font-size: .82rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .18s, color .18s;
+      flex-shrink: 0;
+    }
+
+    .course-del-btn:hover {
+      background: var(--bad-soft);
+      color: var(--bad);
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: .9rem;
+      padding: 1.25rem;
+    }
+
+    .card {
+      background: var(--paper-raised);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem 1rem 1.4rem;
+      position: relative;
+      cursor: pointer;
+      animation: riseIn .4s var(--ease) both;
+      transition: border-color .2s, box-shadow .2s, transform .15s;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: .8rem;
+      bottom: .8rem;
+      width: 3px;
+      border-radius: 3px;
+      background: var(--line-strong);
+      transition: background .2s;
+    }
+
+    .card:hover {
+      border-color: var(--line-strong);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .card:has(input:checked) {
+      border-color: var(--good);
+      background: var(--good-soft);
+    }
+
+    .card:has(input:checked)::before {
+      background: var(--good);
+    }
+
+    .card input[type="checkbox"] {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      margin: 0;
+      width: 20px;
+      height: 20px;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 1.5px solid var(--line-strong);
+      border-radius: 6px;
+      background: var(--paper-raised);
+      cursor: pointer;
+      transition: background .15s, border-color .15s, transform .1s;
+    }
+
+    .card input[type="checkbox"]:hover {
+      border-color: var(--accent);
+    }
+
+    .card input[type="checkbox"]:active {
+      transform: scale(.88);
+    }
+
+    .card input[type="checkbox"]:checked {
+      background: var(--good);
+      border-color: var(--good);
+    }
+
+    .card input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 9px;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      transform: rotate(40deg);
+    }
+
+    .info {
+      display: block;
+      padding-right: 1.6rem;
+    }
+
+    .info span {
+      display: block;
+      margin: .28rem 0;
+      font-size: .87rem;
+      color: var(--ink-soft);
+    }
+
+    .tag {
+      font-weight: 600;
+      color: var(--ink);
+      margin-right: .25rem;
+    }
+
+    @media(max-width:600px) {
+      .selected-container h1 {
+        font-size: 1.55rem;
+      }
+
+      .course h2 {
+        font-size: 1rem;
+      }
+
+      .selected-container,
+      #daily-schedule-summary,
+      #schedule-container {
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
+      }
+    }
+
+    /* ── Share buttons ── */
+    .btn {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: .85rem;
+      border-radius: 999px;
+      padding: .5rem 1.05rem;
+      border: 1px solid var(--line-strong);
+      background: var(--paper-raised);
+      color: var(--ink);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      transition: background .2s, border-color .2s, color .2s, transform .15s;
+    }
+
+    .btn:active {
+      transform: scale(.96);
+    }
+
+    .btn-outline-success {
+      border-color: var(--good);
+      color: var(--good);
+    }
+
+    .btn-outline-success:hover {
+      background: var(--good-soft);
+    }
+
+    .btn-outline-info {
+      border-color: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .btn-outline-info:hover {
+      background: var(--accent-soft);
+    }
+
+    /* ── FABs ── */
+    #add-course-btn,
+    #routine-builder-btn {
+      position: fixed;
+      right: 2rem;
+      border: none;
+      border-radius: 50%;
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      z-index: 1000;
+      transition: background .25s, transform .25s, color .25s, border-color .25s;
+    }
+
+    #add-course-btn {
+      bottom: 5.5rem;
+      background: var(--ink);
+      color: #fff;
+      font-size: 1.4rem;
+    }
+
+    #routine-builder-btn {
+      bottom: 9.75rem;
+      background: var(--paper-raised);
+      color: var(--ink);
+      border: 1px solid var(--line-strong);
+      font-size: 1.15rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    #add-course-btn:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    #routine-builder-btn:hover {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+      transform: translateY(-3px);
+    }
+
+    #add-course-btn:active,
+    #routine-builder-btn:active {
+      transform: scale(.92);
+    }
+
+    #add-course-btn i {
+      transition: transform .3s var(--ease);
+    }
+
+    #add-course-btn:hover i {
+      transform: rotate(90deg);
+    }
+
+    #add-course-btn::after,
+    #routine-builder-btn::after {
+      content: '';
+      position: absolute;
+      right: calc(100% + 12px);
+      top: 50%;
+      transform: translateY(-50%) translateX(6px);
+      background: var(--ink);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: .78rem;
+      font-weight: 600;
+      padding: .4rem .75rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s, transform .2s;
+    }
+
+    #add-course-btn::after {
+      content: 'Add a course';
+    }
+
+    #routine-builder-btn::after {
+      content: 'Build routine';
+    }
+
+    #add-course-btn:hover::after,
+    #routine-builder-btn:hover::after {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    @media(max-width:600px) {
+      #add-course-btn {
+        bottom: 4.75rem;
+        right: 1.25rem;
+        width: 52px;
+        height: 52px;
+      }
+
+      #routine-builder-btn {
+        bottom: 8.25rem;
+        right: 1.25rem;
+        width: 52px;
+        height: 52px;
+      }
+
+      #add-course-btn::after,
+      #routine-builder-btn::after {
+        display: none;
+      }
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      width: 100%;
+      background: var(--paper-raised);
+      border-top: 1px solid var(--line);
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 900;
+    }
+
+    .ticker {
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: var(--accent-soft);
+      padding: .4rem 0;
+    }
+
+    .ticker:hover .ticker-track {
+      animation-play-state: paused;
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      gap: 4rem;
+      animation: ticker 22s linear infinite;
+      font-size: .8rem;
+      color: var(--accent-ink);
+      font-weight: 500;
+    }
+
+    .ticker-track span {
+      white-space: nowrap;
+    }
+
+    .ticker-track a {
+      color: var(--accent-ink);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .footer-credit {
+      text-align: center;
+      font-size: .82rem;
+      color: var(--ink-soft);
+      padding: .55rem 1rem;
+    }
+
+    .footer-credit a {
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .footer-credit a:hover {
+      color: var(--accent-ink);
+      text-decoration: underline;
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes riseIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── SweetAlert2 ── */
+    .swal2-popup {
+      font-family: 'Inter', sans-serif !important;
+      border-radius: var(--radius-lg) !important;
+    }
+
+    .swal2-title {
+      font-family: 'Fraunces', serif !important;
+      color: var(--ink) !important;
+    }
+
+    .swal2-html-container {
+      color: var(--ink-soft) !important;
+    }
+
+    .swal2-styled.swal2-confirm {
+      background: var(--ink) !important;
+      border-radius: 999px !important;
+      box-shadow: none !important;
+    }
+
+    .swal2-styled.swal2-confirm:focus {
+      box-shadow: 0 0 0 3px var(--accent-soft) !important;
+    }
+
+    .swal2-styled.swal2-cancel {
+      background: transparent !important;
+      color: var(--ink-soft) !important;
+      border-radius: 999px !important;
+      box-shadow: none !important;
+    }
+
+    .swal2-input {
+      border-radius: var(--radius-sm) !important;
+      border: 1.5px solid var(--line-strong) !important;
+    }
+
+    .swal2-input:focus {
+      border-color: var(--accent) !important;
+      box-shadow: 0 0 0 3px var(--accent-soft) !important;
+    }
+
+    /* ── Routine Builder overlay ── */
+    #routine-builder-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 17, 13, .5);
+      backdrop-filter: blur(3px);
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 4vh 1rem;
+      z-index: 2000;
+      overflow-y: auto;
+      opacity: 0;
+      transition: opacity .25s var(--ease);
+    }
+
+    #routine-builder-overlay.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    #routine-builder-modal {
+      background: var(--paper);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 720px;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(18px) scale(.98);
+      opacity: 0;
+      transition: transform .3s var(--ease), opacity .3s var(--ease);
+    }
+
+    #routine-builder-overlay.open #routine-builder-modal {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    .rb-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.6rem 1.75rem 1.1rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .rb-head h2 {
+      font-size: 1.45rem;
+      margin: 0 0 .3rem;
+    }
+
+    .rb-subtitle {
+      font-size: .86rem;
+      color: var(--ink-soft);
+      margin: 0;
+      max-width: 38ch;
+    }
+
+    .rb-close {
+      background: var(--paper-raised);
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      cursor: pointer;
+      color: var(--ink-soft);
+      transition: background .2s, color .2s, transform .15s;
+    }
+
+    .rb-close:hover {
+      background: var(--bad-soft);
+      color: var(--bad);
+    }
+
+    .rb-close:active {
+      transform: scale(.9);
+    }
+
+    .rb-body {
+      padding: 1.5rem 1.75rem 2rem;
+      max-height: 76vh;
+      overflow-y: auto;
+    }
+
+    .rb-empty {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--ink-soft);
+    }
+
+    .rb-empty i {
+      font-size: 1.8rem;
+      color: var(--ink-faint);
+      margin-bottom: .75rem;
+      display: block;
+    }
+
+    .rb-empty p {
+      max-width: 32ch;
+      margin: 0 auto;
+      font-size: .92rem;
+    }
+
+    .rb-section {
+      margin-bottom: 1.85rem;
+    }
+
+    .rb-section h3 {
+      font-size: 1.02rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin: 0 0 .35rem;
+    }
+
+    .rb-step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .rb-hint {
+      font-size: .84rem;
+      color: var(--ink-soft);
+      margin: 0 0 1rem;
+      line-height: 1.55;
+    }
+
+    .rb-pref-label {
+      font-size: .76rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      margin: .85rem 0 .4rem;
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+    }
+
+    .rb-pref-label i {
+      color: var(--accent);
+      font-size: .8rem;
+    }
+
+    .rb-pref-note {
+      font-weight: 400;
+      color: var(--ink-faint);
+      font-size: .72rem;
+    }
+
+    .rb-pref-div {
+      height: 1px;
+      background: var(--line);
+      margin: .9rem 0 .7rem;
+    }
+
+    .rb-faculty-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .rb-faculty-course {
+      background: var(--paper-raised);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+    }
+
+    .rb-faculty-course-title {
+      font-weight: 700;
+      font-size: .9rem;
+      margin-bottom: .65rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      flex-wrap: wrap;
+    }
+
+    .rb-section-count {
+      font-weight: 500;
+      color: var(--ink-faint);
+      font-size: .76rem;
+    }
+
+    .rb-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .rb-chip {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .4rem .85rem .4rem .7rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--line-strong);
+      background: var(--paper);
+      color: var(--ink-soft);
+      font-size: .82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s var(--ease);
+      font-family: inherit;
+    }
+
+    .rb-chip:hover {
+      border-color: var(--accent);
+      color: var(--ink);
+    }
+
+    .rb-chip.ranked {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .rb-rank-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .25);
+      font-size: .68rem;
+      font-weight: 700;
+    }
+
+    .rb-chip:not(.ranked) .rb-rank-badge {
+      display: none;
+    }
+
+    .rb-limit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.1rem;
+      background: var(--paper-raised);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      margin-bottom: .75rem;
+    }
+
+    .rb-limit-row-col {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .rb-limit-label {
+      display: flex;
+      flex-direction: column;
+      gap: .15rem;
+    }
+
+    .rb-limit-label span {
+      font-size: .8rem;
+      color: var(--ink-soft);
+    }
+
+    .rb-limit-label strong {
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      color: var(--accent-ink);
+    }
+
+    .rb-stepper {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+    }
+
+    .rb-stepper button {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--line-strong);
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      font-family: inherit;
+      transition: background .2s, transform .15s;
+    }
+
+    .rb-stepper button:hover {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .rb-stepper button:active {
+      transform: scale(.88);
+    }
+
+    .rb-stepper button:disabled {
+      opacity: .35;
+      cursor: not-allowed;
+    }
+
+    #rb-days-value {
+      font-weight: 700;
+      min-width: 1.4rem;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    .rb-pill-block {
+      margin-top: .85rem;
+    }
+
+    .rb-pill-label {
+      font-size: .78rem;
+      color: var(--ink-soft);
+      margin-bottom: .5rem;
+      font-weight: 500;
+    }
+
+    .rb-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      max-height: 7.5rem;
+      overflow-y: auto;
+    }
+
+    .rb-pill {
+      border: 1.5px solid var(--line-strong);
+      background: var(--paper);
+      color: var(--ink-soft);
+      border-radius: 999px;
+      padding: .32rem .75rem;
+      font-size: .78rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s;
+      font-family: inherit;
+    }
+
+    .rb-pill:hover {
+      border-color: var(--accent);
+      color: var(--ink);
+    }
+
+    .rb-pill.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .rb-build-btn {
+      width: 100%;
+      background: var(--ink);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: .95rem;
+      font-family: inherit;
+      font-size: .98rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      transition: background .2s, transform .15s;
+    }
+
+    .rb-build-btn:hover {
+      background: var(--accent);
+    }
+
+    .rb-build-btn:active {
+      transform: scale(.98);
+    }
+
+    .rb-build-btn:disabled {
+      background: var(--ink-faint);
+      cursor: not-allowed;
+    }
+
+    .rb-build-btn .fa-spinner {
+      animation: rbSpin .7s linear infinite;
+    }
+
+    @keyframes rbSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    #rb-result {
+      margin-top: 1.5rem;
+    }
+
+    .rb-result-banner {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      padding: .95rem 1.1rem;
+      border-radius: var(--radius);
+      font-size: .88rem;
+      font-weight: 600;
+      margin-bottom: 1.1rem;
+      animation: riseIn .35s var(--ease) both;
+    }
+
+    .rb-result-banner.good {
+      background: var(--good-soft);
+      color: var(--good);
+    }
+
+    .rb-result-banner.bad {
+      background: var(--bad-soft);
+      color: var(--bad);
+    }
+
+    .rb-badge {
+      font-size: .68rem;
+      font-weight: 700;
+      padding: .15rem .55rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .rb-badge.pick1 {
+      background: var(--good-soft);
+      color: var(--good);
+    }
+
+    .rb-badge.pickn {
+      background: var(--accent-soft);
+      color: var(--accent-ink);
+    }
+
+    .rb-badge.nopref {
+      background: var(--paper);
+      color: var(--ink-faint);
+      border: 1px solid var(--line);
+    }
+
+    .rb-score-badge {
+      font-size: .72rem !important;
+    }
+
+    .rb-routine-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      margin-bottom: .6rem;
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+
+    .rb-routine-item.open {
+      border-color: var(--accent);
+    }
+
+    .rb-routine-item.open .rb-chevron {
+      transform: rotate(180deg);
+    }
+
+    .rb-routine-hdr {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: .85rem 1.1rem;
+      cursor: pointer;
+      background: var(--paper-raised);
+      transition: background .15s;
+      user-select: none;
+    }
+
+    .rb-routine-hdr:hover {
+      background: var(--paper);
+    }
+
+    .rb-routine-item.open .rb-routine-hdr {
+      background: var(--accent-soft);
+    }
+
+    .rb-routine-hdr-left {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      flex-wrap: wrap;
+    }
+
+    .rb-routine-hdr-right {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      flex-shrink: 0;
+    }
+
+    .rb-routine-num {
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    .rb-routine-days {
+      font-size: .78rem;
+      color: var(--ink-soft);
+    }
+
+    .rb-chevron {
+      color: var(--ink-faint);
+      font-size: .8rem;
+      transition: transform .25s var(--ease);
+    }
+
+    .rb-day-pips {
+      display: flex;
+      gap: 3px;
+    }
+
+    .rb-day-pip {
+      font-size: .62rem;
+      font-weight: 700;
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: var(--line);
+      color: var(--ink-faint);
+      letter-spacing: .02em;
+    }
+
+    .rb-day-pip.on {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .rb-routine-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s var(--ease);
+      background: var(--paper);
+    }
+
+    .rb-routine-item.open .rb-routine-body {
+      max-height: 2400px;
+    }
+
+    .rb-result-card {
+      background: var(--paper-raised);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: .95rem 1.15rem;
+      margin: .7rem 1.1rem 0;
+      animation: riseIn .4s var(--ease) both;
+    }
+
+    .rb-result-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: .6rem;
+      margin-bottom: .35rem;
+    }
+
+    .rb-result-card-top strong {
+      font-family: 'Fraunces', serif;
+      font-size: 1.02rem;
+    }
+
+    .rb-result-card-meta {
+      font-size: .82rem;
+      color: var(--ink-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: .9rem;
+    }
+
+    .rb-result-card-meta span strong {
+      color: var(--ink);
+      font-weight: 600;
+      font-family: inherit;
+    }
+
+    .rb-overtime {
+      color: var(--bad);
+      font-weight: 600;
+    }
+
+    .rb-apply-row {
+      display: flex;
+      gap: .6rem;
+      padding: 1rem 1.1rem 1.1rem;
+    }
+
+    .rb-apply-btn {
+      flex: 1;
+      background: var(--good);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: .82rem;
+      font-weight: 700;
+      font-size: .9rem;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      transition: background .2s, transform .15s;
+    }
+
+    .rb-apply-btn:hover {
+      background: #245940;
+    }
+
+    .rb-apply-btn:active {
+      transform: scale(.97);
+    }
+
+    /* mini cal */
+    .mck-wrap {
+      display: flex;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper-raised);
+      overflow-x: auto;
+    }
+
+    .mck-gutter {
+      width: 44px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--line);
+      position: relative;
+    }
+
+    .mck-tick {
+      position: absolute;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      text-align: right;
+      padding-right: 4px;
+      font-size: .58rem;
+      color: var(--ink-faint);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .mck-cols {
+      display: flex;
+      flex: 1;
+    }
+
+    .mck-col {
+      flex: 1;
+      min-width: 56px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mck-col:last-child {
+      border-right: none;
+    }
+
+    .mck-col-head {
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .66rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+      flex-shrink: 0;
+    }
+
+    .mck-col-body {
+      position: relative;
+      flex-shrink: 0;
+      background: var(--paper-raised);
+    }
+
+    .mck-block {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      border-radius: 5px;
+      padding: 2px 4px;
+      overflow: hidden;
+      min-height: 12px;
+      box-shadow: 0 2px 5px -2px rgba(0, 0, 0, .2);
+    }
+
+    .mck-block span {
+      font-size: .6rem;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      line-height: 1.3;
+    }
+
+    @media(max-width:560px) {
+      .rb-head {
+        padding: 1.3rem 1.25rem 1rem;
+      }
+
+      .rb-body {
+        padding: 1.25rem 1.25rem 1.75rem;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="message">
-    <h1>Loading...</h1>
-    <div class="spinner"></div>
+
+  <nav class="site-nav" id="site-nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="/262/">
+        <img src="https://yourms.netlify.app/YouRMS-banner.png" alt="YouRMS">
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/262/manual">Manual</a></li>
+        <li><a href="/262/about">About</a></li>
+        <li><a href="/262/contact">Contact</a></li>
+        <li><button onclick="restartApp()" class="btn-restart"><i class="fas fa-arrow-rotate-right"></i> Restart</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="selected-container" style="display:none;">
+    <div class="sel-topbar">
+      <h1>Your Courses</h1>
+      <div class="sel-topbar-right">
+        <div class="view-toggle" id="sel-view-toggle">
+          <button class="view-toggle-btn active" data-view="card" title="Card view"><i class="fas fa-grip"></i></button>
+          <button class="view-toggle-btn" data-view="table" title="Table view"><i class="fas fa-table"></i></button>
+        </div>
+        <button class="icon-action-btn" id="sel-download-btn" title="Download schedule"><i class="fas fa-download"></i></button>
+        <button class="icon-action-btn" id="sel-share-btn" title="Share schedule"><i class="fas fa-share-nodes"></i></button>
+      </div>
+    </div>
+    <div id="selected-courses"></div>
   </div>
 
+  <div id="daily-schedule-summary" style="display:none;"></div>
+
+  <div id="schedule-container"></div>
+
+  <button id="add-course-btn" title="Add a course"><i class="fas fa-plus"></i></button>
+  <button id="routine-builder-btn" title="Build my routine"><i class="fas fa-diagram-project"></i></button>
+
+  <div id="routine-builder-overlay">
+    <div id="routine-builder-modal" role="dialog" aria-modal="true" aria-labelledby="rb-title">
+      <div class="rb-head">
+        <div>
+          <h2 id="rb-title">Routine Builder</h2>
+          <p class="rb-subtitle">Rank faculty, set limits — pure math finds every valid combination scored out of 100.</p>
+        </div>
+        <button id="rb-close" aria-label="Close" class="rb-close"><i class="fas fa-xmark"></i></button>
+      </div>
+      <div class="rb-body" id="rb-body">
+        <div class="rb-empty" id="rb-empty" style="display:none;">
+          <i class="fas fa-inbox"></i>
+          <p>Add a few courses first using the <strong>+</strong> button, then come back here to build your routine.</p>
+        </div>
+        <div id="rb-content">
+          <section class="rb-section">
+            <h3><span class="rb-step">1</span> Rank faculty per course</h3>
+            <p class="rb-hint">Click a teacher to rank them 1st, 2nd, 3rd… If you rank <em>any</em> teacher for a course, only those ranked teachers will appear in routines — unranked means excluded. Leave a course untouched to allow all teachers.</p>
+            <div id="rb-faculty-list" class="rb-faculty-list"></div>
+          </section>
+          <section class="rb-section">
+            <h3><span class="rb-step">2</span> Set your limits</h3>
+            <div class="rb-limit-row">
+              <div class="rb-limit-label">
+                <span>Fit everything within</span>
+                <strong id="rb-days-readout">3 days</strong>
+              </div>
+              <div class="rb-stepper">
+                <button type="button" id="rb-days-minus"><i class="fas fa-minus"></i></button>
+                <span id="rb-days-value">3</span>
+                <button type="button" id="rb-days-plus"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+            <div class="rb-limit-row rb-limit-row-col">
+              <div class="rb-limit-label"><span>Preferred time window</span><strong id="rb-window-readout">—</strong></div>
+              <div class="rb-pill-block">
+                <div class="rb-pill-label">Start no earlier than</div>
+                <div class="rb-pill-group" id="rb-start-pills"></div>
+              </div>
+              <div class="rb-pill-block">
+                <div class="rb-pill-label">End no later than</div>
+                <div class="rb-pill-group" id="rb-end-pills"></div>
+              </div>
+            </div>
+          </section>
+          <button id="rb-build-btn" class="rb-build-btn"><i class="fas fa-calculator"></i> Build my routine</button>
+          <div id="rb-result"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="ticker">
+      <div class="ticker-track">
+        <span><a href="https://chat.whatsapp.com/B9vRwSqcdCHG36Bso5EMjS?mode=wwt" target="_blank" rel="noopener noreferrer">Join the WhatsApp community</a> — get updates and help whenever you're stuck.</span>
+        <span><a href="https://chat.whatsapp.com/B9vRwSqcdCHG36Bso5EMjS?mode=wwt" target="_blank" rel="noopener noreferrer">Join the WhatsApp community</a> — get updates and help whenever you're stuck.</span>
+      </div>
+    </div>
+    <div class="footer-credit">Developed with ❤️ by <a href="https://fb.com/md.shahriar.alam.sikey" target="_blank">Shahriar</a></div>
+  </footer>
+
+  <script>
+    (function() {
+      var nav = document.getElementById('site-nav');
+      var toggle = document.getElementById('nav-toggle');
+      window.addEventListener('scroll', function() {
+        nav.classList.toggle('is-scrolled', window.scrollY > 8);
+      }, {
+        passive: true
+      });
+      toggle.addEventListener('click', function() {
+        var open = nav.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      document.getElementById('nav-links').addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') nav.classList.remove('nav-open');
+      });
+      document.addEventListener('click', function(e) {
+        if (e.target.closest('#landing-cta-btn')) document.getElementById('add-course-btn').click();
+      });
+    })();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    let data = {};
+
+    const teacherFull = {
+      "AKA": "T.M. Abul Kalam Azad",
+      "TBA": "To Be Announced",
+      "MNMA": "Md. Nazmul Abdal",
+      "RaiK": "Raihan Kibria",
+      "FK": "Fatema Khan",
+      "NTNH": "Nazifa Tasnin Hia",
+      "MAP": "Md. Aktaruzzaman Pramanik",
+      "FTZC": "Fariha-Tuz Zahra Chowdhury",
+      "RS": "Rajia Sultana",
+      "AmiS": "Amio Sadman",
+      "IrM": "Iram Mehrin",
+      "ShahA": "Shaheen Ara",
+      "FHS": "Faheem HaSAn Shahed",
+      "TazA": "Tazin Ahmed",
+
+      "AAhM": "Azaz Ahmed",
+      "DMMH": "Md. Mahadhi Hasann",
+      "KHH": "Kaiser Hamidul Huq",
+      "MIUK": "Muhammed Ihsan-Ul-Kabir",
+      "NeG": "Neha Ghose",
+      "SAdA": "Barrister Saad Andalib Aaistu",
+      "SQC": "Selima Quader Chowdhury",
+
+      "AAMM": "Abdullah Al Mahmud",
+      "DSWA": "Sarwar Ahmed",
+      "KAMRH": "K.A.M. Rifat Hasan",
+      "MK": "Moinak Kanungo",
+      "NFH": "Nafia Haque",
+      "SadK": "Sadia Khalid",
+      "SRAL": "Syeda Reshma Akter Laboni",
+
+      "AAR": "Ahmed Abidur Razzaque Khan (GED)",
+      "DZUR": "Zoeb-Ur-Rahman",
+      "KAS": "Kamar Ahmad Simon",
+      "MKB": "Milon Kumar Bhattacharjee",
+      "NIH": "Nishat Hamid",
+      "SahH": "Sahadat Hossain",
+      "SRZ": "Shamim Reza",
+
+      "AB": "Abdul Baten",
+      "EAZ": "Ekhtear Ahmed Zeeshan",
+      "KKK": "Kabya Kritthika",
+      "MKU": "Md Kamal Uddin",
+      "NIUR": "Nayem Imtiaz Uddin Raju",
+      "SahibH": "Sahib Hossain",
+      "SSMJ": "Syeda Sadia Mehjabin (MSJ)",
+
+      "ABM": "Abdul Mannan",
+      "FDAK": "Ferdousi Ara Khatun",
+      "KKS": "Krishna Kumar Saha",
+      "MLM": "Md. LAwha Mahfuz",
+      "NMK": "Naima Khatun",
+      "SakH": "Sakib Hossain",
+      "STHK": "Sk. Tasthekur Hossain Kowshik",
+
+      "AFMM": "A.F.M. Moniruzzaman",
+      "KM": "Kazi Madina",
+      "MM": "Md. Muntasir Mamun",
+      "NNE": "Nazmun Nur Eva",
+      "SAT": "Shirin Akter",
+      "SUAh": "Shamsuddin Ahamad",
+
+      "KMT": "Kazi M. Tarique",
+      "MMP": "Md. Masum Parvez",
+      "NReza": "Nafees Reza",
+      "SaZ": "Sameera Zaman",
+      "SuR": "Sumon Rahman",
+
+      "AMMR": "Al Mahmud Rumman",
+      "FMS": "Faisal Mohammad Shahriar",
+      "LA": "Laboni Akter",
+      "NT": "Nusrat Tajkia (ENG)",
+      "SDA": "Sadia Afrin",
+      "SViA": "Suravi Akhter",
+
+      "ANMFa": "Abu Noor Md Farukh",
+      "GKZ": "GoLAm Kader Zilany",
+      "MaHK": "Mahmud Hasan Khan",
+      "MNUT": "Md Nizam Uddin Tanim",
+      "SDas": "Shatabdi Das",
+      "SWAK": "Shawon Ahmed Kabir",
+
+      "AOMS": "A.O.M. Shamsuddoha",
+      "HaI": "Haseeb Irfanullah",
+      "MaiH": "Mainul Haque",
+      "MoMH": "Mohammed Mozammel Huq",
+      "NUA": "Nasir Uddin Ahmed",
+      "SDH": "Sadia Haque",
+      "TaF": "Tahura Farbin",
+
+      "AR": "Arifa Ghani Rahman",
+      "HBK": "Habiba Kibria",
+      "MAIs": "Md. Aminul Islam",
+      "MosH": "Mosharof Hossainin",
+      "OA": "Oeshwik Ahmed",
+      "TazA": "Tazin Ahmed",
+
+      "ArI": "Arzoo Ismail",
+      "HMR": "Syed Hasib M. Rahman",
+      "MAJB": "Md. Arifujjaman Babu",
+      "MRBR": "Md. Redwan Bin Rahman",
+      "ORS": "Oliur Rahman Sun",
+      "SharN": "Sharminur Nahar",
+      "THR": "Tawhid Reaz, Coordinator EMBA",
+
+      "ARS": "Asma Royhana Sarkar",
+      "HRK": "Harunur Rashid Khan",
+      "MaN": "Mahmudunnabi",
+      "MRMA": "Miduri Rahman Atoshee",
+      "PFQ": "Paromita Fairuz Quarishi",
+      "SHJ": "Shahnaj Husne Jahan",
+      "TJI": "Tahamina Jahan Imran",
+
+      "ASAr": "Abu Sayeed Arif",
+      "IH": "Imran Hossain",
+      "MASQ": "M.Ali Siddiquee",
+      "MSAC": "Md. Saiful Alam Chowdhury",
+      "PH": "Parveen Huda",
+      "ShS": "Shubhankar Shil",
+      "TKDas": "Tusher Kanti Das",
+
+      "ASMR": "Abu Saleh Mohammad Rafi",
+      "MAWA": "Md. Anowarul Abedin",
+      "MSH": "Md. Sazzad Hossainin",
+      "PMR": "Parvez Mahmud Rajib",
+      "SJMF": "Sanjana Mustafa",
+      "TRM": "Tasnova Rahman",
+
+      "ASU": "Ahsann Ullah",
+      "ITH": "Irtifa Haasn",
+      "MAzn": "Muhammad Aminuzzaman",
+      "MSIK": "M Shahidul Islam Khondaker",
+      "SJSQ": "Shah Jafor Sadeek Quaderi",
+      "TRoy": "Tonoy Roy",
+
+      "AT": "Anika Tahsin",
+      "JFR": "Jannatul Ferdous Ruma",
+      "MCy": "Mehek Chowdhury",
+      "MSMM": "Mohammad Sultan Mahmud",
+      "RHF": "Rubaiya Hafiz",
+      "SKHS": "Sakib Hasan Siddiqui",
+      "TSZK": "Towsif Zahin Khan",
+
+      "ATIA": "Antara Ibnat Audhaya",
+      "KAM": "Kader Abdul Muhammad",
+      "MDI": "Md. Didarul Islam",
+      "MSNR": "Md. Shahinur Rahman",
+      "RKH": "Rakib Hasan",
+      "SKTR": "Shawkat Tanveer Rahman",
+      "UAJ": "Umana Anjalin",
+
+      "AUK": "Anirudha Kahaly",
+      "MdKH": "Md Kaviul Hossain",
+      "MSS": "Md. Shawn Sheikh",
+      "RMC": "Rafiq Um Munir Chowdhury",
+      "SLA": "Sadia Lena Alfee",
+      "UH": "Ummay Habiba",
+
+      "AvH": "ABantee Harun",
+      "MGK": "Mohammad Golam Kibria",
+      "MTIs": "Muzhataba Tawkeer Islam",
+      "SMJ": "Sirajum Munira Joti",
+      "UKA": "Uttam Karmaker Aurko",
+
+      "AzH": "Azizul Haque",
+      "MHH": "Muhammad Hasibul Hasan",
+      "MTUS": "Md. Taufiq Us Samad",
+      "RSC": "Rukhsana Choudhury",
+      "SMMR": "S M Mahbubur Rahman",
+      "WA": "Wazir Ahmad",
+
+      "BAK": "Begum Akter Kamal",
+      "MHHr": "MH Haidar",
+      "MUAh": "Mahtab Uddin Ahmed",
+      "RWAIK": "Rezwan Al Islam Khan",
+      "WFU": "Wahida Ferdose Urmi",
+
+      "BCB": "Bikash Chandra Bhowmick",
+      "MinUA": "Minhaz Uddin Ahmed",
+      "MZRM": "Md Ziaur Rahman",
+      "SA": "Shajedul ALAm",
+      "WH": "Wahidur Habib",
+
+      "DS": "Shourav Sikder",
+      "NafM": "Nafees Monsoor",
+      "SABQ": "SArkar Barbaq Quarmal",
+
+      "NAJ": "Nayma Akhter Jahan",
+      "SAC": "Shahana Afrose Chowdhury",
+
+      "NaR": "Nadia Rahman",
+      "NBS": "Nibras Bin SAyed",
+
+
+
+      "SRoy": "Somonindro Roy",
+      "DAMT": "Dewan Ahmed Muhtasim",
+      "DSAK": "Sheikh Abdul Kader",
+      "MKK": "Mrittika Kamal",
+      "DSAS": "Dewan Shahnoor Alam Sourav",
+      "SAIS": "Sheriff Al Sire",
+      "DSL": "Sabrina Lutfa",
+      "NPS": "Niluthpaul Sarker",
+      "LN": "Lubaba Nawar",
+      "AMA": "Abul Mansur Ahmed",
+      "NTR": "Naim Tarique",
+      "FES": "Faiham Ebna Sharif",
+      "AniZ": "Anika Zaman",
+      "FMI": "Faiyaz Md. Iqbal",
+      "MAU": "Md. Alauddin",
+      "MSAK": "Md. Shaikh Abrar Kabir",
+      "PMH": "Mahmood Hossain (ESS Head)",
+      "TSN": "Tahseen Nower",
+      "MSMK": "Mst Sumi Khatun",
+      "ASR": "Atanu Shuvam Roy",
+      "IAB": "Ifat Al Baqee",
+      "MFI": "Md. Faisal Imran",
+      "UMR": "Usama Rafid",
+      "MFS": "Mustafiz Shafi",
+      "MTI": "Mohammed Tanvir Imam",
+      "SNY": "Sheikh Nahiyan",
+      "VDG": "Vincent Dip Gomes",
+      "AZI": "Azazul Islam",
+      "MuI": "Muhammad Ibrahim",
+      "MusH": "Mushira Habib",
+      "MYI": "Md Yeasir Iqbal",
+      "NazA": "Nazia Afrin"
+    };
+
+
+    // — Exam Rules
+    const examRules = [{
+        start: 8 * 60,
+        end: 9 * 60 + 20,
+        dayIdx: 0,
+        time: "08:00 - 10:00 am"
+      },
+      {
+        start: 9 * 60 + 25,
+        end: 10 * 60 + 45,
+        dayIdx: 0,
+        time: "10:00 - 12:00 pm"
+      },
+      {
+        start: 10 * 60 + 50,
+        end: 12 * 60 + 10,
+        dayIdx: 0,
+        time: "12:00 - 02:00 pm"
+      },
+      {
+        start: 12 * 60 + 15,
+        end: 13 * 60 + 35,
+        dayIdx: 0,
+        time: "02:00 - 04:00 pm"
+      },
+      {
+        start: 13 * 60 + 40,
+        end: 15 * 60,
+        dayIdx: 1,
+        time: "08:00 - 10:00 am"
+      },
+      {
+        start: 15 * 60 + 5,
+        end: 16 * 60 + 25,
+        dayIdx: 1,
+        time: "10:00 - 12:00 pm"
+      },
+      {
+        start: 16 * 60 + 30,
+        end: 17 * 60 + 50,
+        dayIdx: 1,
+        time: "12:00 - 02:00 pm"
+      }
+    ];
+
+    let selected = JSON.parse(localStorage.getItem("selectedCourses") || "{}");
+
+    function saveSelected() {
+      localStorage.setItem("selectedCourses", JSON.stringify(selected));
+    }
+
+    function timeToMin(str) {
+      let [hm, ap] = str.split(" ");
+      let [h, m] = hm.split(":").map(Number);
+      if (ap.toLowerCase() === "pm" && h !== 12) h += 12;
+      if (ap.toLowerCase() === "am" && h === 12) h = 0;
+      return h * 60 + m;
+    }
+
+    function parseTimeRange(r) {
+      if (!r || typeof r !== 'string') return [NaN, NaN];
+
+      r = r.replace(/\s+/g, ' ').trim();
+
+      let [s, e] = r.split(" - ").map(x => x.trim()),
+        m = e.match(/(am|pm)/i)?.[0].toLowerCase();
+
+      if (m) {
+        if (!/(am|pm)/i.test(s)) s += " " + m;
+        if (!/(am|pm)/i.test(e)) e += " " + m;
+      }
+
+      let start = timeToMin(s),
+        end = timeToMin(e);
+
+      if (isNaN(start) || isNaN(end)) {
+        console.error(`Invalid time range: ${r}`);
+        return [NaN, NaN];
+      }
+
+      if (start > end) start -= 12 * 60;
+
+      return [start, end];
+    }
+
+    function normalizeDayToken(day) {
+      const raw = (day || '').toString().trim().toLowerCase().replace(/\./g, '');
+      const map = {
+        sun: 'Sun',
+        sunday: 'Sun',
+        mon: 'Mon',
+        monday: 'Mon',
+        tue: 'Tue',
+        tues: 'Tue',
+        tuesday: 'Tue',
+        wed: 'Wed',
+        weds: 'Wed',
+        wednesday: 'Wed',
+        thu: 'Thu',
+        thur: 'Thu',
+        thurs: 'Thu',
+        thursday: 'Thu',
+        fri: 'Fri',
+        friday: 'Fri',
+        sat: 'Sat',
+        saturday: 'Sat'
+      };
+      return map[raw] || (day || '').toString().trim();
+    }
+
+
+
+
+
+
+    function extractDays(courseObj) {
+      const isLab = courseObj.isLab;
+
+      // For lab sections, try to read day codes from the teacher field first
+      if (isLab && courseObj.teacher) {
+        const insideParens = courseObj.teacher.match(/\(([^)]*)\)/)?.[1];
+
+        if (insideParens) {
+          const tokens = insideParens
+            .split(/[,/&\s]+/)
+            .map(t => t.trim())
+            .filter(Boolean);
+
+          const dayMap = {
+            S: 'Sun',
+            SUN: 'Sun',
+            SUNDAY: 'Sun',
+
+            M: 'Mon',
+            MON: 'Mon',
+            MONDAY: 'Mon',
+
+            T: 'Tue',
+            TUE: 'Tue',
+            TUES: 'Tue',
+            TUESDAY: 'Tue',
+
+            W: 'Wed',
+            WED: 'Wed',
+            WEDNESDAY: 'Wed',
+
+            TH: 'Thu',
+            THU: 'Thu',
+            THUR: 'Thu',
+            THURS: 'Thu',
+            THURSDAY: 'Thu',
+
+            F: 'Fri',
+            FRI: 'Fri',
+            FRIDAY: 'Fri',
+
+            SA: 'Sat',
+            SAT: 'Sat',
+            SATURDAY: 'Sat'
+          };
+
+          const days = tokens
+            .map(t => dayMap[t.toUpperCase()])
+            .filter(Boolean);
+
+          if (days.length) {
+            return [...new Set(days)];
+          }
+        }
+      }
+
+      // If days are wrapped in <mark>, read each marked day
+      if (courseObj.days && courseObj.days.includes("<mark>")) {
+        let tmp = document.createElement("div");
+        tmp.innerHTML = courseObj.days;
+        return [...tmp.querySelectorAll("mark")].map(x => normalizeDayToken(x.textContent));
+      }
+
+      // Normal case
+      return (courseObj.days || "")
+        .split("&")
+        .map(x => normalizeDayToken(x));
+    }
+
+
+
+
+
+
+
+
+
+
+
+    function mergeTimeSlots(timeSlotStrings) {
+      if (!Array.isArray(timeSlotStrings) || timeSlotStrings.length === 0) {
+        return [];
+      }
+
+      const parsedSlots = timeSlotStrings.map(slot => {
+        const [start, end] = parseTimeRange(slot);
+        return {
+          original: slot,
+          start,
+          end
+        };
+      }).filter(slot => !isNaN(slot.start) && !isNaN(slot.end));
+
+      if (parsedSlots.length === 0) {
+        return [];
+      }
+
+      parsedSlots.sort((a, b) => a.start - b.start);
+
+      const merged = [];
+      let currentMerge = parsedSlots[0];
+
+      for (let i = 1; i < parsedSlots.length; i++) {
+        const nextSlot = parsedSlots[i];
+        if (nextSlot.start <= currentMerge.end + 5) {
+          currentMerge.end = Math.max(currentMerge.end, nextSlot.end);
+        } else {
+          merged.push({
+            start: currentMerge.start,
+            end: currentMerge.end
+          });
+          currentMerge = nextSlot;
+        }
+      }
+      merged.push({
+        start: currentMerge.start,
+        end: currentMerge.end
+      });
+
+      const formatMinToTime = (min) => {
+        let hh = Math.floor(min / 60);
+        let mm = min % 60;
+        let period = "am";
+        if (hh >= 12) period = "pm";
+        if (hh > 12) hh -= 12;
+        if (hh === 0) hh = 12;
+        return `${String(hh).padStart(2, '0')}:${String(mm).padStart(2, '0')} ${period}`;
+      };
+
+      return merged.map(slot => `${formatMinToTime(slot.start)} - ${formatMinToTime(slot.end)}`);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function findConflict(newE, courseKey) {
+      const newETimeSlots = Array.isArray(newE.time) ? newE.time : [newE.time];
+      const nd = extractDays(newE);
+
+      for (let c in selected) {
+        if (c === courseKey) continue;
+
+        let e = selected[c];
+        const existingTimeSlots = Array.isArray(e.time) ? e.time : [e.time];
+        const ed = extractDays(e);
+
+        for (const newSlotStr of newETimeSlots) {
+          let [ns, ne] = parseTimeRange(newSlotStr);
+          if (isNaN(ns) || isNaN(ne)) continue;
+
+          for (const existingSlotStr of existingTimeSlots) {
+            let [es, ee] = parseTimeRange(existingSlotStr);
+            if (isNaN(es) || isNaN(ee)) continue;
+
+            let day = nd.find(d => ed.includes(d));
+            if (day && ns < ee && es < ne) {
+              let os = Math.max(ns, es),
+                oe = Math.min(ne, ee),
+                fmt = m => {
+                  let hh = Math.floor(m / 60),
+                    mm = m % 60,
+                    pp = hh >= 12;
+                  if (hh > 12) hh -= 12;
+                  if (hh === 0) hh = 12;
+                  return `${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')} ${pp ? 'pm' : 'am'}`;
+                };
+              return {
+                course: c,
+                section: e.section,
+                day,
+                time: `${fmt(os)} - ${fmt(oe)}`
+              };
+            }
+          }
+        }
+      }
+      return false;
+    }
+
+    const selContainer = document.querySelector(".selected-container");
+    const selGrid = document.getElementById("selected-courses");
+    const summaryContainer = document.getElementById("daily-schedule-summary");
+    const schedContainer = document.getElementById("schedule-container");
+
+    let _selView = localStorage.getItem('selView') || 'card';
+
+    function getExamInfo(k, e) {
+      if (e.isLab) return 'No exam';
+      let [st] = parseTimeRange(Array.isArray(e.time) ? e.time[0] : e.time);
+      let rule = examRules.find(r => r.start === st);
+      if (!rule) return 'Exam TBD';
+      let day = extractDays(e)[rule.dayIdx] || 'TBD';
+      return 'Exam: ' + day + ', ' + rule.time;
+    }
+
+    function deleteSelectedCourse(k) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Remove Course?',
+        text: 'Delete ' + k + '?',
+        showCancelButton: true,
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No'
+      }).then(res => {
+        if (res.isConfirmed) {
+          delete selected[k];
+          saveSelected();
+          renderSelected();
+          renderSchedule();
+          Swal.fire({
+            icon: 'success',
+            title: 'Deleted',
+            toast: true,
+            position: 'top',
+            timer: 1200,
+            showConfirmButton: false
+          });
+        }
+      });
+    }
+
+    function renderSelected() {
+      const keys = Object.keys(selected);
+      selGrid.className = '';
+      selGrid.innerHTML = '';
+      if (keys.length === 0) {
+        renderDailyScheduleSummary();
+        updatePanelsVisibility();
+        return;
+      }
+
+      if (_selView === 'table') {
+        const wrap = document.createElement('div');
+        wrap.className = 'selected-table-wrap';
+        const tbl = document.createElement('table');
+        tbl.className = 'selected-table';
+        tbl.innerHTML = '<thead><tr><th>Code</th><th>Section</th><th>Teacher</th><th>Days</th><th>Time</th><th>Room</th><th>Exam</th><th></th></tr></thead>';
+        const tbody = document.createElement('tbody');
+        keys.forEach(k => {
+          const e = selected[k];
+          const times = Array.isArray(e.time) ? e.time.join(', ') : e.time;
+          const isGefSpecial = isGef1101Family(k);
+          const specialTime = formatGefDayTimePairs(e.dayTimePairs);
+          const timeCell = (isGefSpecial && specialTime) ? specialTime : times;
+          const tr = document.createElement('tr');
+          tr.innerHTML = '<td class="tbl-code">' + k + '</td><td>' + e.section + '</td><td>' + e.teacher + '</td>' +
+            '<td>' + e.days + '</td><td>' + timeCell + '</td><td>' + e.room + '</td>' +
+            '<td class="tbl-exam">' + getExamInfo(k, e) + '</td>' +
+            '<td><button class="tbl-del" title="Remove"><i class="fas fa-trash"></i></button></td>';
+          tr.querySelector('.tbl-del').onclick = () => deleteSelectedCourse(k);
+          tbody.appendChild(tr);
+        });
+        tbl.appendChild(tbody);
+        wrap.appendChild(tbl);
+        selGrid.appendChild(wrap);
+      } else {
+        selGrid.className = 'selected-grid';
+        keys.forEach(k => {
+          const e = selected[k];
+          const times = Array.isArray(e.time) ? e.time.join(', ') : e.time;
+          const isGefSpecial = isGef1101Family(k);
+          const specialTime = formatGefDayTimePairs(e.dayTimePairs);
+          const card = document.createElement('div');
+          card.className = 'selected-card';
+          card.innerHTML = '<h3>' + k + '</h3>' +
+            '<p>Section: ' + e.section + '</p><p>Room: ' + e.room + '</p>' +
+            '<p>Teacher: ' + e.teacher + '</p><p>Days: ' + e.days + '</p>' +
+            (isGefSpecial && specialTime ? '<p>' + specialTime + '</p>' : '<p>Time: ' + times + '</p>') +
+            '<p><strong>' + getExamInfo(k, e) + '</strong></p>' +
+            '<button class="delete-btn"><i class="fas fa-trash"></i></button>';
+          card.querySelector('.delete-btn').onclick = () => deleteSelectedCourse(k);
+          selGrid.appendChild(card);
+        });
+      }
+
+      const toggleEl = document.getElementById('sel-view-toggle');
+      if (toggleEl && !toggleEl._wired) {
+        toggleEl._wired = true;
+        toggleEl.addEventListener('click', function(e) {
+          const btn = e.target.closest('.view-toggle-btn');
+          if (!btn) return;
+          _selView = btn.dataset.view;
+          localStorage.setItem('selView', _selView);
+          toggleEl.querySelectorAll('.view-toggle-btn').forEach(b => b.classList.toggle('active', b.dataset.view === _selView));
+          renderSelected();
+        });
+        toggleEl.querySelectorAll('.view-toggle-btn').forEach(b => b.classList.toggle('active', b.dataset.view === _selView));
+      }
+      const dlBtn = document.getElementById('sel-download-btn');
+      if (dlBtn && !dlBtn._wired) {
+        dlBtn._wired = true;
+        dlBtn.addEventListener('click', () => {
+          if (window.downloadSelected) window.downloadSelected();
+        });
+      }
+      const shBtn = document.getElementById('sel-share-btn');
+      if (shBtn && !shBtn._wired) {
+        shBtn._wired = true;
+        shBtn.addEventListener('click', () => {
+          if (window.getShareLink) window.getShareLink();
+        });
+      }
+
+      renderDailyScheduleSummary();
+      updatePanelsVisibility();
+    }
+
+    function renderDailyScheduleSummary() {
+      const summaryContainer = document.getElementById("daily-schedule-summary");
+      if (!summaryContainer) return;
+      const BODY_H = 380;
+      const DAY_CAL_ORDER = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const dayBlocks = {};
+      for (let key in selected) {
+        const entry = selected[key];
+        const timeSlots = Array.isArray(entry.time) ? entry.time : [entry.time];
+        const classDays = extractDays(entry);
+        for (let day of classDays) {
+          if (!dayBlocks[day]) dayBlocks[day] = [];
+          timeSlots.forEach(slot => {
+            const r = parseTimeRange(slot);
+            if (r && !isNaN(r[0]) && !isNaN(r[1])) {
+              dayBlocks[day].push({
+                start: r[0],
+                end: r[1],
+                label: key,
+                section: entry.section
+              });
+            }
+          });
+        }
+      }
+      const activeDays = DAY_CAL_ORDER.filter(d => dayBlocks[d]);
+      if (!activeDays.length) {
+        summaryContainer.innerHTML = '';
+        summaryContainer.style.display = 'none';
+        return;
+      }
+      let gMin = Infinity,
+        gMax = -Infinity;
+      activeDays.forEach(d => dayBlocks[d].forEach(b => {
+        if (b.start < gMin) gMin = b.start;
+        if (b.end > gMax) gMax = b.end;
+      }));
+      gMin = Math.floor((gMin - 30) / 60) * 60;
+      gMax = Math.ceil((gMax + 30) / 60) * 60;
+      const totalMin = gMax - gMin;
+      const fmtT = m => {
+        let hh = Math.floor(m / 60),
+          mm = m % 60,
+          ap = hh >= 12 ? 'pm' : 'am';
+        if (hh > 12) hh -= 12;
+        if (hh === 0) hh = 12;
+        return String(hh).padStart(2, '0') + ':' + String(mm).padStart(2, '0') + ' ' + ap;
+      };
+      const PALETTE = ['#b14323', '#2f6b4f', '#2557a7', '#7c3fa8', '#b07a00', '#c0394b', '#1a7a7a', '#8a4b08'];
+      const ALL_KEYS = Object.keys(selected);
+      const colorOf = k => PALETTE[ALL_KEYS.indexOf(k) % PALETTE.length] || PALETTE[0];
+      const toY = m => ((m - gMin) / totalMin * BODY_H).toFixed(1);
+      const toH = (s, e) => (Math.max(4, e - s) / totalMin * BODY_H).toFixed(1);
+      const ticks = [];
+      for (let m = gMin; m <= gMax; m += 60) ticks.push(m);
+      const gutterHtml = ticks.map(m => '<div class="cal-hour-label" style="top:' + toY(m) + 'px">' + fmtT(m) + '</div>').join('');
+      const colsHtml = activeDays.map(day => {
+        const gridlines = ticks.map(m => '<div class="cal-gridline" style="top:' + toY(m) + 'px"></div>').join('');
+        const blocks = dayBlocks[day].slice().sort((a, b) => a.start - b.start).map(b => {
+          return '<div class="cal-block" style="top:' + toY(b.start) + 'px;height:' + toH(b.start, b.end) + 'px;background:' + colorOf(b.label) + '" title="' + b.label + ' §' + b.section + '">' +
+            '<span class="cal-block-name">' + b.label + '</span><span class="cal-block-time">' + fmtT(b.start) + '–' + fmtT(b.end) + '</span></div>';
+        }).join('');
+        return '<div class="cal-col"><div class="cal-col-head">' + day + '</div><div class="cal-col-body" style="height:' + BODY_H + 'px">' + gridlines + blocks + '</div></div>';
+      }).join('');
+      const legendHtml = ALL_KEYS.map(k => '<span class="cal-legend-item"><span class="cal-legend-dot" style="background:' + colorOf(k) + '"></span>' + k + '</span>').join('');
+      summaryContainer.innerHTML =
+        '<div class="cal-section-header">' +
+        '<span class="cal-section-title"><i class="fas fa-calendar-week"></i> Daily Schedule</span>' +
+        '<button class="icon-action-btn" id="cal-download-btn" title="Download calendar"><i class="fas fa-download"></i></button>' +
+        '</div>' +
+        '<div id="cal-capture-area">' +
+        '<div class="cal-wrap" style="--cal-day-count:' + activeDays.length + '">' +
+        '<div class="cal-inner">' +
+        '<div class="cal-gutter"><div class="cal-gutter-spacer"></div><div class="cal-gutter-body" style="height:' + BODY_H + 'px">' + gutterHtml + '</div></div>' +
+        '<div class="cal-columns">' + colsHtml + '</div>' +
+        '</div>' +
+        '<div class="cal-legend">' + legendHtml + '</div>' +
+        '</div>' +
+        '</div>';
+      summaryContainer.style.display = 'block';
+      const calDlBtn = document.getElementById('cal-download-btn');
+      if (calDlBtn) calDlBtn.onclick = () => {
+        if (window.downloadCal) window.downloadCal();
+      };
+    }
+
+    function deleteCourse(courseKey) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Delete Course?',
+        text: 'Remove ' + courseKey + ' and all its data?',
+        showCancelButton: true,
+        confirmButtonText: 'Delete',
+        cancelButtonText: 'Keep'
+      }).then(res => {
+        if (!res.isConfirmed) return;
+        delete data[courseKey];
+        delete selected[courseKey];
+        // remove from addedCourses
+        let stored = JSON.parse(localStorage.getItem('addedCourses') || '[]');
+        stored = stored.filter(c => c.toUpperCase().replace(/\s+/g, ' ') !== courseKey.toUpperCase().replace(/\s+/g, ' '));
+        localStorage.setItem('addedCourses', JSON.stringify(stored));
+        saveSelected();
+        renderSelected();
+        renderSchedule();
+        Swal.fire({
+          icon: 'success',
+          title: 'Deleted',
+          toast: true,
+          position: 'top',
+          timer: 1200,
+          showConfirmButton: false
+        });
+      });
+    }
+
+    function renderSchedule() {
+      schedContainer.innerHTML = "";
+      for (let courseKey in data) {
+        // Skip courses with zero sections
+        if (!data[courseKey] || data[courseKey].length === 0) continue;
+        let box = document.createElement("div");
+        box.className = "course";
+        // Course header with delete button
+        const hdr = document.createElement('div');
+        hdr.className = 'course-header';
+        hdr.innerHTML = '<h2 style="margin:0;flex:1">' + courseKey + '</h2>' +
+          '<button class="course-del-btn" title="Delete this course"><i class="fas fa-trash"></i></button>';
+        hdr.querySelector('.course-del-btn').onclick = () => deleteCourse(courseKey);
+        box.appendChild(hdr);
+        const cc = document.createElement('div');
+        cc.className = 'card-container';
+        box.appendChild(cc);
+
+        data[courseKey].forEach(entry => {
+          let isSel = selected[courseKey]?.section === entry.section,
+            card = document.createElement("div");
+          card.className = "card";
+
+          const isGefSpecial = isGef1101Family(courseKey);
+          const displayTime = Array.isArray(entry.time) ? entry.time.join(", ") : entry.time;
+          const specialTime = formatGefDayTimePairs(entry.dayTimePairs);
+
+          card.innerHTML = `
+            <input type="checkbox" ${isSel ? "checked" : ""}>
+            <div class="info">
+              <span class="tag">Section:</span> ${entry.section}
+              <span class="tag">Room:</span> ${entry.room}
+              <span class="tag">Teacher:</span> ${entry.teacher} - ${teacherFull[entry.teacher.split(" ")[0]] || "Unknown"}
+              <span class="tag">Days:</span> ${entry.days}
+              ${isGefSpecial && specialTime ? specialTime : `<span class="tag">Time:</span> ${displayTime}`}
+            </div>
+          `;
+          let cb = card.querySelector("input");
+          cb.onchange = () => {
+            let newE = entry;
+
+            if (!cb.checked) {
+              delete selected[courseKey];
+              saveSelected();
+              renderSelected();
+              renderSchedule();
+              return Swal.fire({
+                icon: 'success',
+                title: 'Removed',
+                toast: true,
+                position: 'top',
+                timer: 1200,
+                showConfirmButton: false
+              });
+            }
+
+            let conf = findConflict(newE, courseKey);
+            if (conf) {
+              cb.checked = false;
+              return Swal.fire({
+                icon: 'error',
+                title: 'Conflict',
+                html: `Clashes with <strong>${conf.course} Sec ${conf.section}</strong><br>
+                       On <strong>${conf.day}</strong> at <strong>${conf.time}</strong>`
+              });
+            }
+            if (selected[courseKey] && selected[courseKey].section !== newE.section) {
+              return Swal.fire({
+                icon: 'warning',
+                title: 'Replace Section?',
+                text: `You have Sec ${selected[courseKey].section}. Replace with Sec ${newE.section}?`,
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'No'
+              }).then(res => {
+                if (res.isConfirmed) {
+                  selected[courseKey] = newE;
+                  saveSelected();
+                  renderSelected();
+                  renderSchedule();
+                  Swal.fire({
+                    icon: 'success',
+                    title: 'Replaced',
+                    toast: true,
+                    position: 'top',
+                    timer: 1200,
+                    showConfirmButton: false
+                  });
+                } else {
+                  cb.checked = false;
+                }
+              });
+            } else {
+              selected[courseKey] = newE;
+              saveSelected();
+              renderSelected();
+              renderSchedule();
+              Swal.fire({
+                icon: 'success',
+                title: 'Saved',
+                toast: true,
+                position: 'top',
+                timer: 1200,
+                showConfirmButton: false
+              });
+            }
+          };
+          cc.appendChild(card);
+        });
+
+        schedContainer.appendChild(box);
+      }
+    }
+
+    function updatePanelsVisibility() {
+      const hasSelection = Object.keys(selected).length > 0;
+      summaryContainer.style.display = hasSelection ? "" : "none";
+      selContainer.style.display = hasSelection ? "" : "none";
+    }
+
+    function normalizeTimeFormat(time) {
+      if (!time || typeof time !== 'string') return null;
+
+      time = time.replace(/\s+/g, ' ').trim();
+
+      if (!/(am|pm)/i.test(time)) {
+        const [start, end] = time.split('-').map(t => t.trim());
+        const startHour = parseInt(start.split(':')[0], 10);
+        const endHour = parseInt(end.split(':')[0], 10);
+
+        if (startHour >= 8 && startHour < 12) {
+          time = `${start} am - ${end} am`;
+        } else if (startHour >= 12 || endHour >= 12) {
+          time = `${start} pm - ${end} pm`;
+        }
+      }
+
+      return time;
+    }
+
+    function isExplicitLabSection(sectionText) {
+      const sec = (sectionText || '').toString().trim();
+      return /\bL\b/i.test(sec) || /L$/i.test(sec);
+    }
+
+    function hasLabLikeDuration(timeSlots, minMinutes = 115) {
+      if (!Array.isArray(timeSlots) || !timeSlots.length) return false;
+      return timeSlots.some(slot => {
+        const [start, end] = parseTimeRange(slot);
+        if (isNaN(start) || isNaN(end)) return false;
+        return (end - start) >= minMinutes;
+      });
+    }
+
+    function isGef1101Family(courseKey) {
+      const k = (courseKey || '').toString().trim().toUpperCase();
+      return k === 'GEF 1101' || k === '0231-000-1101';
+    }
+
+
+
+
+
+    function getLabDayFromTeacher(teacherText) {
+      const raw = (teacherText || '').toString();
+      const insideParens = raw.match(/\(([^)]*)\)/)?.[1] || '';
+
+      const tokens = insideParens
+        .split(/[,/&\s]+/)
+        .map(t => t.trim().replace(/\./g, ''))
+        .filter(Boolean);
+
+      const dayMap = {
+        S: 'Sun',
+        SUN: 'Sun',
+        SUNDAY: 'Sun',
+
+        M: 'Mon',
+        MON: 'Mon',
+        MONDAY: 'Mon',
+
+        T: 'Tue',
+        TUE: 'Tue',
+        TUES: 'Tue',
+        TUESDAY: 'Tue',
+
+        W: 'Wed',
+        WED: 'Wed',
+        WEDNESDAY: 'Wed',
+
+        TH: 'Thu',
+        THU: 'Thu',
+        THUR: 'Thu',
+        THURS: 'Thu',
+        THURSDAY: 'Thu',
+
+        F: 'Fri',
+        FRI: 'Fri',
+        FRIDAY: 'Fri',
+
+        SA: 'Sat',
+        SAT: 'Sat',
+        SATURDAY: 'Sat'
+      };
+
+      for (const token of tokens) {
+        const day = dayMap[token.toUpperCase()];
+        if (day) return day;
+      }
+
+      return '';
+    }
+
+
+
+
+
+
+    function normalizeEntryDays(courseKey, dayText, teacherText = '', isLab = false) {
+      const raw = (dayText || '').toString().trim();
+      if (!raw) return 'Unknown Days';
+
+      if (isGef1101Family(courseKey) && /ENG\s*LAB\s*&\s*ESK/i.test(raw)) {
+        return 'Thu';
+      }
+
+      if (isLab) {
+        const labDay = getLabDayFromTeacher(teacherText);
+        if (labDay) return labDay;
+        return normalizeDayToken(raw.split('&')[0]);
+      }
+
+      return raw
+        .replace(/Sun\s*&\s*Tue/i, 'Sun & Tue')
+        .replace(/Mon\s*&\s*Wed/i, 'Mon & Wed');
+    }
+
+
+
+    function splitDayTokens(dayText) {
+      const txt = (dayText || '').toString().trim();
+      if (!txt) return [];
+      if (txt.includes('<mark>')) {
+        const tmp = document.createElement('div');
+        tmp.innerHTML = txt;
+        return [...tmp.querySelectorAll('mark')].map(x => x.textContent.trim()).filter(Boolean);
+      }
+      if (txt.includes('&')) return txt.split('&').map(x => x.trim()).filter(Boolean);
+      return [txt];
+    }
+
+    function mergeDayLabels(existingDays, incomingDays) {
+      const order = ['Sun', 'Monday', 'Mon', 'Tuesday', 'Tue', 'Wednesday', 'Wed', 'Thu', 'Thursday', 'Fri', 'Friday', 'Sat', 'Saturday'];
+      const seen = new Set();
+      [...splitDayTokens(existingDays), ...splitDayTokens(incomingDays)].forEach(d => {
+        if (d) seen.add(d);
+      });
+      const arr = Array.from(seen);
+      arr.sort((a, b) => {
+        const ai = order.findIndex(o => o.toLowerCase() === a.toLowerCase());
+        const bi = order.findIndex(o => o.toLowerCase() === b.toLowerCase());
+        const av = ai === -1 ? 999 : ai;
+        const bv = bi === -1 ? 999 : bi;
+        return av - bv;
+      });
+      return arr.join(' & ');
+    }
+
+    function formatGefDayTimePairs(dayTimePairs) {
+      if (!Array.isArray(dayTimePairs) || !dayTimePairs.length) return '';
+      return dayTimePairs.map(p => {
+        const d = (p.days || '').trim();
+        const times = Array.isArray(p.time) ? p.time.join(', ') : (p.time || '');
+        if (!d || !times) return '';
+        const label = /^Thu$/i.test(d) ? 'Thu (Listening & Speaking)' : d;
+        return `<span><span class="tag">${label}:</span> ${times}</span>`;
+      }).filter(Boolean).join('');
+    }
+
+    function validateAndNormalizeData(courseData) {
+      const normalizedData = {};
+
+      for (let courseKey in courseData) {
+        if (!Array.isArray(courseData[courseKey])) {
+          console.error(`Invalid data for course ${courseKey}: Expected an array.`);
+          continue;
+        }
+
+        const sectionsMap = {};
+        const courseHasExplicitLabSection = courseData[courseKey].some(entry => {
+          if (!Array.isArray(entry) || entry.length < 1) return false;
+          return isExplicitLabSection(entry[0] || '');
+        });
+
+        courseData[courseKey].forEach(entry => {
+          if (!Array.isArray(entry) || entry.length < 5) {
+            console.error(`Invalid entry in ${courseKey}:`, entry);
+            return;
+          }
+
+          let rawSection = entry[0] || 'Unknown Section';
+          let normalizedSection = rawSection.replace(/\s*L$/i, '').trim();
+
+          let timeSlots = [];
+          if (entry[4].includes(",")) {
+            timeSlots = entry[4].split(',').map(t => normalizeTimeFormat(t.trim()));
+          } else {
+            timeSlots = [normalizeTimeFormat(entry[4])];
+          }
+          timeSlots = timeSlots.filter(Boolean);
+
+          const explicitLab = courseKey.toLowerCase().includes("lab") || isExplicitLabSection(rawSection);
+          const inferredLab = !explicitLab && courseHasExplicitLabSection && hasLabLikeDuration(timeSlots);
+          const isLabEntry = explicitLab || inferredLab;
+
+          if (sectionsMap[normalizedSection]) {
+            sectionsMap[normalizedSection].time = sectionsMap[normalizedSection].time.concat(timeSlots);
+            sectionsMap[normalizedSection].isLab = sectionsMap[normalizedSection].isLab || isLabEntry;
+            sectionsMap[normalizedSection].dayTimePairs.push({
+              days: normalizeEntryDays(courseKey, entry[3] || 'Unknown Days', entry[2] || 'Unknown Teacher', isLabEntry),
+              time: timeSlots
+            });
+            sectionsMap[normalizedSection].days = mergeDayLabels(
+              sectionsMap[normalizedSection].days,
+              normalizeEntryDays(courseKey, entry[3] || 'Unknown Days', entry[2] || 'Unknown Teacher', isLabEntry)
+            );
+          } else {
+            sectionsMap[normalizedSection] = {
+              section: rawSection,
+              room: entry[1] || 'Unknown Room',
+              teacher: entry[2] || 'Unknown Teacher',
+              days: normalizeEntryDays(courseKey, entry[3] || 'Unknown Days', entry[2] || 'Unknown Teacher', isLabEntry),
+              time: timeSlots,
+              isLab: isLabEntry,
+              courseKey: courseKey,
+              dayTimePairs: [{
+                days: normalizeEntryDays(courseKey, entry[3] || 'Unknown Days', entry[2] || 'Unknown Teacher', isLabEntry),
+                time: timeSlots
+              }]
+            };
+          }
+        });
+
+        normalizedData[courseKey] = Object.values(sectionsMap).map(sectionEntry => {
+          if (sectionEntry.isLab) {
+            sectionEntry.time = mergeTimeSlots(sectionEntry.time);
+          }
+          if (!Array.isArray(sectionEntry.time)) {
+            sectionEntry.time = [sectionEntry.time];
+          }
+          return sectionEntry;
+        });
+      }
+
+      return normalizedData;
+    }
+
+    function buildCourseIdCandidates(inputId) {
+      const source = (inputId || '').toString().trim();
+      if (!source) return [];
+
+      const candidates = [];
+      const add = (v) => {
+        const val = (v || '').trim();
+        if (!val) return;
+        if (!candidates.includes(val)) candidates.push(val);
+      };
+
+      const upper = source.toUpperCase().replace(/\s+/g, ' ').trim();
+      add(source);
+      add(upper);
+
+      // Try existing-course formats: CSE2104 <-> CSE 2104
+      const compact = upper.replace(/\s+/g, '');
+      const existingMatch = compact.match(/^([A-Z]{2,4})(\d{3,4}(?:-[A-Z])?[A-Z]?)$/);
+      if (existingMatch) {
+        add(`${existingMatch[1]} ${existingMatch[2]}`);
+        add(`${existingMatch[1]}${existingMatch[2]}`);
+      }
+
+      // Try UNESCO formats with normalized hyphen groups.
+      const unescoDigits = upper.replace(/\s*[- ]\s*/g, '-');
+      const unescoMatch = unescoDigits.match(/^(\d{3,4})-(\d{3})-(\d{3,4})$/);
+      if (unescoMatch) {
+        add(`${unescoMatch[1]}-${unescoMatch[2]}-${unescoMatch[3]}`);
+      }
+
+      return candidates;
+    }
+
+    async function loadCourseJSON(courseId) {
+      const candidates = buildCourseIdCandidates(courseId);
+
+      for (const candidate of candidates) {
+        try {
+          let response = await fetch(`262/${encodeURIComponent(candidate)}.json`);
+          if (!response.ok) {
+            continue;
+          }
+
+          let json = await response.json();
+          const validatedData = validateAndNormalizeData(json);
+
+          for (let key in validatedData) {
+            data[key] = validatedData[key];
+          }
+          return candidate;
+        } catch (err) {
+          console.error(`Failed to load ${candidate}.json:`, err);
+        }
+      }
+
+      console.error(`Could not resolve JSON for input: ${courseId}`);
+      return null;
+    }
+
+    async function promptForCourses() {
+      let added = [];
+
+      const allCourseCodes = (typeof COURSE_DATA !== 'undefined') ?
+        Array.from(new Set(Object.keys(COURSE_DATA).map(k => k.trim()).filter(Boolean))).sort((a, b) => a.localeCompare(b)) :
+        [];
+
+      const buildSuggestions = (query, limit = 30) => {
+        const q = (query || '').trim().toUpperCase();
+        if (!q) return allCourseCodes.slice(0, limit);
+
+        const startsWith = [];
+        const includes = [];
+        for (const code of allCourseCodes) {
+          const upper = code.toUpperCase();
+          if (upper.startsWith(q)) {
+            startsWith.push(code);
+          } else if (upper.includes(q)) {
+            includes.push(code);
+          }
+          if ((startsWith.length + includes.length) >= limit) break;
+        }
+        return startsWith.concat(includes).slice(0, limit);
+      };
+
+      while (true) {
+        let {
+          value: courseId
+        } = await Swal.fire({
+          title: 'Add a course',
+          input: 'text',
+          inputPlaceholder: 'Enter course ID (e.g. CSE 2101)',
+          didOpen: () => {
+            const input = Swal.getInput();
+            if (!input) return;
+
+            // Prevent browser history/autofill suggestions from appearing.
+            input.setAttribute('autocomplete', 'off');
+            input.setAttribute('autocorrect', 'off');
+            input.setAttribute('autocapitalize', 'off');
+            input.setAttribute('spellcheck', 'false');
+            input.name = `course-code-${Date.now()}`;
+
+            const listId = 'course-code-suggestions';
+            let dl = document.getElementById(listId);
+            if (dl) dl.remove();
+
+            dl = document.createElement('datalist');
+            dl.id = listId;
+            document.body.appendChild(dl);
+            input.setAttribute('list', listId);
+
+            const refreshList = () => {
+              const suggestions = buildSuggestions(input.value);
+              dl.innerHTML = suggestions.map(code => `<option value="${code}"></option>`).join('');
+            };
+
+            refreshList();
+            input.addEventListener('input', refreshList);
+          },
+          showCancelButton: true,
+          inputValidator: (value) => {
+            if (!value) return 'Course ID cannot be empty';
+            return null;
+          }
+        });
+        if (!courseId) break;
+        courseId = courseId.trim();
+        let resolvedId = await loadCourseJSON(courseId);
+        if (resolvedId) {
+          added.push(resolvedId);
+          Swal.fire({
+            icon: 'success',
+            title: `${resolvedId}.json loaded`,
+            toast: true,
+            position: 'top',
+            timer: 1200,
+            showConfirmButton: false
+          });
+        } else {
+          await Swal.fire({
+            icon: 'error',
+            title: `Bro, Wait! Read this carefully.`,
+            //title: `Could not find ${courseId}.Read this carefully!`,
+            text: 'Please check the filename and try again. For Unesco Course Code write with hyphen. Example : 0200-017-1301. And for Regular Course Code write with gap. Example : CSE 2301'
+          });
+        }
+        let {
+          isConfirmed
+        } = await Swal.fire({
+          icon: 'question',
+          title: 'Add another course?',
+          showCancelButton: true,
+          confirmButtonText: 'Yes',
+          cancelButtonText: 'No'
+        });
+        if (!isConfirmed) break;
+      }
+      if (added.length > 0) {
+        let stored = JSON.parse(localStorage.getItem('addedCourses') || '[]');
+        let unique = Array.from(new Set([...stored, ...added]));
+        localStorage.setItem('addedCourses', JSON.stringify(unique));
+      }
+      toggleAddCourseButton(true);
+    }
+
+    function toggleAddCourseButton(show) {
+      const addCourseBtn = document.getElementById("add-course-btn");
+      addCourseBtn.style.display = show ? "flex" : "none";
+    }
+
+    document.getElementById("add-course-btn").addEventListener("click", async () => {
+      await promptForCourses();
+      renderSelected();
+      renderSchedule();
+    });
+
+    async function loadAllStoredCourses() {
+      let stored = JSON.parse(localStorage.getItem('addedCourses') || '[]');
+      for (let cid of stored) {
+        await loadCourseJSON(cid);
+      }
+    }
+
+    async function showWhatsAppPopup() {
+      const maxShows = 1;
+      const key = 'whatsapp_popup_count';
+      const joinedKey = 'whatsapp_joined';
+
+      if (localStorage.getItem(joinedKey) === 'yes') {
+        return;
+        await handleSharedLink();
+      }
+
+      let count = parseInt(localStorage.getItem(key)) || 0;
+
+      if (count < maxShows) {
+        const result = await Swal.fire({
+          title: 'Join Our WhatsApp Community',
+          text: 'Get updates, ask questions and get help whenever you’re stuck.',
+          icon: 'info',
+          showCancelButton: true,
+          confirmButtonText: 'Join Now',
+          cancelButtonText: 'Not Now',
+          confirmButtonColor: '#25D366',
+          reverseButtons: false
+        });
+
+        if (result.isConfirmed) {
+          localStorage.setItem(joinedKey, 'yes');
+          window.open('https://chat.whatsapp.com/B9vRwSqcdCHG36Bso5EMjS?mode=wwt', '_blank');
+          await handleSharedLink();
+        } else {
+          localStorage.setItem(key, count + 1);
+          await handleSharedLink();
+        }
+      }
+    }
+
+    window.__appInitialized = false;
+    window.initApp = async function() {
+      if (window.__appInitialized) return;
+      window.__appInitialized = true;
+
+      await showWhatsAppPopup();
+
+      let stored = JSON.parse(localStorage.getItem('addedCourses') || '[]');
+      if (stored.length === 0) {
+        await promptForCourses();
+      } else {
+        toggleAddCourseButton(true);
+      }
+      await loadAllStoredCourses();
+      renderSelected();
+      renderSchedule();
+    };
+
+    // Fallback: if share.js is missing or does not call initApp, initialize here.
+    setTimeout(() => {
+      if (!window.__appInitialized) {
+        window.initApp();
+      }
+    }, 50);
+  </script>
+
+  <script>
+    function restartApp() {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Restart App?',
+        text: 'This will reset all data and reload the app.',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, restart',
+        cancelButtonText: 'Cancel'
+      }).then(result => {
+        if (result.isConfirmed) {
+          localStorage.clear();
+          location.reload();
+        }
+      });
+    }
+  </script>
+
+  <script>
+    (function() {
+      "use strict";
+
+      /* ── persisted state ── */
+      let facultyRanks = JSON.parse(localStorage.getItem('rb_facultyRanks') || '{}');
+      let sectionRanks = JSON.parse(localStorage.getItem('rb_sectionRanks') || '{}');
+      let rbMaxDays = parseInt(localStorage.getItem('rb_maxDays') || '3', 10) || 3;
+      let rbWindow = JSON.parse(localStorage.getItem('rb_window') || 'null');
+      let rbAllRoutines = [];
+
+      const DAY_ORDER = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+      function fmtMin(min) {
+        let hh = Math.floor(min / 60),
+          mm = min % 60,
+          ap = hh >= 12 ? 'pm' : 'am';
+        if (hh > 12) hh -= 12;
+        if (hh === 0) hh = 12;
+        return String(hh).padStart(2, '0') + ':' + String(mm).padStart(2, '0') + ' ' + ap;
+      }
+
+      function teacherCodeOf(entry) {
+        return ((entry && entry.teacher) || '').split(' ')[0] || 'TBA';
+      }
+
+      function teacherLabelOf(entry) {
+        const code = teacherCodeOf(entry);
+        return (typeof teacherFull !== 'undefined' && teacherFull[code]) || (entry && entry.teacher) || 'TBA';
+      }
+
+      function collectTimePoints() {
+        const starts = new Set(),
+          ends = new Set(),
+          days = new Set();
+        Object.keys(data).forEach(k => {
+          (data[k] || []).forEach(entry => {
+            const slots = Array.isArray(entry.time) ? entry.time : [entry.time];
+            slots.forEach(s => {
+              const r = parseTimeRange(s);
+              if (r && !isNaN(r[0])) {
+                starts.add(r[0]);
+                ends.add(r[1]);
+              }
+            });
+            extractDays(entry).forEach(d => {
+              if (d) days.add(d);
+            });
+          });
+        });
+        return {
+          starts: [...starts].sort((a, b) => a - b),
+          ends: [...ends].sort((a, b) => a - b),
+          days: DAY_ORDER.filter(d => days.has(d))
+        };
+      }
+
+      function closestTo(arr, target) {
+        return arr.length ? arr.reduce((b, v) => Math.abs(v - target) < Math.abs(b - target) ? v : b, arr[0]) : null;
+      }
+
+      /* ── modal open/close ── */
+      const overlay = document.getElementById('routine-builder-overlay');
+      const openBtn = document.getElementById('routine-builder-btn');
+      const closeBtn = document.getElementById('rb-close');
+
+      function openModal() {
+        const keys = Object.keys(data).filter(k => data[k] && data[k].length > 0);
+        document.getElementById('rb-empty').style.display = keys.length ? 'none' : 'block';
+        document.getElementById('rb-content').style.display = keys.length ? 'block' : 'none';
+        if (keys.length) {
+          buildFacultyUI(keys);
+          buildLimitsUI();
+        }
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      openBtn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', e => {
+        if (e.target === overlay) closeModal();
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+      });
+
+      /* ── STEP 1: faculty + section ranking ── */
+      function buildFacultyUI(courseKeys) {
+        const list = document.getElementById('rb-faculty-list');
+        list.innerHTML = '';
+        courseKeys.forEach(courseKey => {
+          const entries = data[courseKey] || [];
+          const cName = (typeof getCourseName === 'function') ? getCourseName(courseKey) : courseKey;
+
+          // collect unique teachers
+          const seenT = new Set();
+          const teachers = [];
+          entries.forEach(e => {
+            const c = teacherCodeOf(e);
+            if (!seenT.has(c)) {
+              seenT.add(c);
+              teachers.push(c);
+            }
+          });
+
+          const box = document.createElement('div');
+          box.className = 'rb-faculty-course';
+
+          /* title */
+          const title = document.createElement('div');
+          title.className = 'rb-faculty-course-title';
+          title.innerHTML = cName + ' <span class="rb-section-count">' + entries.length + ' section' + (entries.length === 1 ? '' : 's') + '</span>';
+          box.appendChild(title);
+
+          /* sub-label: faculty */
+          const fl = document.createElement('div');
+          fl.className = 'rb-pref-label';
+          fl.innerHTML = '<i class="fas fa-chalkboard-teacher"></i> Faculty preference <span class="rb-pref-note">(leave blank = allow all)</span>';
+          box.appendChild(fl);
+
+          /* faculty chips */
+          const facRow = document.createElement('div');
+          facRow.className = 'rb-chip-row';
+          teachers.forEach(code => {
+            const fullName = (() => {
+              const e = entries.find(x => teacherCodeOf(x) === code);
+              return e ? teacherLabelOf(e) : code;
+            })();
+            const chip = document.createElement('button');
+            chip.type = 'button';
+            chip.className = 'rb-chip';
+            chip.dataset.code = code;
+            chip.addEventListener('click', () => {
+              toggleFacRank(courseKey, code);
+              paintFacChips(courseKey, facRow, entries);
+            });
+            facRow.appendChild(chip);
+          });
+          box.appendChild(facRow);
+          paintFacChips(courseKey, facRow, entries);
+
+          /* divider */
+          const div = document.createElement('div');
+          div.className = 'rb-pref-div';
+          box.appendChild(div);
+
+          /* sub-label: sections */
+          const sl = document.createElement('div');
+          sl.className = 'rb-pref-label';
+          sl.innerHTML = '<i class="fas fa-list-check"></i> Section preference <span class="rb-pref-note">(click to rank, leave blank = allow all)</span>';
+          box.appendChild(sl);
+
+          /* section chips */
+          const secRow = document.createElement('div');
+          secRow.className = 'rb-chip-row';
+          entries.forEach(entry => {
+            const chip = document.createElement('button');
+            chip.type = 'button';
+            chip.className = 'rb-chip';
+            chip.dataset.sec = entry.section;
+            chip.addEventListener('click', () => {
+              toggleSecRank(courseKey, entry.section);
+              paintSecChips(courseKey, secRow, entries);
+            });
+            secRow.appendChild(chip);
+          });
+          box.appendChild(secRow);
+          paintSecChips(courseKey, secRow, entries);
+
+          list.appendChild(box);
+        });
+      }
+
+      function toggleFacRank(courseKey, code) {
+        const arr = facultyRanks[courseKey] = facultyRanks[courseKey] || [];
+        const i = arr.indexOf(code);
+        if (i === -1) arr.push(code);
+        else arr.splice(i, 1);
+        localStorage.setItem('rb_facultyRanks', JSON.stringify(facultyRanks));
+      }
+
+      function toggleSecRank(courseKey, sec) {
+        const arr = sectionRanks[courseKey] = sectionRanks[courseKey] || [];
+        const i = arr.indexOf(sec);
+        if (i === -1) arr.push(sec);
+        else arr.splice(i, 1);
+        localStorage.setItem('rb_sectionRanks', JSON.stringify(sectionRanks));
+      }
+
+      function paintFacChips(courseKey, row, entries) {
+        const arr = facultyRanks[courseKey] || [];
+        row.querySelectorAll('.rb-chip').forEach(chip => {
+          const code = chip.dataset.code;
+          const e = entries.find(x => teacherCodeOf(x) === code);
+          const label = e ? teacherLabelOf(e) : code;
+          const idx = arr.indexOf(code);
+          if (idx === -1) {
+            chip.className = 'rb-chip';
+            chip.innerHTML = label;
+          } else {
+            chip.className = 'rb-chip ranked';
+            chip.innerHTML = '<span class="rb-rank-badge">' + (idx + 1) + '</span> ' + label;
+          }
+        });
+      }
+
+      function paintSecChips(courseKey, row, entries) {
+        const arr = sectionRanks[courseKey] || [];
+        row.querySelectorAll('.rb-chip').forEach(chip => {
+          const sec = chip.dataset.sec;
+          const e = entries.find(x => x.section === sec) || {};
+          const teacher = e.teacher || '';
+          const label = 'Sec ' + sec + (teacher ? ' (' + teacher + ')' : '');
+          const idx = arr.indexOf(sec);
+          if (idx === -1) {
+            chip.className = 'rb-chip';
+            chip.innerHTML = label;
+          } else {
+            chip.className = 'rb-chip ranked';
+            chip.innerHTML = '<span class="rb-rank-badge">' + (idx + 1) + '</span> ' + label;
+          }
+        });
+      }
+
+      /* ── STEP 2: limits ── */
+      let rbAvailableDaysCount = 6;
+
+      function buildLimitsUI() {
+        const pts = collectTimePoints();
+        rbAvailableDaysCount = Math.max(1, pts.days.length || 6);
+        if (rbMaxDays > rbAvailableDaysCount) rbMaxDays = rbAvailableDaysCount;
+        if (!rbMaxDays) rbMaxDays = Math.min(3, rbAvailableDaysCount);
+        if (!rbWindow || rbWindow.start == null) {
+          rbWindow = {
+            start: closestTo(pts.starts, 10 * 60 + 50) ?? pts.starts[0] ?? 0,
+            end: closestTo(pts.ends, 15 * 60 + 25) ?? pts.ends[pts.ends.length - 1] ?? 1440
+          };
+        }
+        renderDaysStepper();
+        renderPills('rb-start-pills', pts.starts, rbWindow.start, v => {
+          rbWindow.start = v;
+          saveWin();
+          renderWinReadout();
+        });
+        renderPills('rb-end-pills', pts.ends, rbWindow.end, v => {
+          rbWindow.end = v;
+          saveWin();
+          renderWinReadout();
+        });
+        renderWinReadout();
+      }
+
+      function saveWin() {
+        localStorage.setItem('rb_window', JSON.stringify(rbWindow));
+      }
+
+      function renderWinReadout() {
+        document.getElementById('rb-window-readout').textContent = fmtMin(rbWindow.start) + ' – ' + fmtMin(rbWindow.end);
+      }
+
+      function renderDaysStepper() {
+        const minus = document.getElementById('rb-days-minus');
+        const plus = document.getElementById('rb-days-plus');
+        const val = document.getElementById('rb-days-value');
+        const rdout = document.getElementById('rb-days-readout');
+
+        function paint() {
+          val.textContent = rbMaxDays;
+          rdout.textContent = rbMaxDays + ' day' + (rbMaxDays === 1 ? '' : 's');
+          minus.disabled = rbMaxDays <= 1;
+          plus.disabled = rbMaxDays >= rbAvailableDaysCount;
+          localStorage.setItem('rb_maxDays', String(rbMaxDays));
+        }
+        minus.onclick = () => {
+          if (rbMaxDays > 1) {
+            rbMaxDays--;
+            paint();
+          }
+        };
+        plus.onclick = () => {
+          if (rbMaxDays < rbAvailableDaysCount) {
+            rbMaxDays++;
+            paint();
+          }
+        };
+        paint();
+      }
+
+      function renderPills(containerId, points, activeVal, onPick) {
+        const el = document.getElementById(containerId);
+        el.innerHTML = '';
+        points.forEach(p => {
+          const pill = document.createElement('button');
+          pill.type = 'button';
+          pill.className = 'rb-pill' + (p === activeVal ? ' active' : '');
+          pill.textContent = fmtMin(p);
+          pill.addEventListener('click', () => {
+            onPick(p);
+            el.querySelectorAll('.rb-pill').forEach(b => b.classList.toggle('active', b === pill));
+          });
+          el.appendChild(pill);
+        });
+      }
+
+      /* ── SCORING (0-100) ─────────────────────────────────────────── */
+      // Faculty 30pts | Section 20pts | Time window 25pts | Gap 15pts | Day spread 10pts
+      function scoreRoutine(courseKeys, assignment, win, fRanks, sRanks, maxDays) {
+        const n = courseKeys.length;
+        let fac = 0,
+          sec = 0,
+          twin = 0,
+          gap = 0,
+          day = 0;
+
+        courseKeys.forEach(k => {
+          const e = assignment[k];
+          const fArr = fRanks[k] || [],
+            sArr = sRanks[k] || [];
+          const hasFPref = fArr.length > 0,
+            hasSPref = sArr.length > 0;
+
+          // Faculty (30pts)
+          if (hasFPref) {
+            const fi = fArr.indexOf(teacherCodeOf(e));
+            fac += fi === 0 ? 30 / n : fi === 1 ? 22 / n : fi === 2 ? 14 / n : fi > 2 ? 6 / n : 0;
+          } else {
+            fac += 30 / n; // no preference = full marks
+          }
+
+          // Section (20pts)
+          if (hasSPref) {
+            const si = sArr.indexOf(e.section);
+            sec += si === 0 ? 20 / n : si === 1 ? 14 / n : si === 2 ? 8 / n : si > 2 ? 4 / n : 0;
+          } else {
+            sec += 20 / n;
+          }
+        });
+
+        // Time window (25pts)
+        let pen = 0,
+          dur = 0;
+        courseKeys.forEach(k => {
+          const slots = Array.isArray(assignment[k].time) ? assignment[k].time : [assignment[k].time];
+          slots.forEach(s => {
+            const r = parseTimeRange(s);
+            if (!r || isNaN(r[0])) return;
+            dur += r[1] - r[0];
+            pen += Math.max(0, win.start - r[0]) + Math.max(0, r[1] - win.end);
+          });
+        });
+        twin = dur > 0 ? 25 * Math.max(0, 1 - pen / dur) : 25;
+
+        // Gap (15pts)
+        const db = {};
+        courseKeys.forEach(k => {
+          const slots = Array.isArray(assignment[k].time) ? assignment[k].time : [assignment[k].time];
+          extractDays(assignment[k]).forEach(d => {
+            if (!d) return;
+            if (!db[d]) db[d] = [];
+            slots.forEach(s => {
+              const r = parseTimeRange(s);
+              if (r && !isNaN(r[0])) db[d].push(r);
+            });
+          });
+        });
+        const ad = Object.keys(db);
+        let gp = 0,
+          gc = 0;
+        ad.forEach(d => {
+          const sorted = db[d].slice().sort((a, b) => a[0] - b[0]);
+          for (let i = 1; i < sorted.length; i++) {
+            const g = sorted[i][0] - sorted[i - 1][1];
+            if (g <= 0) continue;
+            gc++;
+            gp += g >= 30 && g <= 90 ? 1 : g < 30 ? g / 30 : Math.max(0, 1 - (g - 90) / 120);
+          }
+        });
+        gap = gc > 0 ? 15 * (gp / gc) : 15;
+
+        // Day spread (10pts)
+        day = maxDays > 1 ? 10 * (1 - (ad.length - 1) / (maxDays - 1)) : 10;
+
+        return Math.round(Math.min(100, fac + sec + twin + gap + day));
+      }
+
+      /* ── SOLVER ───────────────────────────────────────────────────── */
+      function solveAll(courseKeys, maxDays, win, fRanks, sRanks) {
+        // Only courses with at least 1 section
+        const validKeys = courseKeys.filter(k => data[k] && data[k].length > 0);
+        const order = validKeys.slice().sort((a, b) => (data[a] || []).length - (data[b] || []).length);
+        const metaCache = new Map();
+
+        function getMeta(entry) {
+          let m = metaCache.get(entry);
+          if (m) return m;
+          const days = extractDays(entry).filter(Boolean);
+          const ts = Array.isArray(entry.time) ? entry.time : [entry.time];
+          const slots = [];
+          let tc = 0;
+          ts.forEach(s => {
+            const r = parseTimeRange(s);
+            if (!r || isNaN(r[0]) || isNaN(r[1])) return;
+            slots.push(r);
+            tc += Math.max(0, win.start - r[0]) + Math.max(0, r[1] - win.end);
+          });
+          m = {
+            days,
+            slots,
+            teacherCode: teacherCodeOf(entry),
+            section: entry.section,
+            timeCost: tc
+          };
+          metaCache.set(entry, m);
+          return m;
+        }
+
+        function isExcluded(ck, entry) {
+          const fArr = fRanks[ck] || [],
+            sArr = sRanks[ck] || [];
+          const meta = getMeta(entry);
+          // Faculty exclusion: only if faculty prefs set AND teacher not in list
+          if (fArr.length > 0 && fArr.indexOf(meta.teacherCode) === -1) return true;
+          // Section exclusion: only if section prefs set AND section not in list
+          if (sArr.length > 0 && sArr.indexOf(meta.section) === -1) return true;
+          return false;
+        }
+
+        const busy = {},
+          dc = {};
+        let du = 0;
+
+        function hasConflict(meta) {
+          for (let di = 0; di < meta.days.length; di++) {
+            const d = meta.days[di],
+              arr = busy[d];
+            if (!arr || !arr.length) continue;
+            for (let si = 0; si < meta.slots.length; si++) {
+              const sl = meta.slots[si];
+              for (let bi = 0; bi < arr.length; bi++) {
+                if (sl[0] < arr[bi][1] && arr[bi][0] < sl[1]) return true;
+              }
+            }
+          }
+          return false;
+        }
+
+        function commit(meta) {
+          meta.days.forEach(d => {
+            if (!busy[d]) busy[d] = [];
+            meta.slots.forEach(s => busy[d].push(s));
+            dc[d] = (dc[d] || 0) + 1;
+            if (dc[d] === 1) du++;
+          });
+        }
+
+        function uncommit(meta) {
+          meta.days.forEach(d => {
+            busy[d].length -= meta.slots.length;
+            dc[d]--;
+            if (dc[d] === 0) {
+              du--;
+              delete dc[d];
+              delete busy[d];
+            }
+          });
+        }
+
+        const results = [];
+        const NODE_LIMIT = 800000;
+        let nodes = 0,
+          capped = false;
+
+        function recurse(i, asgn) {
+          if (nodes > NODE_LIMIT) {
+            capped = true;
+            return;
+          }
+          nodes++;
+          if (i === order.length) {
+            results.push({
+              assignment: Object.assign({}, asgn),
+              score100: scoreRoutine(validKeys, asgn, win, fRanks, sRanks, maxDays),
+              daysUsed: Object.keys(dc).length
+            });
+            return;
+          }
+          const ck = order[i];
+          const cands = (data[ck] || []).slice();
+          for (let ci = 0; ci < cands.length; ci++) {
+            if (nodes > NODE_LIMIT) {
+              capped = true;
+              break;
+            }
+            const entry = cands[ci];
+            if (isExcluded(ck, entry)) continue;
+            const meta = getMeta(entry);
+            if (!meta.days.length) continue;
+            if (hasConflict(meta)) continue;
+            const nd = meta.days.filter(d => !dc[d]).length;
+            if (du + nd > maxDays) continue;
+            commit(meta);
+            asgn[ck] = entry;
+            recurse(i + 1, asgn);
+            delete asgn[ck];
+            uncommit(meta);
+          }
+        }
+        recurse(0, {});
+        results.sort((a, b) => b.score100 - a.score100 || a.daysUsed - b.daysUsed);
+        return {
+          routines: results,
+          capped,
+          nodes,
+          validKeys
+        };
+      }
+
+      function findMinimumDays(courseKeys, win, fRanks, sRanks, startFrom) {
+        for (let d = startFrom; d <= 7; d++) {
+          const r = solveAll(courseKeys, d, win, fRanks, sRanks);
+          if (r.routines.length) return d;
+        }
+        return null;
+      }
+
+      /* ── Build button ── */
+      document.getElementById('rb-build-btn').addEventListener('click', runBuild);
+
+      function runBuild() {
+        const courseKeys = Object.keys(data).filter(k => data[k] && data[k].length > 0);
+        if (!courseKeys.length) return;
+        const btn = document.getElementById('rb-build-btn');
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner"></i> Crunching combinations…';
+        document.getElementById('rb-result').innerHTML = '';
+        setTimeout(() => {
+          const res = solveAll(courseKeys, rbMaxDays, rbWindow, facultyRanks, sectionRanks);
+          rbAllRoutines = res.routines;
+          renderResultList(courseKeys, res);
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-calculator"></i> Build my routine';
+        }, 30);
+      }
+
+      /* ── Result accordion ── */
+      function renderResultList(courseKeys, res) {
+        const el = document.getElementById('rb-result');
+        el.innerHTML = '';
+        const validKeys = res.validKeys || courseKeys;
+
+        if (!res.routines.length) {
+          const minDays = findMinimumDays(courseKeys, rbWindow, facultyRanks, sectionRanks, rbMaxDays + 1);
+          const banner = document.createElement('div');
+          banner.className = 'rb-result-banner bad';
+          banner.innerHTML = '<i class="fas fa-triangle-exclamation"></i> ' + (minDays ?
+            'No clash-free fit in <strong>' + rbMaxDays + ' day' + (rbMaxDays === 1 ? '' : 's') + '</strong>. Minimum possible: <strong>' + minDays + ' day' + (minDays === 1 ? '' : 's') + '</strong>. Raise the limit and rebuild.' :
+            'No valid combination exists at all — two courses always overlap, or your faculty/section filters are too restrictive. Try removing some preference filters.');
+          el.appendChild(banner);
+          return;
+        }
+
+        const banner = document.createElement('div');
+        banner.className = 'rb-result-banner good';
+        banner.innerHTML = '<i class="fas fa-circle-check"></i> Found <strong>' + res.routines.length + ' valid routine' + (res.routines.length === 1 ? '' : 's') + '</strong>' + (res.capped ? ' (more may exist — search budget reached)' : '') +
+          '. Scored /100. Click any to expand.';
+        el.appendChild(banner);
+
+        res.routines.forEach((routine, idx) => {
+          const usedDays = new Set();
+          validKeys.forEach(k => extractDays(routine.assignment[k]).forEach(d => {
+            if (d) usedDays.add(d);
+          }));
+
+          const item = document.createElement('div');
+          item.className = 'rb-routine-item';
+          const hdr = document.createElement('div');
+          hdr.className = 'rb-routine-hdr';
+
+          const dayPips = DAY_ORDER.map(d => '<span class="rb-day-pip' + (usedDays.has(d) ? ' on' : '') + '">' + d + '</span>').join('');
+          const sc = routine.score100 || 0;
+          const scCls = sc >= 80 ? 'pick1' : sc >= 55 ? 'pickn' : 'nopref';
+          const scoreBadge = '<span class="rb-badge ' + scCls + ' rb-score-badge">' + sc + '/100</span>';
+          const bestBadge = idx === 0 ? '<span class="rb-badge pick1">Best</span>' : '';
+
+          hdr.innerHTML =
+            '<div class="rb-routine-hdr-left">' +
+            '<span class="rb-routine-num">Routine ' + (idx + 1) + '</span>' + bestBadge + scoreBadge +
+            '<div class="rb-day-pips">' + dayPips + '</div>' +
+            '</div>' +
+            '<div class="rb-routine-hdr-right">' +
+            '<span class="rb-routine-days">' + usedDays.size + ' day' + (usedDays.size === 1 ? '' : 's') + '</span>' +
+            '<i class="fas fa-chevron-down rb-chevron"></i>' +
+            '</div>';
+
+          hdr.addEventListener('click', () => {
+            const wasOpen = item.classList.contains('open');
+            el.querySelectorAll('.rb-routine-item.open').forEach(it => it.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+          });
+
+          const body = document.createElement('div');
+          body.className = 'rb-routine-body';
+          body.innerHTML = buildMiniCal(validKeys, routine.assignment);
+
+          validKeys.forEach(k => {
+            const entry = routine.assignment[k];
+            const fArr = facultyRanks[k] || [],
+              sArr = sectionRanks[k] || [];
+            const fi = fArr.indexOf(teacherCodeOf(entry)),
+              si = sArr.indexOf(entry.section);
+            let badge = '<span class="rb-badge nopref">no pref</span>';
+            if (fi === 0 && si === 0) badge = '<span class="rb-badge pick1">Fac #1 · Sec #1</span>';
+            else if (fi === 0) badge = '<span class="rb-badge pick1">Fac #1</span>' + (si >= 0 ? '<span class="rb-badge pickn">Sec #' + (si + 1) + '</span>' : '');
+            else if (si === 0) badge = '<span class="rb-badge pick1">Sec #1</span>' + (fi >= 0 ? '<span class="rb-badge pickn">Fac #' + (fi + 1) + '</span>' : '');
+            else if (fi > 0 || si > 0) badge = (fi >= 0 ? '<span class="rb-badge pickn">Fac #' + (fi + 1) + '</span>' : '') + (si >= 0 ? '<span class="rb-badge pickn">Sec #' + (si + 1) + '</span>' : '');
+
+            const ts = Array.isArray(entry.time) ? entry.time : [entry.time];
+            const overtime = ts.some(s => {
+              const r = parseTimeRange(s);
+              return r && !isNaN(r[0]) && (r[0] < rbWindow.start || r[1] > rbWindow.end);
+            });
+            const card = document.createElement('div');
+            card.className = 'rb-result-card';
+            card.innerHTML = '<div class="rb-result-card-top"><strong>' + k + '</strong>' + badge + '</div>' +
+              '<div class="rb-result-card-meta">' +
+              '<span>Sec <strong>' + entry.section + '</strong></span>' +
+              '<span><strong>' + teacherLabelOf(entry) + '</strong></span>' +
+              '<span>' + entry.days + '</span>' +
+              '<span class="' + (overtime ? 'rb-overtime' : '') + '">' + ts.join(', ') + (overtime ? ' ⚠ outside window' : '') + '</span>' +
+              '</div>';
+            body.appendChild(card);
+          });
+
+          const applyRow = document.createElement('div');
+          applyRow.className = 'rb-apply-row';
+          applyRow.innerHTML = '<button class="rb-apply-btn"><i class="fas fa-check"></i> Apply Routine ' + (idx + 1) + '</button>';
+          applyRow.querySelector('.rb-apply-btn').addEventListener('click', () => applyRoutine(routine.assignment));
+          body.appendChild(applyRow);
+
+          item.appendChild(hdr);
+          item.appendChild(body);
+          el.appendChild(item);
+        });
+
+        const first = el.querySelector('.rb-routine-item');
+        if (first) first.classList.add('open');
+      }
+
+      /* ── Mini calendar (px-based) ── */
+      function buildMiniCal(courseKeys, assignment) {
+        const PALETTE = ['#b14323', '#2f6b4f', '#2557a7', '#7c3fa8', '#b07a00', '#c0394b', '#1a7a7a', '#8a4b08'];
+        const colorOf = k => [PALETTE[courseKeys.indexOf(k) % PALETTE.length]];
+        const fmtTime = m => {
+          let hh = Math.floor(m / 60),
+            mm = m % 60,
+            ap = hh >= 12 ? 'pm' : 'am';
+          if (hh > 12) hh -= 12;
+          if (hh === 0) hh = 12;
+          return String(hh).padStart(2, '0') + ':' + String(mm).padStart(2, '0') + ap;
+        };
+        const dayBlocks = {};
+        courseKeys.forEach(k => {
+          const entry = assignment[k];
+          if (!entry) return;
+          const slots = Array.isArray(entry.time) ? entry.time : [entry.time];
+          extractDays(entry).forEach(day => {
+            if (!day) return;
+            if (!dayBlocks[day]) dayBlocks[day] = [];
+            slots.forEach(s => {
+              const r = parseTimeRange(s);
+              if (r && !isNaN(r[0])) dayBlocks[day].push({
+                start: r[0],
+                end: r[1],
+                label: k
+              });
+            });
+          });
+        });
+        const activeDays = DAY_ORDER.filter(d => dayBlocks[d]);
+        if (!activeDays.length) return '';
+        let gMin = Infinity,
+          gMax = -Infinity;
+        activeDays.forEach(d => dayBlocks[d].forEach(b => {
+          if (b.start < gMin) gMin = b.start;
+          if (b.end > gMax) gMax = b.end;
+        }));
+        gMin = Math.floor((gMin - 20) / 60) * 60;
+        gMax = Math.ceil((gMax + 20) / 60) * 60;
+        const totalMin = gMax - gMin;
+        const MCK_H = 160;
+        const toMY = m => ((m - gMin) / totalMin * MCK_H).toFixed(1);
+        const toMH = (s, e) => (Math.max(4, e - s) / totalMin * MCK_H).toFixed(1);
+        let ticksHtml = '';
+        for (let m = Math.ceil(gMin / 60) * 60; m <= gMax; m += 60) ticksHtml += '<div class="mck-tick" style="top:' + toMY(m) + 'px">' + fmtTime(m) + '</div>';
+        const colsHtml = activeDays.map(day => {
+          const bh = dayBlocks[day].slice().sort((a, b) => a.start - b.start).map(b => '<div class="mck-block" style="top:' + toMY(b.start) + 'px;height:' + toMH(b.start, b.end) + 'px;background:' + colorOf(b.label)[0] + '" title="' + b.label + '"><span>' + b.label + '</span></div>').join('');
+          return '<div class="mck-col"><div class="mck-col-head">' + day + '</div><div class="mck-col-body" style="height:' + MCK_H + 'px">' + bh + '</div></div>';
+        }).join('');
+        return '<div class="mck-wrap"><div class="mck-gutter" style="padding-top:26px">' + ticksHtml + '</div><div class="mck-cols">' + colsHtml + '</div></div>';
+      }
+
+      function applyRoutine(assignment) {
+        Object.keys(assignment).forEach(k => {
+          selected[k] = assignment[k];
+        });
+        saveSelected();
+        renderSelected();
+        renderSchedule();
+        closeModal();
+        Swal.fire({
+          icon: 'success',
+          title: 'Routine applied!',
+          toast: true,
+          position: 'top',
+          timer: 1600,
+          showConfirmButton: false
+        });
+      }
+
+    })();
+  </script>
+
+
+
+  <script>
+    /* ── Share & Download (inline, no external share.js needed) ── */
+    (function() {
+
+      /* Load html2canvas once */
+      function ensureH2C(cb) {
+        if (window.html2canvas) {
+          cb();
+          return;
+        }
+        var s = document.createElement('script');
+        s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+        s.onload = cb;
+        document.head.appendChild(s);
+      }
+
+      /* ── URL encoding ── */
+      function generateShareUrl() {
+        var sel = JSON.parse(localStorage.getItem('selectedCourses') || '{}');
+        var pairs = [];
+        for (var id in sel) {
+          pairs.push(id + '|' + sel[id].section);
+        }
+        if (!pairs.length) return null;
+        var raw = pairs.join(',');
+        var b64 = btoa(unescape(encodeURIComponent(raw)))
+          .replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+        return window.location.origin + window.location.pathname + '?s=' + b64;
+      }
+
+      function decodeShareParam(param) {
+        try {
+          var b64 = param.replace(/-/g, '+').replace(/_/g, '/');
+          var raw = decodeURIComponent(escape(atob(b64)));
+          return raw.split(',').map(function(p) {
+            var idx = p.lastIndexOf('|');
+            return {
+              id: p.slice(0, idx),
+              sec: p.slice(idx + 1)
+            };
+          });
+        } catch (e) {
+          return null;
+        }
+      }
+
+      /* ── QR builder ── */
+      function buildQR(container, url) {
+        container.innerHTML = '';
+        if (typeof QRCode === 'undefined') {
+          container.textContent = 'QR unavailable';
+          return;
+        }
+        new QRCode(container, {
+          text: url,
+          width: 140,
+          height: 140,
+          colorDark: '#1d1a16',
+          colorLight: '#fffdf9',
+          correctLevel: QRCode.CorrectLevel.L
+        });
+      }
+
+      /* ── Share popup ── */
+      window.getShareLink = function() {
+        var url = generateShareUrl();
+        if (!url) {
+          Swal.fire('Nothing to share', 'Select at least one section first.', 'info');
+          return;
+        }
+        Swal.fire({
+          title: 'Share Schedule',
+          html: '<p style="font-size:.84rem;color:#6b6458;margin:0 0 .8rem">Scan QR or copy the link below</p>' +
+            '<div id="sw-qr" style="display:flex;justify-content:center;margin-bottom:.8rem"></div>' +
+            '<input id="sw-url" class="swal2-input" readonly style="font-size:.72rem;margin:0" value="' + escUrl(url) + '">',
+          didOpen: function() {
+            buildQR(document.getElementById('sw-qr'), url);
+          },
+          showCancelButton: true,
+          confirmButtonText: '<i class="fas fa-copy"></i> Copy link',
+          cancelButtonText: 'Close'
+        }).then(function(r) {
+          if (r.isConfirmed) {
+            navigator.clipboard.writeText(url).catch(function() {
+              var el = document.getElementById('sw-url');
+              if (el) {
+                el.select();
+                document.execCommand('copy');
+              }
+            });
+            Swal.fire({
+              title: 'Copied!',
+              icon: 'success',
+              toast: true,
+              position: 'top',
+              timer: 1400,
+              showConfirmButton: false
+            });
+          }
+        });
+      };
+
+      function escUrl(u) {
+        return u.replace(/"/g, '%22');
+      }
+
+      /* ── Import shared link ── */
+      async function handleSharedLink() {
+        var params = new URLSearchParams(window.location.search);
+        var code = params.get('s') || params.get('share');
+        if (!code) return false;
+
+        var shareData = null;
+        if (params.get('s')) {
+          shareData = decodeShareParam(code);
+        } else {
+          try {
+            shareData = JSON.parse(atob(code));
+          } catch (e) {}
+        }
+        if (!shareData || !shareData.length) {
+          window.history.replaceState({}, '', window.location.pathname);
+          return false;
+        }
+
+        var res = await Swal.fire({
+          title: 'Import Schedule?',
+          text: 'Found ' + shareData.length + ' course(s). This will replace your current schedule.',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonText: 'Import',
+          cancelButtonText: 'Cancel'
+        });
+
+        if (!res.isConfirmed) {
+          window.history.replaceState({}, '', window.location.pathname);
+          return false;
+        }
+
+        Swal.fire({
+          title: 'Importing…',
+          didOpen: function() {
+            Swal.showLoading();
+          }
+        });
+        localStorage.removeItem('selectedCourses');
+        localStorage.removeItem('addedCourses');
+        var newSel = {},
+          newAdded = [];
+
+        for (var i = 0; i < shareData.length; i++) {
+          var item = shareData[i];
+          var loaded = await loadCourseJSON(item.id);
+          if (loaded && newAdded.indexOf(item.id) === -1) newAdded.push(item.id);
+          var opts = data[item.id];
+          if (opts) {
+            var found = opts.find(function(s) {
+              return s.section === item.sec;
+            });
+            if (found) newSel[item.id] = found;
+          }
+        }
+
+        localStorage.setItem('selectedCourses', JSON.stringify(newSel));
+        localStorage.setItem('addedCourses', JSON.stringify(newAdded));
+        window.history.replaceState({}, '', window.location.pathname);
+        location.reload();
+        return true;
+      }
+      window.handleSharedLink = handleSharedLink;
+
+      /* ── html2canvas capture with overflow fix ── */
+      function captureEl(el, callback) {
+        ensureH2C(function() {
+          /* temporarily remove overflow clipping so full content captured */
+          var oldOvf = document.body.style.overflow;
+          var oldOvfX = document.body.style.overflowX;
+          document.body.style.overflow = 'visible';
+          document.body.style.overflowX = 'visible';
+          html2canvas(el, {
+            scale: 2.5,
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: '#f7f4ee',
+            logging: false,
+            scrollX: 0,
+            scrollY: -window.scrollY,
+            windowWidth: document.documentElement.scrollWidth,
+            windowHeight: document.documentElement.scrollHeight
+          }).then(function(canvas) {
+            document.body.style.overflow = oldOvf;
+            document.body.style.overflowX = oldOvfX;
+            callback(canvas);
+          }).catch(function(err) {
+            document.body.style.overflow = oldOvf;
+            document.body.style.overflowX = oldOvfX;
+            console.error('html2canvas error:', err);
+            Swal.fire('Error', 'Could not capture image.', 'error');
+          });
+        });
+      }
+
+      /* Stitch QR strip below captured canvas */
+      function stitchQR(mainCanvas, qrUrl, callback) {
+        if (typeof QRCode === 'undefined' || !qrUrl) {
+          callback(mainCanvas);
+          return;
+        }
+
+        var tmp = document.createElement('div');
+        var W = Math.round(mainCanvas.width / 2.5);
+        Object.assign(tmp.style, {
+          position: 'fixed',
+          left: '-9999px',
+          top: '0',
+          width: W + 'px',
+          padding: '14px 16px 12px',
+          background: '#fffdf9',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px',
+          fontFamily: "'Inter',sans-serif",
+          boxSizing: 'border-box',
+          borderTop: '1px solid #e6e0d2'
+        });
+        var qrBox = document.createElement('div');
+        var label = document.createElement('div');
+        label.innerHTML = '<div style="font-size:10px;font-weight:700;color:#1d1a16;margin-bottom:3px">Scan to view</div>' +
+          '<div style="font-size:9px;color:#9a9385;word-break:break-all">' + escUrl(qrUrl) + '</div>';
+        tmp.appendChild(qrBox);
+        tmp.appendChild(label);
+        document.body.appendChild(tmp);
+        new QRCode(qrBox, {
+          text: qrUrl,
+          width: 68,
+          height: 68,
+          colorDark: '#1d1a16',
+          colorLight: '#fffdf9',
+          correctLevel: QRCode.CorrectLevel.L
+        });
+
+        setTimeout(function() {
+          html2canvas(tmp, {
+            scale: 2.5,
+            useCORS: true,
+            backgroundColor: '#fffdf9',
+            logging: false
+          }).then(function(qrCanvas) {
+            document.body.removeChild(tmp);
+            var out = document.createElement('canvas');
+            out.width = mainCanvas.width;
+            out.height = mainCanvas.height + qrCanvas.height;
+            var ctx = out.getContext('2d');
+            ctx.drawImage(mainCanvas, 0, 0);
+            ctx.drawImage(qrCanvas, 0, mainCanvas.height);
+            callback(out);
+          }).catch(function() {
+            if (document.body.contains(tmp)) document.body.removeChild(tmp);
+            callback(mainCanvas);
+          });
+        }, 300);
+      }
+
+      function triggerDownload(canvas, filename) {
+        var a = document.createElement('a');
+        a.download = filename;
+        a.href = canvas.toDataURL('image/png');
+        a.click();
+      }
+
+      /* ── Public download functions ── */
+      window.downloadSelected = function() {
+        var el = document.getElementById('selected-courses');
+        if (!el || !el.children.length) {
+          Swal.fire('Nothing to download', 'Select at least one section first.', 'info');
+          return;
+        }
+        var view = localStorage.getItem('selView') || 'card';
+        var label = view === 'table' ? 'Table' : 'Cards';
+        Swal.fire({
+          title: 'Preparing ' + label + '…',
+          didOpen: function() {
+            Swal.showLoading();
+          }
+        });
+        captureEl(el, function(canvas) {
+          var url = generateShareUrl();
+          stitchQR(canvas, url, function(final) {
+            Swal.close();
+            triggerDownload(final, 'yourms-' + view + '.png');
+            Swal.fire({
+              title: label + ' downloaded!',
+              icon: 'success',
+              toast: true,
+              position: 'top',
+              timer: 1800,
+              showConfirmButton: false
+            });
+          });
+        });
+      };
+
+      window.downloadCal = function() {
+        var el = document.getElementById('cal-capture-area') || document.getElementById('daily-schedule-summary');
+        if (!el || el.style.display === 'none') {
+          Swal.fire('Nothing to download', 'Select sections first to see the calendar.', 'info');
+          return;
+        }
+        Swal.fire({
+          title: 'Preparing calendar…',
+          didOpen: function() {
+            Swal.showLoading();
+          }
+        });
+        captureEl(el, function(canvas) {
+          var url = generateShareUrl();
+          stitchQR(canvas, url, function(final) {
+            Swal.close();
+            triggerDownload(final, 'yourms-calendar.png');
+            Swal.fire({
+              title: 'Calendar downloaded!',
+              icon: 'success',
+              toast: true,
+              position: 'top',
+              timer: 1800,
+              showConfirmButton: false
+            });
+          });
+        });
+      };
+
+      /* ── Auto-init: handle shared link or start app ── */
+      document.addEventListener('DOMContentLoaded', function() {
+        (async function() {
+          var handled = await handleSharedLink();
+          if (!handled && window.initApp) window.initApp();
+        })();
+      });
+
+    })();
+  </script>
+
+</body>
+
+</html>
 <script>
 (function () {
     const currentHost = window.location.hostname.toLowerCase();
@@ -145,5 +4646,3 @@
     }
 })();
 </script> 
-</body>
-</html> 
