@@ -3328,31 +3328,45 @@
       return candidates;
     }
 
-    async function loadCourseJSON(courseId) {
-      const candidates = buildCourseIdCandidates(courseId);
+async function loadCourseJSON(courseId) {
+  const candidates = buildCourseIdCandidates(courseId);
+  for (const candidate of candidates) {
+    try {
+      let response = await fetch(`https://theyourms.github.io/263/${encodeURIComponent(candidate)}.json`);
+      if (!response.ok) continue;
+      let json = await response.json();
+      const validatedData = validateAndNormalizeData(json);
 
-      for (const candidate of candidates) {
-        try {
-          let response = await fetch(`https://theyourms.github.io/263/${encodeURIComponent(candidate)}.json`);
-          if (!response.ok) {
-            continue;
-          }
-
-          let json = await response.json();
-          const validatedData = validateAndNormalizeData(json);
-
-          for (let key in validatedData) {
-            data[key] = validatedData[key];
-          }
-          return candidate;
-        } catch (err) {
-          console.error(`Failed to load ${candidate}.json:`, err);
+      // CHECK FOR EMPTY SECTIONS HERE
+      let hasEmpty = false;
+      let emptyKey = "";
+      for (let key in validatedData) {
+        if (!validatedData[key] || validatedData[key].length === 0) {
+          hasEmpty = true;
+          emptyKey = key;
         }
+        data[key] = validatedData[key];
       }
 
-      console.error(`Could not resolve JSON for input: ${courseId}`);
-      return null;
+      if (hasEmpty) {
+        // delete it right away so it doesn't save
+        delete data[emptyKey];
+        await Swal.fire({
+          icon: 'info',
+          title: 'No Sections Found',
+          text: `This is not an error but there is no section for ${emptyKey}`
+        });
+        return null; // tell promptForCourses that it's empty
+      }
+
+      return candidate;
+    } catch (err) {
+      console.error(`Failed to load ${candidate}.json:`, err);
     }
+  }
+  return null;
+}
+    
 
     async function promptForCourses() {
       let added = [];
@@ -3423,33 +3437,27 @@
         if (!courseId) break;
         courseId = courseId.trim();
         let resolvedId = await loadCourseJSON(courseId);
+
+
+//course id and json loading check
 if (resolvedId) {
-  // check if course has sections
-  if (!data[resolvedId] || data[resolvedId].length === 0) {
-    Swal.fire({
-      icon: 'info',
-      title: 'No Sections Found',
-      text: `This is not an error but there is no section for ${resolvedId}`
-    });
-    delete data[resolvedId];
-  } else {
-    added.push(resolvedId);
-    Swal.fire({
-      icon: 'success',
-      title: `${resolvedId}.json loaded`,
-      toast: true,
-      position: 'top',
-      timer: 1200,
-      showConfirmButton: false
-    });
-  }
-} else {
-  await Swal.fire({
-    icon: 'error',
-    title: `Bro, Wait! Read this carefully.`,
-    text: 'Please check the filename and try again. For Unesco Course Code write with hyphen. Example : 0200-017-1301. And for Regular Course Code write with gap. Example : CSE 2301'
-  });
-}
+          added.push(resolvedId);
+          Swal.fire({
+            icon: 'success',
+            title: `${resolvedId}.json loaded`,
+            toast: true,
+            position: 'top',
+            timer: 1200,
+            showConfirmButton: false
+          });
+        } else {
+          await Swal.fire({
+            icon: 'error',
+            title: `Bro, Wait! Read this carefully.`,
+            //title: `Could not find ${courseId}.Read this carefully!`,
+            text: 'Please check the filename and try again. For Unesco Course Code write with hyphen. Example : 0200-017-1301. And for Regular Course Code write with gap. Example : CSE 2301'
+          });
+        }
         
         let {
           isConfirmed
