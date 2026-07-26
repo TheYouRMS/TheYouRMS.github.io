@@ -2942,7 +2942,10 @@
       schedContainer.innerHTML = "";
       for (let courseKey in data) {
         // Skip courses with zero sections
-        if (!data[courseKey] || data[courseKey].length === 0) continue;
+        if (!data[courseKey] || data[courseKey].length === 0) {
+  schedContainer.innerHTML += `<div class="course"><div class="course-header"><h2>${courseKey}</h2></div><div style="padding:20px; text-align:center; color:#6b6458;">This is not an error but there is no section for <b>${courseKey}</b></div></div>`;
+  continue;
+}
         let box = document.createElement("div");
         box.className = "course";
         // Course header with delete button
