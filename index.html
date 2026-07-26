@@ -3356,7 +3356,7 @@ async function loadCourseJSON(courseId) {
           title: 'No Sections Found',
           text: `This is not an error but there is no section for ${emptyKey}`
         });
-        return null; // tell promptForCourses that it's empty
+        return "EMPTY"; // already showed popup, don't show bro error
       }
 
       return candidate;
@@ -3441,23 +3441,26 @@ async function loadCourseJSON(courseId) {
 
 //course id and json loading check
 if (resolvedId) {
-          added.push(resolvedId);
-          Swal.fire({
-            icon: 'success',
-            title: `${resolvedId}.json loaded`,
-            toast: true,
-            position: 'top',
-            timer: 1200,
-            showConfirmButton: false
-          });
-        } else {
-          await Swal.fire({
-            icon: 'error',
-            title: `Bro, Wait! Read this carefully.`,
-            //title: `Could not find ${courseId}.Read this carefully!`,
-            text: 'Please check the filename and try again. For Unesco Course Code write with hyphen. Example : 0200-017-1301. And for Regular Course Code write with gap. Example : CSE 2301'
-          });
-        }
+  if (resolvedId === "EMPTY") {
+    // already showed "no section" popup inside loadCourseJSON, do nothing
+  } else {
+    added.push(resolvedId);
+    Swal.fire({
+      icon: 'success',
+      title: `${resolvedId}.json loaded`,
+      toast: true,
+      position: 'top',
+      timer: 1200,
+      showConfirmButton: false
+    });
+  }
+} else {
+  await Swal.fire({
+    icon: 'error',
+    title: `Bro, Wait! Read this carefully.`,
+    text: 'Please check the filename and try again. For Unesco Course Code write with hyphen. Example : 0200-017-1301. And for Regular Course Code write with gap. Example : CSE 2301'
+  });
+}
         
         let {
           isConfirmed
