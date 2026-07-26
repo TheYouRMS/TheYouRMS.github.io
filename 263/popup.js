@@ -94,7 +94,7 @@
     banner.innerHTML =
       '<div class="yourms-banner-inner">' +
       '<div class="yourms-banner-text">' +
-      '<strong>Last updated: April 2, 2026 at 8:13 PM. </strong> Get update on E-mail <a href="subscribe.html" id="yourms-subscribe-link">Subscribe</a>' +
+      '<strong>Last updated: July 26, 2026 at 3:13 PM. </strong> Get update on E-mail <a href="subscribe.html" id="yourms-subscribe-link">Subscribe</a>' +
       '</div>' +
       "</div>";
 
