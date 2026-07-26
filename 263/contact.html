@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact - YouRMS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "meetwzqgp2");
+    </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .navbar { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 1000; width: 100%; padding: 0.75rem 1.5rem; }
+    .container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    .navbar-brand { font-size: 1.6rem; font-weight: 700; color: #111827; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; letter-spacing: -0.5px; }
+    .navbar-nav .nav-link { color: #374151; font-weight: 500; font-size: 1rem; transition: color 0.2s; }
+    .navbar-nav .nav-link:hover { color: #1d4ed8; }
+    .btn-outline-primary { margin-left: 20px; }
+    .main-content { max-width: 900px; margin: 2rem auto; padding: 2rem; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+    p { font-size: 1.1rem; margin-bottom: 1rem; }
+    .contact-info { font-size: 1.1rem; margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="logo.png" alt="Logo" style="height: 40px; width: auto;" class="me-2">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="manual.html">Manual</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><button onclick="restartApp()" class="btn btn-outline-primary ms-3">Restart App</button></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="main-content">
+  <h1>Contact</h1>
+  <p>If you have any questions, feedback or need support, please reach out using the information below.</p>
+  <div class="contact-info">
+    <strong>Email:</strong> shahriar.alam1.cse@ulab.edu.bd<br>
+    <strong>Phone:</strong> +8801560-011947<br>
+    <strong>Address:</strong> Dhaka, Bangladesh
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+function restartApp() {
+  Swal.fire({
+    icon: 'warning',
+    title: 'Restart App?',
+    text: 'This will reset all data and reload the app.',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, restart',
+    cancelButtonText: 'Cancel'
+  }).then(result => {
+    if (result.isConfirmed) {
+      localStorage.clear();
+      location.reload();
+    }
+  });
+}
+</script>
+</body>
+</html>
+
+
