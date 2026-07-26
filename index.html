@@ -118,10 +118,10 @@
       y.parentNode.insertBefore(t, y);
     })(window, document, "clarity", "script", "meetwzqgp2");
   </script>
-  <script src="262/course_data.js"></script>
-  <script src="262/course_name.js"></script>
-  <script src="262/search.js"></script>
-  <script src="262/popup.js"></script>
+  <script src="https://theyourms.github.io/263/course_data.js"></script>
+  <script src="https://theyourms.github.io/263/course_name.js"></script>
+  <script src="https://theyourms.github.io/263/search.js"></script>
+  <script src="https://theyourms.github.io/263/popup.js"></script>
   <style>
     :root {
       --paper: #f7f4ee;
@@ -2034,16 +2034,16 @@
 
   <nav class="site-nav" id="site-nav">
     <div class="nav-inner">
-      <a class="nav-brand" href="/262/">
+      <a class="nav-brand" href="https://theyourms.github.io/263/">
         <img src="https://yourms.netlify.app/YouRMS-banner.png" alt="YouRMS">
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <i class="fas fa-bars"></i>
       </button>
       <ul class="nav-links" id="nav-links">
-        <li><a href="/262/manual">Manual</a></li>
-        <li><a href="/262/about">About</a></li>
-        <li><a href="/262/contact">Contact</a></li>
+        <li><a href="/263/manual">Manual</a></li>
+        <li><a href="/263/about">About</a></li>
+        <li><a href="/263/contact">Contact</a></li>
         <li><button onclick="restartApp()" class="btn-restart"><i class="fas fa-arrow-rotate-right"></i> Restart</button></li>
       </ul>
     </div>
@@ -3333,7 +3333,7 @@
 
       for (const candidate of candidates) {
         try {
-          let response = await fetch(`262/${encodeURIComponent(candidate)}.json`);
+          let response = await fetch(`https://theyourms.github.io/263/${encodeURIComponent(candidate)}.json`);
           if (!response.ok) {
             continue;
           }
