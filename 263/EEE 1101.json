@@ -1,0 +1,32 @@
+{
+  "EEE 1101": [
+    [
+      "1",
+      "PC 204",
+      "MAFH (for EEE stu)",
+      "Sun &Tue",
+      "12:15 - 1:35 pm"
+    ],
+    [
+      "2",
+      "PC 204",
+      "MaiH (For CSE)",
+      "Mon & Wed",
+      "9:25 - 10:45 am"
+    ],
+    [
+      "3",
+      "PC 204",
+      "AOMS (for CSE)",
+      "Sun &Tue",
+      "3:05 - 4:25 pm"
+    ],
+    [
+      "4",
+      "PA 401",
+      "TBA (for CSE)",
+      "Mon & Wed",
+      "3:05 - 4:25 pm"
+    ]
+  ]
+}
