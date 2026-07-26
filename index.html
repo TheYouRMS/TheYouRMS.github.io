@@ -2943,7 +2943,11 @@
       for (let courseKey in data) {
         // Skip courses with zero sections
         if (!data[courseKey] || data[courseKey].length === 0) {
-  schedContainer.innerHTML += `<div class="course"><div class="course-header"><h2>${courseKey}</h2></div><div style="padding:20px; text-align:center; color:#6b6458;">This is not an error but there is no section for <b>${courseKey}</b></div></div>`;
+  Swal.fire({
+    icon: 'info',
+    title: 'No Sections Found',
+    text: `This is not an error but there is no section for ${courseKey}`
+  });
   continue;
 }
         let box = document.createElement("div");
