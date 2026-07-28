@@ -4650,3 +4650,105 @@ async function handleSharedLink() {
     }
 })();
 </script> 
+
+
+
+<script>
+// YouRMS - Black Icon + Glow + Shaky
+(function(){
+  const btn = document.getElementById('routine-builder-btn');
+  if(!btn) return;
+
+  const css = document.createElement('style');
+  css.textContent = `
+  #routine-builder-btn{
+    background: #1d1a16!important;
+    color: #fffdf9!important;
+    border: 1px solid #1d1a16!important;
+    overflow: visible!important;
+    position: fixed!important;
+    z-index: 1000;
+    box-shadow: 0 8px 24px -10px rgba(29,26,22,.5)!important;
+    animation: rb-float 3.5s ease-in-out infinite, rb-shake 5s ease-in-out infinite!important;
+  }
+
+  /* surrounding glow */
+  #routine-builder-btn::before{
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    background: rgba(177,67,35,.22);
+    filter: blur(14px);
+    z-index: -2;
+    animation: glow-pulse 2s ease-in-out infinite;
+    pointer-events: none;
+  }
+  #routine-builder-btn::after{
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(177,67,35,.35);
+    z-index: -1;
+    animation: ring-pulse 2s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes rb-float{
+    0%,100%{ transform: translateY(0) }
+    50%{ transform: translateY(-4px) }
+  }
+  /* shaky - mostly still, shakes hard every 5 sec */
+  @keyframes rb-shake{
+    0%, 85%, 100%{ transform: translateY(0) rotate(20) }
+    86%{ transform: translateY(-2px) rotate(-30deg) }
+    88%{ transform: translateY(-2px) rotate(30deg) }
+    90%{ transform: translateY(-2px) rotate(-26deg) }
+    92%{ transform: translateY(-2px) rotate(26deg) }
+    94%{ transform: translateY(0) rotate(20) }
+  }
+  @keyframes glow-pulse{
+    0%,100%{ transform: scale(1); opacity: .7 }
+    50%{ transform: scale(1.2); opacity: 1 }
+  }
+  @keyframes ring-pulse{
+    0%,100%{ transform: scale(1); opacity: .6 }
+    50%{ transform: scale(1.1); opacity: 1 }
+  }
+
+  #routine-builder-btn:hover{
+    transform: translateY(-4px) scale(1.08)!important;
+    animation: none!important;
+    background: #b14323!important;
+    border-color: #b14323!important;
+    box-shadow: 0 14px 32px -10px rgba(177,67,35,.5)!important;
+  }
+  #routine-builder-btn:hover::before{
+    background: rgba(177,67,35,.35);
+    filter: blur(18px);
+  }
+  #routine-builder-btn:active{
+    transform: scale(.92)!important;
+  }
+  `;
+  document.head.appendChild(css);
+
+  // extra hard shake when you can build
+  const oldRender = window.renderSelected || function(){};
+  window.renderSelected = function(){
+    oldRender();
+    const count = Object.keys(window.selected||{}).length;
+    if(count >= 2){
+      btn.animate([
+        { transform: 'translateX(0)' },
+        { transform: 'translateX(-5px) rotate(-50deg)' },
+        { transform: 'translateX(5px) rotate(50deg)' },
+        { transform: 'translateX(-4px) rotate(-30deg)' },
+        { transform: 'translateX(4px) rotate(30deg)' },
+        { transform: 'translateX(0) rotate(0)' }
+      ], { duration: 400, easing: 'ease-in-out' });
+    }
+  };
+})();
+</script>
