@@ -148,6 +148,32 @@ const COURSE_DATA = {
   "BUS 4174": "Digital Marketing",
   // --- End of 1.BBA Course Allocation Spring 2026.xlsx ---
 
+
+  // --- New Courses (Fall 2026) ---
+
+"0488-011-2201": "Quantitative Analysis for Business",
+"0488-011-2202": "Business Communication",
+"0488-011-2203": "Business and Legal Environment",
+
+"0414-011-2301": "Marketing Management",
+"0413-011-2302": "Organizational Behavior",
+"0412-011-2303": "Financial Management",
+
+"ECO4602": "Intermediate Economics",
+"ECO4603": "Money and Banking",
+"ECO4604": "International Trade",
+"ECO4605": "Environmental Economics",
+"ECO4606": "Development Economics",
+
+"BUS4161": "Industrial Psychology (Concentration: HRM)",
+
+"SCM4504": "Project Management (Concentration: Supply Chain Management)"
+
+
+  
+
+  
+
   // =================================================================================
   // --- Start of 2. MSJ Course Allocation Spring 2026.xlsx ---
   // =================================================================================
@@ -223,7 +249,7 @@ const COURSE_DATA = {
   "MSJ 3242": "Created Private Media",
   "MSJ 3262": "Health Communication",
   // --- Term 10  (231012..) ---
-  "MSJ 4151": "Investigative Journalism-I",
+
   "MSJ 11431": "Documentary Production",
   "MSJ 4131": "Documentary Production",
   "MSJ 11441": "Advertising",
@@ -242,6 +268,117 @@ const COURSE_DATA = {
   "MSJ 11499": "Internship",
   "MSJ 4299": "Portfolio",
   // --- End of 2. MSJ Course Allocation Spring 2026.xlsx ---
+
+
+// --- Updated Course Names from Fall 2026---
+
+"MSJ 11214": "Multimedia Communication/Convergence Communication 1",
+"MSJ 2102": "Multimedia Communication/Convergence Communication 1",
+"0211-012-2102": "Multimedia Communication/Convergence Communication 1",
+
+"GEF 2101": "Introduction to Data and Statistics",
+"0542-000-2101": "Introduction to Data and Statistics",
+
+"MSJ 11211": "Mass Communication",
+"MSJ 2201": "Mass Communication",
+"0321-012-2201": "Mass Communication",
+
+"MSJ 2251": "Journalism and Society",
+"0321-012-2251": "Journalism and Society",
+
+"MSJ 11231": "Visual Communication",
+"MSJ 2231": "Visual Communication",
+"0314-012-2231": "Visual Communication",
+
+"MSJ 2241": "Interpersonal and Intercultural Communication",
+"0314-012-2241": "Interpersonal and Intercultural Communication",
+
+"MSJ 2261": "Communication Theories and Applications to C4D",
+"0314-012-2261": "Communication Theories and Applications to C4D",
+
+"MSJ 2252": "Digital Audience (Digital Journalism Major)",
+
+"MSJ 11321": "News Sourcing and Gathering (Digital Journalism Major)",
+"MSJ 3151": "News Sourcing and Gathering (Digital Journalism Major)",
+
+"MSJ 11341": "Strategic Public Relations (Public Relation Major)",
+"MSJ 2242": "Strategic Public Relations (Public Relation Major)",
+
+"MSJ 11334": "Digital Cinematography",
+"MSJ 3231": "Digital Cinematography",
+
+"MSJ 3261": "ICT for Development",
+
+"MSJ 11345": "Created Private Media",
+"MSJ 3242": "Created Private Media",
+
+"MSJ 11335": "Digital Postproduction",
+"MSJ 3232": "Digital Postproduction",
+
+"MSJ 11322": "News Editing and Translation",
+"MSJ 3252": "News Editing and Translation",
+
+"MSJ 11401": "Development Communication",
+"SSC 4147": "Development Communication",
+
+"MSJ 11402": "Ethics in Media and Communication",
+"SSC 4148": "Ethics in Media and Communication",
+
+
+
+
+// --- New Course Codes  Fall 2026---
+
+"0211-012-2102": "Multimedia Communication/Convergence Communication 1",
+"0542-000-2101": "Introduction to Data and Statistics",
+
+"0321-012-2201": "Mass Communication",
+"0321-012-2251": "Journalism and Society",
+
+"0314-012-2231": "Visual Communication",
+"0314-012-2241": "Interpersonal and Intercultural Communication",
+"0314-012-2261": "Communication Theories and Applications to C4D",
+
+"MSJ 11342": "Public Relations Research (Public Relation Major)",
+"MSJ 3141": "Public Relations Research (Public Relation Major)",
+
+"MSJ 11332": "Media Presentation and Performance (Digital Production Major)",
+"MSJ 3131": "Media Presentation and Performance (Digital Production Major)",
+
+"MSJ 11344": "Internal Communication",
+"MSJ 3241": "Internal Communication",
+
+"MSJ 3132": "Writing for Film and Television",
+
+"MSJ 11350": "History of Bangladeshi Media",
+"SSC 3254": "History of Bangladeshi Media",
+
+"MSJ 11351": "Reading Media Texts",
+"SSC 3253": "Reading Media Texts",
+
+"MSJ 11374": "Introduction to Photography",
+"HUM 2112": "Introduction to Photography",
+
+"MSJ 11375": "Film History",
+"HUM 2201": "Film History",
+
+"MSJ 11376": "Aesthetics of Film",
+"HUM 3101": "Aesthetics of Film",
+
+"MSJ 11456": "Introduction to Animation",
+"HUM 4108": "Introduction to Animation",
+
+
+
+
+
+
+
+
+
+
+
+  
 
   // =================================================================================
   // --- Start of 3. ENG Course Allocation Spring 2026.xlsx ---
@@ -320,7 +457,27 @@ const COURSE_DATA = {
   "ENG 4298": "Internship",
   // --- (222013…) ---
   "ENG 4208": "Advanced Composition and Stylistics",
+
   // --- End of 3. ENG Course Allocation Spring 2026.xlsx ---
+
+
+
+
+  "ENG 1301": "Introduction to Linguistics",
+  "0232-013-1301": "Introduction to Linguistics",
+
+  "ENG 4104": "Introduction to Cultural Studies (Concentration Elective for Literature and Cultural Studies)",
+
+  "ENG 3220": "Introduction to Discourse Analysis (Concentration Elective for Applied Linguistics and TESOL)",
+
+  "ENG 3304": "South Asian Literature (Concentration Elective for Literature and Cultural Studies)",
+
+  "ENG 4118": "Clinical and Forensic Linguistics (Concentration Elective for Applied Linguistics and TESOL)",
+
+  "ENG 2820": "English for Professional Purposes",
+
+
+  
 
   // =================================================================================
   // --- Start of 4. CSE Course Allocation Spring 2026.xlsx ---
@@ -438,6 +595,42 @@ const COURSE_DATA = {
   // --- Term 12 (222014..) ---
   "CSE 4099": "Internship",
   // --- End of 4. CSE Course Allocation Spring 2026.xlsx ---
+
+
+ // --- New course from Fall 2026
+  "0613-014-2201": "Algorithms",
+  "0613-014-2202": "Algorithms LAB",
+  "0613-014-2203": "Computer Organization and Architecture",
+  "0542-014-2101": "Statistics and Probability",
+  "0613-014-2200": "Design Project-I",
+
+  "0612-014-2301": "Database Management System",
+  "0612-014-2302": "Database Management System Lab",
+
+  "CSE 4098A": "Capstone Project I",
+  "CSE 4098B": "Capstone Project 2",
+
+  "CSE 4462": "Digital Image Processing Lab",
+  "CSE 4455": "Data Mining",
+  "CSE 4420": "Network Security Lab",
+  "CSE 4416": "Data Communication Lab",
+
+  "CSE 4099-A": "Internship",
+  "CSE 4099-B": "Thesis", 
+
+  
+  "0613-014-2201": "Algorithms",
+  "0613-014-2202": "Algorithms LAB",
+  "0613-014-2203": "Computer Organization and Architecture",
+  "0542-014-2101": "Statistics and Probability",
+  "0613-014-2200": "Design Project-I",
+  "0612-014-2301": "Database Management System",
+  "0612-014-2302": "Database Management System Lab",
+
+
+
+
+  
 
   // =================================================================================
   // --- Start of 5. EEE Course Allocation Spring 2026.xlsx ---
@@ -584,6 +777,33 @@ const COURSE_DATA = {
   "EEE 4433": "Power Electronics",
   // --- End of 5. EEE Course Allocation Spring 2026.xlsx ---
 
+
+// --- New course Fall 2026 ---
+
+  
+"CSE 2105": "Introduction to Python Programming for EEE",
+"CSE 2106": "Introduction to Python Programming Lab for EEE",
+
+"EEE 2216": "Numerical Techniques Simulation Lab",
+
+"EEE 4401": "Solid State Devices",
+
+"EEE 4196-A": "Final Year Capstone Project Part I",
+"EEE 4196-C": "Final Year Capstone Project Part III",
+
+
+"MAT 1103": "Calculus and Differential Equations",
+"MAT 1203": "Coordinate Geometry, Vector Analysis and Complex Variables",
+"EEE 3313": "Electromagnetic Fields and waves",
+"EEE 4467": "Power System Protection",
+"EEE 4468": "Power System Protection Lab",
+"EEE 4434": "Power Electronics Lab",
+"EEE 4196-B": "Final Year Capstone Project Part II",
+
+
+  
+  
+
   // =================================================================================
   // --- Start of 6. BLL Course Allocation Spring 2026.xlsx ---
   // =================================================================================
@@ -654,6 +874,37 @@ const COURSE_DATA = {
   "BBS 4102": "World Drama",
   "BBS 4103": "Professional Bangla",
   // --- End of 6. BLL Course Allocation Spring 2026.xlsx ---
+
+
+//New course Fall 2026
+
+
+"BLL1101": "Socio- Culture and Literature History of Bengal: Ancient and Medieval Period",
+"BLL1201": "An Introduction to Bangla Literature",
+"BLL1202": "Literature in Film",
+"BLL1301": "Oriental and Occidental Aesthetics",
+"BLL1302": "Translation: Persian, Arabic and Indian literature",
+"BLL2101": "Kobita: Charja to Chondi",
+"BLL2102": "Presentation & Application of Bangla Writing",
+"BLL2103": "History of Bangla Literature: From Colonial and Post-Colonial",
+"BLL2201": "Bangla Novel: Colonial Period",
+"BLL2202": "Bangla Short Story: Colonial to Post Liberation",
+"BLL2301": "Bangla Drama: From Medieval to Modern",
+"BLL2302": "Bangla Non Fiction: Origin and Develop",
+"BLL2303": "Ethnic Language & Literature",
+
+
+
+"BLL 4201": "Woman in Literature",
+"BLL 4202": "Diaspora Literature",
+"BLL 4203": "Manuscript Studies",
+"BLL 4301": "Literature for New Media",
+"BLL 4302": "Creative & Field Work",
+"BLL 4298": "Research Methodology",
+
+  
+
+  
 
   // =================================================================================
   // --- Start of 7. GED Course Allocation Spring 2026.xlsx ---
@@ -772,5 +1023,108 @@ const COURSE_DATA = {
   "NSC 3182": "Introduction to Science Studies",
   "0500-000-3182": "Introduction to Science Studies",
   // --- End of 7. GED Course Allocation Spring 2026.xlsx ---
+
+
+
+//New course Fall 2026
+
+  
+"HUM 2103": "Foreign Language: Chinese",
+"HUM 2109": "Introduction to Drama",
+"HUM 2210": "Logic",
+"HUM 3209": "South Asian Literature",
+"HUM 3206": "South Asian Art and Architecture",
+"HUM 2114": "World Art and Architecture",
+
+"SSC 2149": "Introduction to Anthropology",
+"SSC 3245": "Entrepreneurship",
+"SSC 3247": "Islam and Islamism: A South Asian Perspective",
+
+"NSC 2183": "Introduction to Psychology",
+"NSC 2281": "Archaeological Sciences",
+"NSC 3282": "Public Health and Epidemiology",
+"NSC 4181": "Genetics",
+"NSC 4182": "Mathematics",
+
+"SSC 2254": "Natural Hazards and Disaster Management",
+"SSC 3201": "Education and Knowledge: South Asian Perspective",
+"HUM 2213": "Peoples, Culture and Language in South Asia",
+
+
+
+"HUM 2214": "Kazi Nazrul Islam: Life and Works",
+"HUM 2215": "Rabindranath Tagore: Life and Works",
+"HUM 2201": "Film History",
+"HUM 3101": "Aesthetics of Film",
+"SSC 2151": "Introduction to Climate Change",
+"SSC 2155": "Introduction to Public Policy and Governance",
+"SSC 4142": "Social Theory and Methods of Social Research / Method of Social Research",
+"SSC 2157": "Introduction to Sustainable Development",
+"SSC 2243": "Environment and Sustainability (For the students of CSE & EEE)",
+
+
+
+"HUM 2103": "Foreign Language: Chinese",
+"HUM 2109": "Introduction to Drama",
+"HUM 2210": "Logic",
+"HUM 3209": "South Asian Literature",
+"HUM 3206": "South Asian Art and Architecture",
+"HUM 2114": "World Art and Architecture",
+
+"SSC 2149": "Introduction to Anthropology",
+"SSC 3245": "Entrepreneurship",
+"SSC 3247": "Islam and Islamism: A South Asian Perspective",
+
+"NSC 2183": "Introduction to Psychology",
+"NSC 2281": "Archaeological Sciences",
+"NSC 3282": "Public Health and Epidemiology",
+"NSC 4181": "Genetics",
+"NSC 4182": "Mathematics",
+
+"SSC 2254": "Natural Hazards and Disaster Management",
+"SSC 3201": "Education and Knowledge: South Asian Perspective",
+"HUM 2213": "Peoples, Culture and Language in South Asia",
+
+
+
+
+
+
+  //ESS Courses Fall 2026
+
+
+  
+  "0521-018-2157": "Introduction to Sustainable Development",
+  "GEF1101": "Academic English I",
+  "ELL0099": "Remedial English",
+  "0231-000-1101": "Academic English I",
+  "0231-000-0099": "Remedial English",
+  "UCC 1101": "Bangla Bhasha O Sahitya",
+  "0232-000-1101": "Bangla Bhasha O Sahitya",
+  "ESK 1110": "Study Skills",
+  "0031-000-1110": "Study Skills",
+  
+  "0511-018-1105": "Introduction to Biology",
+  "0511-018-1105L": "Introduction to Biology Lab",
+  "0541-018-4182": "Mathematics",
+  "GEF1201": "Academic English-II",
+  "0231-000-1201": "Academic English-II",
+  "UCC1201": "History of Emergence of Independent Bangladesh",
+  "0222-000-1201": "History of Emergence of Independent Bangladesh",
+  "ESK 1111": "Healthy Life Skills",
+  "0031-000-1111": "Healthy Life Skills",
+
+  "0542-018-2101": "Statistics and Probability",
+  "0522-018-2282": "Biodiversity and Nature Conservation",
+  "UCC1202": "Ethics",
+  "0223-000-1202": "Ethics",
+  "ESK1112": "Social Skills"
+
+
+  
+
+
+
+  
 
 }
