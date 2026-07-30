@@ -2924,8 +2924,7 @@
         const gridlines = ticks.map(m => '<div class="cal-gridline" style="top:' + toY(m) + 'px"></div>').join('');
         const blocks = dayBlocks[day].slice().sort((a, b) => a.start - b.start).map(b => {
           return '<div class="cal-block" style="top:' + toY(b.start) + 'px;height:' + toH(b.start, b.end) + 'px;background:' + colorOf(b.label) + '" title="' + b.label + ' §' + b.section + '">' +
-            '<span class="cal-block-name">' + b.label + '</span><span class="cal-block-time">' + fmtT(b.start) + '–' + fmtT(b.end) + '(Exam: ' + getExamInfo(k, e) + ')''   </span> </div>';
-        }).join('');
+            '<span class="cal-block-name">' + b.label + '</span><span class="cal-block-time">' + fmtT(b.start) + '–' + fmtT(b.end) + ' (Exam: ' + getExamInfo(k, e) + ')</span></div>';
         return '<div class="cal-col"><div class="cal-col-head">' + day + '</div><div class="cal-col-body" style="height:' + BODY_H + 'px">' + gridlines + blocks + '</div></div>';
       }).join('');
       const legendHtml = ALL_KEYS.map(k => '<span class="cal-legend-item"><span class="cal-legend-dot" style="background:' + colorOf(k) + '"></span>' + k + '</span>').join('');
