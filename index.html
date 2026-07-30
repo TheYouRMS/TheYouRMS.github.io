@@ -2444,19 +2444,19 @@
         start: 9 * 60 + 25,
         end: 10 * 60 + 45,
         dayIdx: 0,
-        time: "10:15 - 12:15 pm"
+        time: "10:00 - 12:00 pm"
       },
       {
         start: 10 * 60 + 50,
         end: 12 * 60 + 10,
         dayIdx: 0,
-        time: "01:00 - 03:00 pm"
+        time: "12:00 - 02:00 pm"
       },
       {
         start: 12 * 60 + 15,
         end: 13 * 60 + 35,
         dayIdx: 0,
-        time: "03:15 - 05:15 pm"
+        time: "02:00 - 04:00 pm"
       },
       {
         start: 13 * 60 + 40,
@@ -2468,13 +2468,13 @@
         start: 15 * 60 + 5,
         end: 16 * 60 + 25,
         dayIdx: 1,
-        time: "10:15 - 12:15 pm"
+        time: "10:00 - 12:00 pm"
       },
       {
         start: 16 * 60 + 30,
         end: 17 * 60 + 50,
         dayIdx: 1,
-        time: "01:00 - 03:00 pm"
+        time: "12:00 - 02:00 pm"
       }
     ];
 
@@ -2924,7 +2924,8 @@
         const gridlines = ticks.map(m => '<div class="cal-gridline" style="top:' + toY(m) + 'px"></div>').join('');
         const blocks = dayBlocks[day].slice().sort((a, b) => a.start - b.start).map(b => {
           return '<div class="cal-block" style="top:' + toY(b.start) + 'px;height:' + toH(b.start, b.end) + 'px;background:' + colorOf(b.label) + '" title="' + b.label + ' §' + b.section + '">' +
-                        '<span class="cal-block-name">' + b.label + '</span><span class="cal-block-time">' + fmtT(b.start) + '–' + fmtT(b.end) + '</span></div>';
+            '<span class="cal-block-name">' + b.label + '</span><span class="cal-block-time">' + fmtT(b.start) + '–' + fmtT(b.end) + '</span></div>';
+        }).join('');
         return '<div class="cal-col"><div class="cal-col-head">' + day + '</div><div class="cal-col-body" style="height:' + BODY_H + 'px">' + gridlines + blocks + '</div></div>';
       }).join('');
       const legendHtml = ALL_KEYS.map(k => '<span class="cal-legend-item"><span class="cal-legend-dot" style="background:' + colorOf(k) + '"></span>' + k + '</span>').join('');
