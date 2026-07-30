@@ -1633,16 +1633,16 @@ const COURSE_DATA = {
 
 // --- GED-MSJ Arts & Humanities Courses ---
 
-"MSJ 11374/HUM2112": "Introduction to Photography",
+"HUM 2112": "Introduction to Photography",
 "0211-000-2112": "Introduction to Photography",
 
-"MSJ 11375/HUM2201": "Film History",
+"HUM 2201": "Film History",
 "0213-000-2201": "Film History",
 
-"MSJ 11376/HUM3101": "Aesthetics of Film",
+"HUM 3101": "Aesthetics of Film",
 "0213-000-3101": "Aesthetics of Film",
 
-"MSJ 11456/HUM4108": "Introduction to Animation",
+"HUM 4108": "Introduction to Animation",
 "0211-000-4108": "Introduction to Animation",
 
 
