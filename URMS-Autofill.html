@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>URMS Autofill</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    max-width:400px;
+    margin:60px auto;
+    padding:20px;
+    color:#111;
+}
+h2{
+    margin-bottom:8px;
+}
+p{
+    color:#666;
+    font-size:14px;
+}
+button{
+    width:100%;
+    padding:12px;
+    border:0;
+    background:#111;
+    color:white;
+    border-radius:4px;
+    font-size:14px;
+}
+#status{
+    margin-top:10px;
+    font-size:13px;
+    color:#555;
+}
+</style>
+</head>
+
+<body>
+
+<h2>URMS Autofill</h2>
+
+<p>Copy the bookmarklet to your clipboard.</p>
+
+<button onclick="copyBookmarklet()">Copy Bookmarklet</button>
+
+<div id="status"></div>
+
+<script>
+const bookmarklet = `javascript:(function(){var o=document.getElementById("ua");if(o){o.remove();return}var f=document.querySelector("#TEForm,#CEForm");if(!f){alert("ULAB form not found");return}var t=f.id=="TEForm",d=document.createElement("div");d.id="ua";d.style="position:fixed;z-index:999999;left:10px;right:10px;bottom:10px;max-width:420px;margin:auto;padding:16px;background:#111;color:#fff;border:1px solid #555;border-radius:14px;font:14px Arial;box-shadow:0 5px 30px #000";function e(x){return document.createElement(x)}function s(a){var x=e("select");x.style="width:100%;padding:9px;margin:4px 0 8px;background:#222;color:#fff;border:1px solid #555;border-radius:7px";var z=e("option");z.text="Select...";z.value="";z.disabled=1;z.selected=1;x.add(z);for(var i=0;i<a.length;i++){var q=e("option");q.value=a[i][0];q.text=a[i][1];x.add(q)}return x}function l(x){var q=e("div");q.textContent=x;q.style="font-size:12px;color:#bbb;margin-top:7px";d.appendChild(q)}var h=e("b");h.textContent="ULAB "+(t?"Teacher":"Course")+" Evaluation";h.style="font-size:17px";d.appendChild(h);var close=e("button");close.textContent="×";close.style="float:right;background:none;border:0;color:#aaa;font-size:22px";close.onclick=function(){d.remove()};d.appendChild(close);l("Rating for all questions");var r=s([["5","5 — Strongly Agree"],["4","4 — Agree"],["3","3 — Neutral"],["2","2 — Disagree"],["1","1 — Strongly Disagree"]]);d.appendChild(r);l("Comment");var m=s([["na","N/A"],["writer","Comment Writer"]]);d.appendChild(m);var ex=e("div");ex.style="display:none;padding:8px;background:#181818;border-radius:8px";d.appendChild(ex);var ta=e("textarea");ta.placeholder="Generated comment";ta.style="width:100%;height:80px;box-sizing:border-box;margin-top:8px;background:#222;color:#fff;border:1px solid #555;border-radius:7px;padding:8px";d.appendChild(ta);var a,b,c;function fld(n){var q=e("select");q.style="width:100%;padding:8px;background:#222;color:#fff;border:1px solid #555;border-radius:7px";var z=e("option");z.text="Select...";z.value="";z.disabled=1;z.selected=1;q.add(z);var p=e("option");p.value="g";p.text="Good";q.add(p);p=e("option");p.value="i";p.text="Needs Improvement";q.add(p);var x=e("div");x.textContent=n;x.style="font-size:12px;color:#bbb;margin-top:6px";ex.appendChild(x);ex.appendChild(q);return q}function upd(){if(m.value!="writer"){ta.value="";return}if(!a.value||!b.value||!c.value){ta.value="";return}if(t)ta.value=(a.value=="g"?"The teaching was clear and effective.":"The teaching could be improved further.")+" "+(b.value=="g"?"Communication with students was clear and helpful.":"Communication with students could be improved further.")+" "+(c.value=="g"?"The teacher maintained a professional approach.":"Professionalism could be improved further.");else ta.value=(a.value=="g"?"The curriculum was appropriate.":"The curriculum could be improved further.")+" "+(b.value=="g"?"The learning materials were useful.":"The learning materials could be improved further.")+" "+(c.value=="g"?"The course was well organized.":"The course organization could be improved further.")}m.onchange=function(){ex.innerHTML="";ta.value="";if(m.value=="writer"){a=fld(t?"Teaching":"Curriculum");b=fld(t?"Communication":"Learning Materials");c=fld(t?"Professionalism":"Course Organization");a.onchange=upd;b.onchange=upd;c.onchange=upd;ex.style.display="block"}};var go=e("button");go.textContent="Autofill All";go.style="width:100%;padding:11px;margin-top:10px;background:#2563eb;color:#fff;border:0;border-radius:8px;font-weight:bold";d.appendChild(go);var st=e("div");st.style="font-size:11px;color:#7f7;margin-top:7px";d.appendChild(st);go.onclick=function(){if(!r.value||!m.value){st.textContent="Select rating and comment option first.";return}if(m.value=="writer"&&(!a.value||!b.value||!c.value)){st.textContent="Select all comment options first.";return}upd();var z={},q=f.querySelectorAll('input[type="radio"][name^="rate"]'),n=0,i,j,x;for(i=0;i<q.length;i++)z[q[i].name]=1;for(j in z){x=f.querySelector('input[name="'+j+'"][value="'+r.value+'"]');if(x){x.checked=true;x.dispatchEvent(new Event("change",{bubbles:true}));n++}}var ta2=f.querySelector('textarea[name="txtTEComments"]');if(ta2){ta2.value=m.value=="na"?"N/A":ta.value;ta2.dispatchEvent(new Event("input",{bubbles:true}));ta2.dispatchEvent(new Event("change",{bubbles:true}))}st.textContent="✓ Filled "+n+" questions. Review before submitting."};document.body.appendChild(d)})()`;
+
+function copyBookmarklet(){
+    navigator.clipboard.writeText(bookmarklet).then(function(){
+        document.getElementById("status").textContent="Copied!";
+    });
+}
+</script>
+
+</body>
+</html>
