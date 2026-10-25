@@ -1,64 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f7f4ee" />
-    <meta
-        name="description"
-        content="Find your ULAB's academic exam date, time, section, room and teacher details effortlessly."
-    />
-    <title>YouRMS Exam Finder</title>
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f4ee" />
+  <meta name="description"
+    content="Find your ULAB's academic exam date, time, section, room and teacher details effortlessly." />
+  <title>YouRMS Exam Finder</title>
+  <style>
     :root {
-        --paper: #f7f4ee;
-        --paper-raised: #fffdf9;
-        --ink: #1d1a16;
-        --ink-soft: #6b6458;
-        --ink-faint: #9a9385;
-        --line: #e6e0d2;
-        --line-strong: #d7cfba;
-        --accent: #b14323;
-        --accent-ink: #7c2c14;
-        --accent-soft: #f3e3d6;
-        --blue: #3679c8;
-        --blue-dark: #2b69b3;
-        --blue-ink: #20558f;
-        --bad: #ad3434;
-        --bad-soft: #f6e2e1;
-        --serif: "Iowan Old Style", "Palatino Linotype", Palatino,
-            Charter, Georgia, serif;
+      --paper: #f7f4ee;
+      --paper-raised: #fffdf9;
+      --ink: #1d1a16;
+      --ink-soft: #6b6458;
+      --ink-faint: #9a9385;
+      --line: #e6e0d2;
+      --line-strong: #d7cfba;
+      --accent: #b14323;
+      --accent-ink: #7c2c14;
+      --accent-soft: #f3e3d6;
+      --blue: #3679c8;
+      --blue-dark: #2b69b3;
+      --blue-ink: #20558f;
+      --bad: #ad3434;
+      --bad-soft: #f6e2e1;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Charter, Georgia, serif;
     }
 
     *,
     *::before,
     *::after {
-        box-sizing: border-box;
+      box-sizing: border-box;
     }
 
     [hidden] {
-        display: none !important;
+      display: none !important;
     }
 
     html,
     body {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
     }
 
     html {
-        overflow-x: clip;
+      overflow-x: hidden;
     }
 
     body {
-        margin: 0;
-        overflow-x: clip;
-        background: var(--paper);
-        color: var(--ink);
-        font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto,
-            Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
 
     h1,
@@ -66,3538 +63,2864 @@
     h3,
     p,
     ul {
-        margin: 0;
-        padding: 0;
+      margin: 0;
+      padding: 0;
     }
 
     h1,
     h2 {
-        font-family: var(--serif);
-        font-weight: 600;
-        color: var(--blue-ink);
+      font-family: var(--serif);
+      font-weight: 600;
+      color: var(--blue-ink);
     }
 
     ul {
-        list-style: none;
+      list-style: none;
     }
 
     button,
     input {
-        font: inherit;
-        color: inherit;
+      font: inherit;
+      color: inherit;
     }
 
     a {
-        color: var(--blue-ink);
+      color: var(--blue-ink);
     }
 
     :focus-visible {
-        outline: 2px solid var(--blue);
-        outline-offset: 2px;
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
     }
 
     .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        padding: 0;
-        overflow: hidden;
-        clip: rect(0 0 0 0);
-        white-space: nowrap;
-        border: 0;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     .muted {
-        color: var(--ink-soft);
+      color: var(--ink-soft);
     }
 
     .code {
-        font-weight: 600;
-        white-space: nowrap;
+      font-weight: 600;
+      white-space: nowrap;
     }
 
     .cname {
-        color: var(--ink-soft);
-        overflow-wrap: anywhere;
+      color: var(--ink-soft);
+      overflow-wrap: anywhere;
     }
 
     .icon {
-        width: 16px;
-        height: 16px;
-        flex: none;
-        fill: none;
-        stroke: currentColor;
-        stroke-width: 1.75;
-        stroke-linecap: round;
-        stroke-linejoin: round;
+      width: 16px;
+      height: 16px;
+      flex: none;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
-    /* Buttons */
     .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        min-height: 40px;
-        padding: 0 16px;
-        border: 1px solid var(--blue-dark);
-        border-radius: 6px;
-        background: var(--blue-dark);
-        color: #fff;
-        font-size: 14px;
-        cursor: pointer;
-        flex: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 40px;
+      padding: 0 16px;
+      border: 1px solid var(--blue-dark);
+      border-radius: 6px;
+      background: var(--blue-dark);
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      flex: none;
     }
 
     .btn:hover {
-        background: #1d4f8c;
-        border-color: #1d4f8c;
+      background: #1d4f8c;
+      border-color: #1d4f8c;
     }
 
     .btn:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
+      opacity: 0.5;
+      cursor: not-allowed;
     }
 
     .text-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        min-height: 36px;
-        padding: 0 8px;
-        border: 0;
-        border-radius: 6px;
-        background: none;
-        color: var(--ink);
-        font-size: 14px;
-        cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 36px;
+      padding: 0 8px;
+      border: 0;
+      border-radius: 6px;
+      background: none;
+      color: var(--ink);
+      font-size: 14px;
+      cursor: pointer;
     }
 
     .text-btn:hover {
-        background: var(--line);
+      background: var(--line);
     }
 
     .text-btn:disabled {
-        color: var(--ink-soft);
-        opacity: 0.6;
-        cursor: not-allowed;
-        background: none;
+      color: var(--ink-soft);
+      opacity: 0.6;
+      cursor: not-allowed;
+      background: none;
     }
 
     .icon-btn {
-        display: inline-grid;
-        place-items: center;
-        flex: none;
-        width: 36px;
-        height: 36px;
-        padding: 0;
-        border: 0;
-        border-radius: 6px;
-        background: none;
-        color: var(--ink-soft);
-        cursor: pointer;
+      display: inline-grid;
+      place-items: center;
+      flex: none;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      border: 0;
+      border-radius: 6px;
+      background: none;
+      color: var(--ink-soft);
+      cursor: pointer;
     }
 
     .icon-btn:hover {
-        background: var(--bad-soft);
-        color: var(--bad);
+      background: var(--bad-soft);
+      color: var(--bad);
     }
 
-    /* Header */
     .topbar {
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid #e8edf4;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid #e8edf4;
     }
 
     .topbar-inner {
-        width: 100%;
-        max-width: 860px;
-        min-height: 68px;
-        margin: 0 auto;
-        padding: 8px 16px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
+      width: 100%;
+      max-width: 860px;
+      min-height: 68px;
+      margin: 0 auto;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
 
     .brand {
-        display: inline-flex;
-        align-items: center;
-        min-width: 0;
-        flex-shrink: 0;
-        border-radius: 10px;
-        text-decoration: none;
-        transition: opacity 0.2s ease, transform 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+      flex-shrink: 0;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
     .brand img {
-        display: block;
-        width: auto;
-        height: 54px;
-        max-width: 55vw;
-        object-fit: contain;
+      display: block;
+      width: auto;
+      height: 54px;
+      max-width: 55vw;
+      object-fit: contain;
     }
 
     .brand:hover {
-        opacity: 0.85;
+      opacity: 0.85;
     }
 
     .brand:active {
-        transform: scale(0.97);
+      transform: scale(0.97);
     }
 
     main {
-        width: 100%;
-        max-width: 860px;
-        min-width: 0;
-        margin: 0 auto;
-        padding: 0 16px 48px;
+      width: 100%;
+      max-width: 860px;
+      min-width: 0;
+      margin: 0 auto;
+      padding: 0 16px 48px;
+      overflow-x: hidden;
     }
 
     .block {
-        width: 100%;
-        min-width: 0;
-        margin-top: 28px;
+      width: 100%;
+      min-width: 0;
+      margin-top: 28px;
     }
 
     h2 {
-        font-size: 22px;
-        line-height: 1.2;
-        margin-bottom: 12px;
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 12px;
     }
 
     h2 .count {
-        margin-left: 6px;
-        color: var(--ink-soft);
-        font-weight: 400;
-        font-size: 16px;
+      margin-left: 6px;
+      color: var(--ink-soft);
+      font-weight: 400;
+      font-size: 16px;
     }
 
-    /* Add courses */
     .add-row {
-        display: flex;
-        align-items: stretch;
-        gap: 8px;
-        width: 100%;
-        min-width: 0;
+      display: flex;
+      align-items: stretch;
+      gap: 8px;
+      width: 100%;
+      min-width: 0;
     }
 
     .search-box {
-        position: relative;
-        flex: 1;
-        min-width: 0;
+      position: relative;
+      flex: 1;
+      min-width: 0;
     }
 
     .field {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        width: 100%;
-        min-height: 40px;
-        padding: 0 10px;
-        border: 1px solid var(--line-strong);
-        border-radius: 6px;
-        background: var(--paper-raised);
-        color: var(--ink-soft);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      min-height: 40px;
+      padding: 0 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: var(--paper-raised);
+      color: var(--ink-soft);
     }
 
     .field:focus-within {
-        border-color: var(--blue);
-        box-shadow: 0 0 0 3px rgba(32, 85, 143, 0.18);
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(32, 85, 143, 0.18);
     }
 
     .field input {
-        flex: 1;
-        width: 100%;
-        min-width: 0;
-        border: 0;
-        outline: 0;
-        background: transparent;
-        color: var(--ink);
+      flex: 1;
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--ink);
     }
 
     .field input::placeholder {
-        color: #9a9385;
+      color: #9a9385;
     }
 
     .picker {
-        position: absolute;
-        z-index: 10;
-        left: 0;
-        right: 0;
-        top: calc(100% + 4px);
-        background: var(--paper-raised);
-        border: 1px solid var(--line-strong);
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 8px 24px -14px rgba(25, 43, 69, 0.35);
+      position: absolute;
+      z-index: 10;
+      left: 0;
+      right: 0;
+      top: calc(100% + 4px);
+      background: var(--paper-raised);
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px -14px rgba(25, 43, 69, 0.35);
     }
 
     .picker-bar {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-        padding: 2px 6px 2px 12px;
-        border-bottom: 1px solid var(--line);
-        font-size: 13px;
-        color: var(--ink-soft);
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      padding: 2px 6px 2px 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--ink-soft);
     }
 
     .picker-bar .count {
-        flex: 1;
-        min-width: 0;
+      flex: 1;
+      min-width: 0;
     }
 
     .picker-bar .text-btn {
-        min-height: 34px;
-        font-size: 13px;
+      min-height: 34px;
+      font-size: 13px;
     }
 
     .picker-list {
-        max-height: min(320px, 50vh);
-        overflow: auto;
-        padding: 4px;
+      max-height: min(320px, 50vh);
+      overflow: auto;
+      padding: 4px;
     }
 
     .opt {
-        display: grid;
-        grid-template-columns: 18px 5.5rem minmax(0, 1fr) auto;
-        gap: 10px;
-        align-items: center;
-        min-height: 44px;
-        padding: 6px 8px;
-        border-radius: 5px;
-        cursor: pointer;
+      display: grid;
+      grid-template-columns: 18px 5.5rem minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      min-height: 44px;
+      padding: 6px 8px;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
     .opt:hover,
     .opt.active {
-        background: var(--line);
+      background: var(--line);
     }
 
     .opt.is-added {
-        cursor: default;
-        color: var(--ink-soft);
+      cursor: default;
+      color: var(--ink-soft);
     }
 
     .opt.is-added:hover {
-        background: transparent;
+      background: transparent;
     }
 
     .box {
-        width: 18px;
-        height: 18px;
-        display: grid;
-        place-items: center;
-        border: 1.5px solid var(--line-strong);
-        border-radius: 4px;
-        background: var(--paper-raised);
-        color: #fff;
+      width: 18px;
+      height: 18px;
+      display: grid;
+      place-items: center;
+      border: 1.5px solid var(--line-strong);
+      border-radius: 4px;
+      background: var(--paper-raised);
+      color: #fff;
     }
 
     .box .icon {
-        width: 12px;
-        height: 12px;
-        stroke-width: 3;
-        opacity: 0;
+      width: 12px;
+      height: 12px;
+      stroke-width: 3;
+      opacity: 0;
     }
 
     .opt[aria-selected="true"] .box {
-        background: var(--ink);
-        border-color: var(--ink);
+      background: var(--ink);
+      border-color: var(--ink);
     }
 
     .opt[aria-selected="true"] .box .icon {
-        opacity: 1;
+      opacity: 1;
     }
 
     .opt.is-added .box {
-        background: var(--line-strong);
-        border-color: var(--line-strong);
+      background: var(--line-strong);
+      border-color: var(--line-strong);
     }
 
     .oname {
-        display: flex;
-        flex-direction: column;
-        min-width: 0;
-        line-height: 1.3;
-        overflow-wrap: anywhere;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      line-height: 1.3;
+      overflow-wrap: anywhere;
     }
 
     .oname small {
-        color: var(--ink-soft);
-        font-size: 12px;
+      color: var(--ink-soft);
+      font-size: 12px;
     }
 
     .opt .tag {
-        font-size: 12px;
-        color: var(--ink-soft);
+      font-size: 12px;
+      color: var(--ink-soft);
     }
 
     .picker-empty {
-        padding: 14px 10px;
-        color: var(--ink-soft);
-        font-size: 14px;
+      padding: 14px 10px;
+      color: var(--ink-soft);
+      font-size: 14px;
     }
 
-    /* Selected courses */
     .course-list {
-        width: 100%;
-        min-width: 0;
-        margin-top: 12px;
-        border-top: 1px solid var(--line);
+      width: 100%;
+      min-width: 0;
+      margin-top: 12px;
+      border-top: 1px solid var(--line);
     }
 
     .course {
-        width: 100%;
-        min-width: 0;
-        padding: 14px 0;
-        border-bottom: 1px solid var(--line);
+      width: 100%;
+      min-width: 0;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
     }
 
     .course.is-new {
-        animation: fade 1.4s ease-out;
+      animation: fade 1.4s ease-out;
     }
 
     @keyframes fade {
-        from {
-            background: var(--accent-soft);
-        }
-        to {
-            background: transparent;
-        }
+      from {
+        background: var(--accent-soft);
+      }
+
+      to {
+        background: transparent;
+      }
     }
 
     .c-head {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
     }
 
     .c-title {
-        flex: 1;
-        min-width: 0;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: 0 10px;
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0 10px;
     }
 
     .c-title .code {
-        font-size: 16px;
+      font-size: 16px;
     }
 
     .sections {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 6px;
-        min-width: 0;
-        margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+      margin-top: 6px;
     }
 
     .sections .lbl {
-        margin-right: 4px;
-        font-size: 13px;
-        color: var(--ink-soft);
+      margin-right: 4px;
+      font-size: 13px;
+      color: var(--ink-soft);
     }
 
     .chip {
-        min-width: 40px;
-        height: 34px;
-        padding: 0 10px;
-        border: 1px solid var(--line-strong);
-        border-radius: 6px;
-        background: var(--paper-raised);
-        font-size: 14px;
-        cursor: pointer;
+      min-width: 40px;
+      height: 34px;
+      padding: 0 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: var(--paper-raised);
+      font-size: 14px;
+      cursor: pointer;
     }
 
     .chip:hover {
-        border-color: var(--blue);
+      border-color: var(--blue);
     }
 
     .chip[aria-pressed="true"] {
-        background: var(--ink);
-        border-color: var(--ink);
-        color: var(--paper-raised);
-        font-weight: 600;
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--paper-raised);
+      font-weight: 600;
     }
 
     .exam {
-        display: flex;
-        flex-wrap: wrap;
-        min-width: 0;
-        margin-top: 8px;
-        font-size: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      min-width: 0;
+      margin-top: 8px;
+      font-size: 14px;
     }
 
-    .exam > * + *::before {
-        content: "·";
-        margin: 0 8px;
-        color: var(--ink-soft);
+    .exam>*+*::before {
+      content: "·";
+      margin: 0 8px;
+      color: var(--ink-soft);
     }
 
     .exam .soft {
-        color: var(--ink-soft);
+      color: var(--ink-soft);
     }
 
     .empty {
-        padding: 14px 0;
-        color: var(--ink-soft);
-        font-size: 14px;
-        border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+      border-bottom: 1px solid var(--line);
     }
 
     .alert {
-        padding: 12px;
-        border: 1px solid #f0c9ce;
-        background: var(--bad-soft);
-        color: #842b34;
-        border-radius: 6px;
-        font-size: 14px;
-        overflow-wrap: anywhere;
+      padding: 12px;
+      border: 1px solid #f0c9ce;
+      background: var(--bad-soft);
+      color: #842b34;
+      border-radius: 6px;
+      font-size: 14px;
+      overflow-wrap: anywhere;
     }
 
-    .alert code {
-        overflow-wrap: anywhere;
-    }
-
-    /* Schedule */
     .view-bar {
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        gap: 12px;
-        width: 100%;
-        min-width: 0;
-        border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      min-width: 0;
+      border-bottom: 1px solid var(--line);
     }
 
     .tabs {
-        display: flex;
-        gap: 20px;
-        min-width: 0;
+      display: flex;
+      gap: 20px;
+      min-width: 0;
     }
 
     .tab {
-        margin-bottom: -1px;
-        padding: 8px 0;
-        border: 0;
-        border-bottom: 2px solid transparent;
-        background: none;
-        color: var(--ink-soft);
-        font-size: 15px;
-        cursor: pointer;
+      margin-bottom: -1px;
+      padding: 8px 0;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: none;
+      color: var(--ink-soft);
+      font-size: 15px;
+      cursor: pointer;
     }
 
     .tab:hover {
-        color: var(--ink);
+      color: var(--ink);
     }
 
     .tab[aria-pressed="true"] {
-        color: var(--ink);
-        font-weight: 600;
-        border-bottom-color: var(--ink);
+      color: var(--ink);
+      font-weight: 600;
+      border-bottom-color: var(--ink);
     }
 
     .view-bar .text-btn {
-        margin-bottom: 2px;
-        flex: none;
+      margin-bottom: 2px;
+      flex: none;
     }
 
     .note {
-        padding: 16px 0;
-        color: var(--ink-soft);
-        font-size: 14px;
+      padding: 16px 0;
+      color: var(--ink-soft);
+      font-size: 14px;
     }
 
     #schedulePanel {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      overflow-x: hidden;
     }
 
-    #schedulePanel > * {
-        max-width: 100%;
+    #schedulePanel>* {
+      max-width: 100%;
     }
 
     .cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 12px;
-        width: 100%;
-        min-width: 0;
-        margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 12px;
+      width: 100%;
+      min-width: 0;
+      margin-top: 14px;
     }
 
     .card {
-        display: flex;
-        flex-direction: column;
-        min-width: 0;
-        padding: 12px 14px;
-        border: 1px solid var(--line-strong);
-        border-radius: 6px;
-        background: var(--paper-raised);
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 12px 14px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: var(--paper-raised);
     }
 
     .card-date {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 8px;
-        padding-bottom: 8px;
-        border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
     }
 
     .card-date strong {
-        font-family: var(--serif);
-        font-size: 17px;
-        font-weight: 600;
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 600;
     }
 
     .card-time {
-        margin-top: 8px;
-        font-size: 14px;
+      margin-top: 8px;
+      font-size: 14px;
     }
 
     .card-course {
-        margin-top: 2px;
-        overflow-wrap: anywhere;
+      margin-top: 2px;
+      overflow-wrap: anywhere;
     }
 
     .card-meta {
-        margin-top: 6px;
-        font-size: 13px;
-        color: var(--ink-soft);
-        overflow-wrap: anywhere;
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      overflow-wrap: anywhere;
     }
 
-    .card-meta div + div {
-        margin-top: 1px;
+    .card-meta div+div {
+      margin-top: 1px;
     }
 
     .card-foot {
-        margin-top: auto;
-        padding-top: 8px;
+      margin-top: auto;
+      padding-top: 8px;
     }
 
     .cal-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        min-height: 32px;
-        padding: 0 8px 0 0;
-        border-radius: 5px;
-        color: var(--ink);
-        font-size: 13px;
-        text-decoration: none;
-        white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 32px;
+      padding: 0 8px 0 0;
+      border-radius: 5px;
+      color: var(--ink);
+      font-size: 13px;
+      text-decoration: none;
+      white-space: nowrap;
     }
 
     .cal-link:hover {
-        text-decoration: underline;
+      text-decoration: underline;
     }
 
     td .cal-link {
-        padding: 0 8px;
+      padding: 0 8px;
     }
 
     td .cal-link:hover {
-        background: var(--line);
-        text-decoration: none;
+      background: var(--line);
+      text-decoration: none;
     }
 
-    /*
-     * Responsive table.
-     * Desktop table is scrollable. Mobile keeps same desktop design.
-     */
     .table-wrap {
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        margin-top: 8px;
-        overflow-x: auto;
-        overflow-y: hidden;
-        overscroll-behavior-x: contain;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
-        scrollbar-color: var(--line-strong) transparent;
-    }
-
-    .table-wrap:focus-visible {
-        outline-offset: 3px;
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      margin-top: 8px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      overscroll-behavior-x: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--line-strong) transparent;
     }
 
     table {
-        width: 100%;
-        min-width: 720px;
-        border-collapse: collapse;
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
     }
 
     th {
-        padding: 8px 10px;
-        border-bottom: 1px solid var(--line-strong);
-        text-align: left;
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--ink-soft);
-        white-space: nowrap;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--line-strong);
+      text-align: left;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      white-space: nowrap;
     }
 
     td {
-        padding: 10px;
-        border-bottom: 1px solid var(--line);
-        vertical-align: top;
-        font-size: 14px;
+      padding: 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 14px;
     }
 
     td.nowrap {
-        white-space: nowrap;
+      white-space: nowrap;
     }
 
     td .cname {
-        display: block;
-        font-size: 13px;
+      display: block;
+      font-size: 13px;
     }
 
     tr:last-child td {
-        border-bottom: 0;
+      border-bottom: 0;
     }
 
-    /* Calendar */
     .cal {
-        width: 100%;
-        min-width: 0;
-        margin-top: 12px;
-        border: 1px solid var(--line-strong);
-        border-radius: 6px;
-        background: var(--paper-raised);
-        overflow: hidden;
+      width: 100%;
+      min-width: 0;
+      margin-top: 12px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: var(--paper-raised);
+      overflow: hidden;
     }
 
     .cal-wd,
     .cal-grid {
-        display: grid;
-        grid-template-columns: repeat(7, minmax(0, 1fr));
-        width: 100%;
-        min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      width: 100%;
+      min-width: 0;
     }
 
     .cal-wd div {
-        min-width: 0;
-        padding: 6px 8px;
-        border-bottom: 1px solid var(--line-strong);
-        background: var(--line);
-        font-size: 12px;
-        color: var(--ink-soft);
+      min-width: 0;
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--line-strong);
+      background: var(--line);
+      font-size: 12px;
+      color: var(--ink-soft);
     }
 
     .cal-day {
-        min-width: 0;
-        min-height: 88px;
-        padding: 6px 4px;
-        border-right: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-        overflow-wrap: anywhere;
+      min-width: 0;
+      min-height: 88px;
+      padding: 6px 4px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      overflow-wrap: anywhere;
     }
 
     .cal-day:nth-child(7n) {
-        border-right: 0;
+      border-right: 0;
     }
 
     .cal-grid .cal-day:nth-last-child(-n + 7) {
-        border-bottom: 0;
+      border-bottom: 0;
     }
 
     .cal-day.extra {
-        background: #f2eee5;
+      background: #f2eee5;
     }
 
     .cal-day.extra .d {
-        color: #9a9385;
+      color: #9a9385;
     }
 
     .cal-day.today {
-        background: var(--accent-soft);
+      background: var(--accent-soft);
     }
 
     .cal-day.today .d {
-        color: var(--accent-ink);
-        font-weight: 600;
+      color: var(--accent-ink);
+      font-weight: 600;
     }
 
     .d {
-        padding: 0 4px 2px;
-        font-size: 12px;
+      padding: 0 4px 2px;
+      font-size: 12px;
     }
 
     .d.first {
-        color: var(--ink);
-        font-weight: 600;
+      color: var(--ink);
+      font-weight: 600;
     }
 
     .ev {
-        min-width: 0;
-        margin-top: 4px;
-        padding: 4px 6px;
-        border-left: 2px solid var(--accent);
-        border-radius: 0 4px 4px 0;
-        background: var(--accent-soft);
-        font-size: 12px;
-        line-height: 1.35;
-        overflow-wrap: anywhere;
+      min-width: 0;
+      margin-top: 4px;
+      padding: 4px 6px;
+      border-left: 2px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+      background: var(--accent-soft);
+      font-size: 12px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
     }
 
     .ev-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 4px;
-        min-width: 0;
-        font-size: 11px;
-        color: var(--ink-soft);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4px;
+      min-width: 0;
+      font-size: 11px;
+      color: var(--ink-soft);
     }
 
     .ev-code {
-        min-width: 0;
-        font-weight: 600;
-        overflow-wrap: anywhere;
+      min-width: 0;
+      font-weight: 600;
+      overflow-wrap: anywhere;
     }
 
     .ev-room {
-        font-size: 11px;
-        color: var(--ink-soft);
-        overflow-wrap: anywhere;
+      font-size: 11px;
+      color: var(--ink-soft);
+      overflow-wrap: anywhere;
     }
 
     .ev-cal {
-        display: grid;
-        place-items: center;
-        width: 22px;
-        height: 22px;
-        margin: -3px -4px -3px 0;
-        border-radius: 4px;
-        color: var(--ink);
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      margin: -3px -4px -3px 0;
+      border-radius: 4px;
+      color: var(--ink);
     }
 
     .ev-cal:hover {
-        background: var(--paper-raised);
+      background: var(--paper-raised);
     }
 
-    /* Toast messages */
     .toast-stack {
-        position: fixed;
-        z-index: 100;
-        left: 50%;
-        bottom: 16px;
-        transform: translateX(-50%);
-        display: grid;
-        gap: 6px;
-        width: min(380px, calc(100vw - 24px));
-        pointer-events: none;
+      position: fixed;
+      z-index: 100;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      display: grid;
+      gap: 6px;
+      width: min(380px, calc(100vw - 24px));
+      pointer-events: none;
     }
 
     .toast {
-        padding: 10px 12px;
-        border: 1px solid var(--line-strong);
-        border-radius: 6px;
-        background: var(--paper-raised);
-        box-shadow: 0 6px 20px -10px rgba(25, 43, 69, 0.4);
-        font-size: 14px;
-        overflow-wrap: anywhere;
-        pointer-events: auto;
+      padding: 10px 12px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: var(--paper-raised);
+      box-shadow: 0 6px 20px -10px rgba(25, 43, 69, 0.4);
+      font-size: 14px;
+      overflow-wrap: anywhere;
+      pointer-events: auto;
     }
 
     .toast.error {
-        border-color: #f0c9ce;
-        background: var(--bad-soft);
-        color: #842b34;
+      border-color: #f0c9ce;
+      background: var(--bad-soft);
+      color: #842b34;
     }
 
-    /* Footer */
     .site-footer {
-        position: relative;
-        background: var(--paper);
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 18px 16px 24px;
-        border-top: 1px solid var(--line);
-        color: var(--ink-soft);
-        font-size: 13px;
-        text-align: center;
-        overflow-wrap: anywhere;
+      position: relative;
+      background: var(--paper);
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 18px 16px 24px;
+      border-top: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 13px;
+      text-align: center;
+      overflow-wrap: anywhere;
     }
 
     .site-footer a {
-        color: var(--blue-ink);
+      color: var(--blue-ink);
     }
 
-    .site-footer a:hover {
-        text-decoration-style: dashed;
-    }
-
-    /*
-     * Tablet and mobile.
-     * Keep all existing controls and features while allowing
-     * narrower layouts to shrink without widening the page.
-     */
+    /* MOBILE - FIXED: fit table, no body scroll */
     @media (max-width: 640px) {
-        main {
-            padding-right: 14px;
-            padding-left: 14px;
-        }
+      main {
+        padding-right: 14px;
+        padding-left: 14px;
+      }
 
-        .block {
-            margin-top: 24px;
-        }
+      .block {
+        margin-top: 24px;
+      }
 
-        .brand span {
-            display: none;
-        }
+      .brand span {
+        display: none;
+      }
 
-        .opt {
-            grid-template-columns: 18px 5rem minmax(0, 1fr) auto;
-            gap: 8px;
-        }
+      .opt {
+        grid-template-columns: 18px 5rem minmax(0, 1fr) auto;
+        gap: 8px;
+      }
 
-        .cards {
-            grid-template-columns: minmax(0, 1fr);
-        }
+      .cards {
+        grid-template-columns: minmax(0, 1fr);
+      }
 
-        .tabs {
-            gap: 14px;
-        }
+      .tabs {
+        gap: 14px;
+      }
 
-        .tab {
-            font-size: 14px;
-        }
+      .tab {
+        font-size: 14px;
+      }
 
-        .view-bar {
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 8px;
-        }
+      .view-bar {
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
 
-        .view-bar .text-btn {
-            margin-bottom: 4px;
-        }
+      .view-bar .text-btn {
+        margin-bottom: 4px;
+      }
 
-        /* Calendar */
-        .cal-day {
-            min-height: 64px;
-            padding: 4px 2px;
-        }
+      .cal-day {
+        min-height: 64px;
+        padding: 4px 2px;
+      }
 
-        .d {
-            padding: 0 2px 2px;
-            font-size: 11px;
-        }
+      .d {
+        padding: 0 2px 2px;
+        font-size: 11px;
+      }
 
-        .ev {
-            padding: 3px;
-            font-size: 10px;
-        }
+      .ev {
+        padding: 3px;
+        font-size: 10px;
+      }
 
-        .ev-top {
-            font-size: 9px;
-        }
+      .ev-top {
+        font-size: 9px;
+      }
 
-        .ev-room,
-        .ev-cal {
-            display: none;
-        }
+      .ev-room,
+      .ev-cal {
+        display: none;
+      }
 
-        .cal-wd div {
-            padding: 6px 2px;
-            text-align: center;
-            font-size: 11px;
-        }
+      .cal-wd div {
+        padding: 6px 2px;
+        text-align: center;
+        font-size: 11px;
+      }
 
-        /* Keep table same as desktop - horizontal scroll on mobile */
-        .table-wrap {
-            width: 100%;
-            max-width: 100%;
-            min-width: 0;
-            margin-top: 10px;
-            overflow-x: auto;
-            overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
-            overscroll-behavior-x: contain;
-            scrollbar-width: thin;
-            scrollbar-color: var(--line-strong) transparent;
-        }
+      .table-wrap {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin-top: 10px;
+        overflow-x: visible;
+        overflow-y: visible;
+        border: 1px solid var(--line-strong);
+        border-radius: 6px;
+        background: var(--paper-raised);
+      }
 
-        table {
-            width: 100%;
-            min-width: 720px;
-            border-collapse: collapse;
-        }
+      table {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+      }
 
-        .site-footer {
-            padding-right: 14px;
-            padding-left: 14px;
-        }
+      th {
+        padding: 7px 5px;
+        font-size: 10px;
+        font-weight: 700;
+        white-space: normal;
+        line-height: 1.2;
+      }
+
+      td {
+        padding: 8px 5px;
+        font-size: 12px;
+        line-height: 1.35;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      td.nowrap {
+        white-space: normal;
+      }
+
+      th:nth-child(1),
+      td:nth-child(1) {
+        width: 17%;
+      }
+
+      th:nth-child(2),
+      td:nth-child(2) {
+        width: 19%;
+      }
+
+      th:nth-child(3),
+      td:nth-child(3) {
+        width: 24%;
+      }
+
+      th:nth-child(4),
+      td:nth-child(4) {
+        width: 11%;
+      }
+
+      th:nth-child(5),
+      td:nth-child(5) {
+        width: 11%;
+      }
+
+      th:nth-child(6),
+      td:nth-child(6) {
+        width: 10%;
+      }
+
+      th:nth-child(7),
+      td:nth-child(7) {
+        width: 8%;
+        text-align: center;
+      }
+
+      td .code {
+        white-space: normal;
+        font-size: 12px;
+      }
+
+      td .cname {
+        font-size: 11px;
+        margin-top: 2px;
+      }
+
+      td .cal-link {
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        justify-content: center;
+        background: var(--line);
+        border-radius: 6px;
+      }
+
+      td .cal-link span {
+        display: none;
+      }
+
+      .site-footer {
+        padding-right: 14px;
+        padding-left: 14px;
+      }
     }
 
-    /* Extra-small phones */
     @media (max-width: 380px) {
-        .topbar-inner {
-            min-height: 58px;
-            padding: 8px 12px;
-            gap: 8px;
-        }
+      .topbar-inner {
+        min-height: 58px;
+        padding: 8px 12px;
+        gap: 8px;
+      }
 
-        .brand img {
-            height: 34px;
-            max-width: 58vw;
-        }
+      .brand img {
+        height: 34px;
+        max-width: 58vw;
+      }
 
-        main {
-            padding-right: 12px;
-            padding-left: 12px;
-        }
+      main {
+        padding-right: 12px;
+        padding-left: 12px;
+      }
 
-        .block {
-            margin-top: 22px;
-        }
+      .block {
+        margin-top: 22px;
+      }
 
-        h2 {
-            font-size: 21px;
-        }
+      h2 {
+        font-size: 21px;
+      }
 
-        .add-row {
-            gap: 6px;
-        }
+      .add-row {
+        gap: 6px;
+      }
 
-        .add-row > .btn {
-            padding: 0 12px;
-        }
+      .add-row>.btn {
+        padding: 0 12px;
+      }
 
-        .field {
-            gap: 6px;
-            padding: 0 8px;
-        }
+      .field {
+        gap: 6px;
+        padding: 0 8px;
+      }
 
-        .field input {
-            font-size: 13px;
-        }
+      .field input {
+        font-size: 13px;
+      }
 
-        .picker-bar {
-            padding-left: 8px;
-        }
+      th {
+        font-size: 9px;
+        padding: 6px 3px;
+      }
 
-        .picker-bar .text-btn {
-            padding-right: 6px;
-            padding-left: 6px;
-            font-size: 12px;
-        }
-
-        .opt {
-            grid-template-columns: 18px 4.5rem minmax(0, 1fr);
-            gap: 7px;
-        }
-
-        .opt .tag {
-            grid-column: 2 / -1;
-            margin-top: -4px;
-        }
-
-        .tabs {
-            gap: 12px;
-        }
-
-        .view-bar {
-            gap: 4px;
-        }
-
-        .view-bar .text-btn {
-            gap: 4px;
-            padding-right: 4px;
-            padding-left: 4px;
-            font-size: 13px;
-        }
-
-        .cal-wd div {
-            font-size: 10px;
-        }
-
-        .ev {
-            padding: 2px;
-            font-size: 9px;
-        }
+      td {
+        font-size: 11px;
+        padding: 6px 3px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-            animation: none !important;
-            transition: none !important;
-        }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
     }
-</style>
+  </style>
 </head>
+
 <body>
-    <svg
-        width="0"
-        height="0"
-        style="position: absolute"
-        aria-hidden="true"
-        focusable="false"
-    >
-        <defs>
-            <symbol id="i-search" viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="7" />
-                <path d="m20 20-3.5-3.5" />
-            </symbol>
-
-        <symbol id="i-x" viewBox="0 0 24 24">
-            <path d="M18 6 6 18M6 6l12 12" />
-        </symbol>
-
-        <symbol id="i-check" viewBox="0 0 24 24">
-            <path d="M20 6 9 17l-5-5" />
-        </symbol>
-
-        <symbol id="i-calendar-plus" viewBox="0 0 24 24">
-            <rect x="3" y="4" width="18" height="17" rx="2" />
-            <path d="M8 2v4M16 2v4M3 10h18M12 13v5M9.5 15.5h5" />
-        </symbol>
-
-        <symbol id="i-download" viewBox="0 0 24 24">
-            <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
-        </symbol>
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true"
+    focusable="false">
+    <defs>
+      <symbol id="i-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="7" />
+        <path d="m20 20-3.5-3.5" />
+      </symbol>
+      <symbol id="i-x" viewBox="0 0 24 24">
+        <path d="M18 6 6 18M6 6l12 12" />
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="M20 6 9 17l-5-5" />
+      </symbol>
+      <symbol id="i-calendar-plus" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="17" rx="2" />
+        <path d="M8 2v4M16 2v4M3 10h18M12 13v5M9.5 15.5h5" />
+      </symbol>
+      <symbol id="i-download" viewBox="0 0 24 24">
+        <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
+      </symbol>
     </defs>
-</svg>
-
-<header class="topbar">
-    <div class="topbar-inner">
-        <a
-            class="brand"
-            href="https://theyourms.github.io/exam"
-            aria-label="YouRMS Exam Finder"
-        >
-            <img
-                src="https://theyourms.github.io/YouRMS_Exam_Finder.png"
-                alt="YouRMS Exam Finder"
-            />
-        </a>
-    </div>
-</header>
-
-<main>
+  </svg>
+  <header class="topbar">
+    <div class="topbar-inner"><a class="brand"
+        href="https://theyourms.github.io/exam"
+        aria-label="YouRMS Exam Finder"><img
+          src="https://theyourms.github.io/YouRMS_Exam_Finder.png"
+          alt="YouRMS Exam Finder" /></a></div>
+  </header>
+  <main>
     <section class="block" aria-labelledby="coursesTitle">
-        <h2 id="coursesTitle">
-            Your Courses<span id="courseCount" class="count"></span>
-        </h2>
-
-        <div class="add-row" id="addRow">
-            <div class="search-box">
-                <div class="field">
-                    <svg class="icon" aria-hidden="true" focusable="false">
-                        <use href="#i-search" />
-                    </svg>
-
-                    <input
-                        id="courseSearch"
-                        type="text"
-                        placeholder="Search course code or name"
-                        autocomplete="off"
-                        autocapitalize="characters"
-                        spellcheck="false"
-                        role="combobox"
-                        aria-label="Search courses"
-                        aria-autocomplete="list"
-                        aria-expanded="false"
-                        aria-controls="pickerList"
-                        disabled
-                    />
-                </div>
-
-                <div id="picker" class="picker" hidden>
-                    <div class="picker-bar">
-                        <span
-                            class="count"
-                            id="pickerCount"
-                            aria-live="polite"
-                        ></span>
-
-                        <button
-                            class="text-btn"
-                            id="pickerAll"
-                            type="button"
-                        >
-                            Select all
-                        </button>
-
-                        <button
-                            class="text-btn"
-                            id="pickerClear"
-                            type="button"
-                        >
-                            Clear
-                        </button>
-                    </div>
-
-                    <div
-                        id="pickerList"
-                        class="picker-list"
-                        role="listbox"
-                        aria-multiselectable="true"
-                        aria-label="Courses"
-                    ></div>
-                </div>
+      <h2 id="coursesTitle">Your Courses<span id="courseCount"
+          class="count"></span></h2>
+      <div class="add-row" id="addRow">
+        <div class="search-box">
+          <div class="field"><svg class="icon" aria-hidden="true"
+              focusable="false">
+              <use href="#i-search" />
+            </svg><input id="courseSearch" type="text"
+              placeholder="Search course code or name" autocomplete="off"
+              autocapitalize="characters" spellcheck="false" role="combobox"
+              aria-label="Search courses" aria-autocomplete="list"
+              aria-expanded="false" aria-controls="pickerList" disabled /></div>
+          <div id="picker" class="picker" hidden>
+            <div class="picker-bar"><span class="count" id="pickerCount"
+                aria-live="polite"></span><button class="text-btn"
+                id="pickerAll" type="button">Select all</button><button
+                class="text-btn" id="pickerClear" type="button">Clear</button>
             </div>
-
-            <button class="btn" id="addBtn" type="button" disabled>
-                Add
-            </button>
+            <div id="pickerList" class="picker-list" role="listbox"
+              aria-multiselectable="true" aria-label="Courses"></div>
+          </div>
         </div>
-
-        <ul id="courseList" class="course-list">
-            <li class="empty">Loading schedule…</li>
-        </ul>
+        <button class="btn" id="addBtn" type="button" disabled>Add</button>
+      </div>
+      <ul id="courseList" class="course-list">
+        <li class="empty">Loading schedule…</li>
+      </ul>
     </section>
-
     <section class="block" aria-labelledby="scheduleTitle">
-        <h2 id="scheduleTitle">Exam Schedule</h2>
-
-        <div class="view-bar">
-            <div class="tabs" role="group" aria-label="Schedule view">
-                <button
-                    class="tab"
-                    type="button"
-                    data-view="table"
-                    aria-pressed="true"
-                >
-                    Table
-                </button>
-
-                <button
-                    class="tab"
-                    type="button"
-                    data-view="cards"
-                    aria-pressed="false"
-                >
-                    Cards
-                </button>
-
-                <button
-                    class="tab"
-                    type="button"
-                    data-view="calendar"
-                    aria-pressed="false"
-                >
-                    Calendar
-                </button>
-            </div>
-
-            <button
-                class="text-btn"
-                id="downloadBtn"
-                type="button"
-                disabled
-                title="Download this view as an image"
-            >
-                <svg class="icon" aria-hidden="true" focusable="false">
-                    <use href="#i-download" />
-                </svg>
-                Download
-            </button>
+      <h2 id="scheduleTitle">Exam Schedule</h2>
+      <div class="view-bar">
+        <div class="tabs" role="group" aria-label="Schedule view">
+          <button class="tab" type="button" data-view="table"
+            aria-pressed="true">Table</button>
+          <button class="tab" type="button" data-view="cards"
+            aria-pressed="false">Cards</button>
+          <button class="tab" type="button" data-view="calendar"
+            aria-pressed="false">Calendar</button>
         </div>
-
-        <div id="schedulePanel">
-            <p class="note">Loading schedule…</p>
-        </div>
+        <button class="text-btn" id="downloadBtn" type="button" disabled
+          title="Download this view as an image"><svg class="icon"
+            aria-hidden="true" focusable="false">
+            <use href="#i-download" />
+          </svg>Download</button>
+      </div>
+      <div id="schedulePanel">
+        <p class="note">Loading schedule…</p>
+      </div>
     </section>
-</main>
-
-<br /><br /><br />
-
-<footer class="site-footer">
-    <p>
-        <a href="https://theyourms.github.io/exam">YouRMS Exam Finder</a>
-        Developed with ❤ by
-        <a href="https://fb.com/md.shahriar.alam.sikey">Shahriar</a>
-    </p>
-</footer>
-
-<div
-    id="toastStack"
-    class="toast-stack"
-    role="status"
-    aria-live="polite"
-></div>
-
-<script>
+  </main>
+  <br /><br /><br />
+  <footer class="site-footer">
+    <p><a href="https://theyourms.github.io/exam">YouRMS Exam Finder</a>
+      Developed with ❤ by <a
+        href="https://fb.com/md.shahriar.alam.sikey">Shahriar</a></p>
+  </footer>
+  <div id="toastStack" class="toast-stack" role="status" aria-live="polite">
+  </div>
+  <script>
     (() => {
-        'use strict';
+      'use strict';
+      const WORKBOOK_URL = 'https://theyourms.github.io/263/mid.xlsx';
+      const COURSE_DATA_URL =
+      'https://theyourms.github.io/263/course_data.js';
+      const STORAGE_KEY = 'yourms-exam-finder-fall-2026-v1';
+      const TIME_ZONE = 'Asia/Dhaka';
+      const VIEWS = ['table', 'cards', 'calendar'];
+      const SHEETJS_SOURCES = [
+        'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js',
+        'https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js'
+      ];
+      const COURSE_CATALOG = [{
+        code: 'CSE 3203',
+        name: 'Software Engineering',
+        ids: []
+      }, {
+        code: 'BUS 1101',
+        name: 'Introduction to Business',
+        ids: ['0410-011-1101']
+      }, {
+        code: 'GEF 1101',
+        name: 'Academic English I',
+        ids: ['0231-000-1101']
+      }, {
+        code: 'ELL 0099',
+        name: 'Remedial English',
+        ids: ['0231-000-0099']
+      }, {
+        code: 'UCC 1101',
+        name: 'Bangla Bhasha O Shahitya',
+        ids: ['0232-000-1101']
+      }, {
+        code: 'MAT 0099',
+        name: 'Remedial Math/Basic Math',
+        ids: ['0541-011-0099']
+      }, {
+        code: 'ESK 1110',
+        name: 'Study Skills',
+        ids: ['0031-000-1110']
+      }];
+      const normalizeSpaces = value => String(value ?? '').replace(/\r/g, '')
+        .replace(/[   ]/g, ' ').replace(/[\t ]+/g, ' ').replace(/\n+/g, ' ')
+        .trim();
+      const cleanText = value => String(value ?? '').replace(/\r/g, '')
+        .replace(/[   ]/g, ' ').trim();
+      const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g,
+        ch => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        } [ch]));
+      const esc = escapeHTML;
+      const pad2 = value => String(value).padStart(2, '0');
+      const dateKey = date =>
+        `${date.getFullYear()}-${pad2(date.getMonth() + 1)}-${pad2(date.getDate())}`;
+      const compareCodes = (a, b) => a.localeCompare(b, 'en', {
+        numeric: true
+      });
+      const fmtDateCompact = new Intl.DateTimeFormat('en-GB', {
+        weekday: 'short',
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      });
+      const fmtDateShort = new Intl.DateTimeFormat('en-GB', {
+        weekday: 'short',
+        day: 'numeric',
+        month: 'short'
+      });
+      const fmtMonthShort = new Intl.DateTimeFormat('en-GB', {
+        month: 'short'
+      });
+      const WEEKDAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri',
+      'Sat'];
 
-        /* Configuration */
-        const WORKBOOK_URL = 'https://theyourms.github.io/263/mid.xlsx';
-        const COURSE_DATA_URL = 'https://theyourms.github.io/263/course_data.js';
-        const STORAGE_KEY = 'yourms-exam-finder-fall-2026-v1';
-        const TIME_ZONE = 'Asia/Dhaka';
-        const VIEWS = ['table', 'cards', 'calendar'];
+      function normalizeCode(value) {
+        let q = String(value ?? '').toUpperCase().replace(/[–—]/g, '-')
+      .trim();
+        q = q.replace(/[^A-Z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
+        const glued = q.match(/^([A-Z]{2,6})\s*(\d{3,5})$/);
+        if (glued) {
+          q = `${glued[1]} ${glued[2]}`;
+        }
+        return q;
+      }
+      const CourseCatalog = (() => {
+        const names = new Map();
+        const idsByCode = new Map();
+        const codeById = new Map();
+        const compact = value => String(value ?? '').toUpperCase()
+          .replace(/[^A-Z0-9]/g, '');
+        const ID_PATTERN = /^\d{3,5}-\d{2,4}-\d{4}$/;
+        const CODE_PATTERN = /^[A-Z]{2,6} \d{3,5}$/;
 
-        const SHEETJS_SOURCES = [
-            'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js',
-            'https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js'
-        ];
-
-        /* Course names */
-        const COURSE_CATALOG = [
-            { code: 'CSE 3203', name: 'Software Engineering', ids: [] },
-            { code: 'BUS 1101', name: 'Introduction to Business', ids: ['0410-011-1101'] },
-            { code: 'GEF 1101', name: 'Academic English I', ids: ['0231-000-1101'] },
-            { code: 'ELL 0099', name: 'Remedial English', ids: ['0231-000-0099'] },
-            { code: 'UCC 1101', name: 'Bangla Bhasha O Shahitya', ids: ['0232-000-1101'] },
-            { code: 'MAT 0099', name: 'Remedial Math/Basic Math', ids: ['0541-011-0099'] },
-            { code: 'ESK 1110', name: 'Study Skills', ids: ['0031-000-1110'] }
-        ];
-
-        const normalizeSpaces = value =>
-            String(value ?? '')
-                .replace(/\r/g, '')
-                .replace(/[   ]/g, ' ')
-                .replace(/[\t ]+/g, ' ')
-                .replace(/\n+/g, ' ')
-                .trim();
-
-        const cleanText = value =>
-            String(value ?? '')
-                .replace(/\r/g, '')
-                .replace(/[   ]/g, ' ')
-                .trim();
-
-        const escapeHTML = value =>
-            String(value ?? '').replace(
-                /[&<>"']/g,
-                ch => ({
-                    '&': '&amp;',
-                    '<': '&lt;',
-                    '>': '&gt;',
-                    '"': '&quot;',
-                    "'": '&#39;'
-                }[ch])
-            );
-
-        const esc = escapeHTML;
-        const pad2 = value => String(value).padStart(2, '0');
-
-        const dateKey = date =>
-            `${date.getFullYear()}-${pad2(date.getMonth() + 1)}-${pad2(date.getDate())}`;
-
-        const compareCodes = (a, b) =>
-            a.localeCompare(b, 'en', { numeric: true });
-
-        const fmtDateLong = new Intl.DateTimeFormat('en-GB', {
-            weekday: 'long',
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric'
-        });
-
-        const fmtDateCompact = new Intl.DateTimeFormat('en-GB', {
-            weekday: 'short',
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric'
-        });
-
-        const fmtDateShort = new Intl.DateTimeFormat('en-GB', {
-            weekday: 'short',
-            day: 'numeric',
-            month: 'short'
-        });
-
-        const fmtMonthShort = new Intl.DateTimeFormat('en-GB', {
-            month: 'short'
-        });
-
-        const WEEKDAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-        function normalizeCode(value) {
-            let q = String(value ?? '')
-                .toUpperCase()
-                .replace(/[–—]/g, '-')
-                .trim();
-
-            q = q.replace(/[^A-Z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
-
-            const glued = q.match(/^([A-Z]{2,6})\s*(\d{3,5})$/);
-
-            if (glued) {
-                q = `${glued[1]} ${glued[2]}`;
-            }
-
-            return q;
+        function link(code, id) {
+          codeById.set(compact(id), code);
+          if (!idsByCode.has(code)) {
+            idsByCode.set(code, []);
+          }
+          if (!idsByCode.get(code).includes(id)) {
+            idsByCode.get(code).push(id);
+          }
         }
 
-        const CourseCatalog = (() => {
-            const names = new Map();
-            const idsByCode = new Map();
-            const codeById = new Map();
-
-            const compact = value =>
-                String(value ?? '').toUpperCase().replace(/[^A-Z0-9]/g, '');
-
-            const ID_PATTERN = /^\d{3,5}-\d{2,4}-\d{4}$/;
-            const CODE_PATTERN = /^[A-Z]{2,6} \d{3,5}$/;
-
-            function link(code, id) {
-                codeById.set(compact(id), code);
-
-                if (!idsByCode.has(code)) {
-                    idsByCode.set(code, []);
-                }
-
-                if (!idsByCode.get(code).includes(id)) {
-                    idsByCode.get(code).push(id);
-                }
-            }
-
-            function loadBuiltIn() {
-                names.clear();
-                idsByCode.clear();
-                codeById.clear();
-
-                COURSE_CATALOG.forEach(entry => {
-                    const code = normalizeCode(entry.code);
-
-                    names.set(code, entry.name);
-
-                    (entry.ids || []).forEach(id => link(code, id));
-                });
-            }
-
-            function loadData(data) {
-                const codes = [];
-                const ids = [];
-
-                Object.keys(data).forEach(key => {
-                    const name = normalizeSpaces(data[key]);
-                    const trimmed = String(key).trim();
-
-                    if (!name) return;
-
-                    if (ID_PATTERN.test(trimmed)) {
-                        ids.push([trimmed, name]);
-                        return;
-                    }
-
-                    const code = normalizeCode(trimmed);
-
-                    if (CODE_PATTERN.test(code)) {
-                        codes.push([code, name]);
-                    }
-                });
-
-                codes.forEach(([code, name]) => names.set(code, name));
-
-                ids.forEach(([id, name]) => {
-                    const tail = id.slice(-4);
-
-                    codes
-                        .filter(([code, codeName]) =>
-                            code.endsWith(' ' + tail) && codeName === name
-                        )
-                        .forEach(([code]) => link(code, id));
-                });
-
-                return codes.length;
-            }
-
-            loadBuiltIn();
-
-            return {
-                compact,
-                loadBuiltIn,
-                loadData,
-                nameFor: code => names.get(code) || '',
-                idsFor: code => idsByCode.get(code) || [],
-                codeForId: id => codeById.get(compact(id)) || null
-            };
-        })();
-
-        function icon(name) {
-            return `<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-${name}"/></svg>`;
+        function loadBuiltIn() {
+          names.clear();
+          idsByCode.clear();
+          codeById.clear();
+          COURSE_CATALOG.forEach(entry => {
+            const code = normalizeCode(entry.code);
+            names.set(code, entry.name);
+            (entry.ids || []).forEach(id => link(code, id));
+          });
         }
 
-        /* Workbook parsing */
-        function extractAliases(raw) {
-            const s = String(raw ?? '')
-                .toUpperCase()
-                .replace(/[–—]/g, '-')
-                .replace(/[   ]/g, ' ');
-
-            const aliases = new Set();
-            const roomPrefixes = new Set(['PA', 'PB', 'PC', 'PD']);
-            const direct = /\b([A-Z]{2,6})\s*[- ]?\s*(\d{3,5})\b/g;
-
-            let m;
-
-            while ((m = direct.exec(s)) !== null) {
-                if (!roomPrefixes.has(m[1])) {
-                    aliases.add(`${m[1]} ${m[2]}`);
-                }
+        function loadData(data) {
+          const codes = [];
+          const ids = [];
+          Object.keys(data).forEach(key => {
+            const name = normalizeSpaces(data[key]);
+            const trimmed = String(key).trim();
+            if (!name) return;
+            if (ID_PATTERN.test(trimmed)) {
+              ids.push([trimmed, name]);
+              return;
             }
-
-            const prefix = s.match(/^\s*([A-Z]{2,6})\b/);
-            const encoded = s.match(/\b\d{3,5}\s*[-]\s*\d{2,4}\s*[-]\s*(\d{4})\b/);
-
-            const prefixAlreadyNamed =
-                prefix && [...aliases].some(alias => alias.startsWith(`${prefix[1]} `));
-
-            if (prefix && encoded && !prefixAlreadyNamed) {
-                aliases.add(`${prefix[1]} ${encoded[1]}`);
+            const code = normalizeCode(trimmed);
+            if (CODE_PATTERN.test(code)) {
+              codes.push([code, name]);
             }
-
-            return [...aliases]
-                .map(normalizeCode)
-                .filter(code => /^[A-Z]{2,6} \d{3,5}$/.test(code));
+          });
+          codes.forEach(([code, name]) => names.set(code, name));
+          ids.forEach(([id, name]) => {
+            const tail = id.slice(-4);
+            codes.filter(([code, codeName]) => code.endsWith(' ' +
+              tail) && codeName === name).forEach(([code]) => link(
+              code, id));
+          });
+          return codes.length;
         }
-
-        function isHeaderRow(row) {
-            const a = normalizeSpaces(row?.[0]).toLowerCase();
-            const b = normalizeSpaces(row?.[1]).toLowerCase();
-
-            return (
-                (a.includes('day') && a.includes('time')) ||
-                (b.includes('am') &&
-                    normalizeSpaces(row?.[2]).toLowerCase().includes('pm') &&
-                    a === '')
-            );
-        }
-
-        function parseDateRow(value) {
-            const s = normalizeSpaces(value);
-
-            if (!s || /day\s*\/?\s*time/i.test(s)) {
-                return null;
-            }
-
-            const m = s.match(/\b(\d{1,2})\s*[/.-]\s*(\d{1,2})\s*[/.-]\s*(\d{4})\b/);
-
-            if (!m) {
-                return null;
-            }
-
-            const day = Number(m[1]);
-            const month = Number(m[2]);
-            const year = Number(m[3]);
-
-            const date = new Date(year, month - 1, day, 12, 0, 0);
-
-            if (
-                Number.isNaN(date.getTime()) ||
-                date.getFullYear() !== year ||
-                date.getMonth() !== month - 1 ||
-                date.getDate() !== day
-            ) {
-                return null;
-            }
-
-            return { date };
-        }
-
-        function to12Hour(value) {
-            const m = String(value).match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i);
-
-            if (!m) {
-                return null;
-            }
-
-            return `${Number(m[1])}:${m[2] || '00'} ${m[3].toUpperCase()}`;
-        }
-
-        function cleanTimeRange(value) {
-            const s = normalizeSpaces(value)
-                .replace(/[：]/g, ':')
-                .replace(/\s*:\s*(?=\d{1,2}:\d{2})/g, ' - ');
-
-            const parts = [
-                ...s.matchAll(/\d{1,2}(?::\d{2})?\s*(?:am|pm)/ig)
-            ]
-                .map(x => to12Hour(x[0]))
-                .filter(Boolean);
-
-            if (parts.length >= 2) {
-                return `${parts[0]} – ${parts[1]}`;
-            }
-
-            return s;
-        }
-
-        function findRoom(raw) {
-            return /\b(P[A-Z]{0,2})\s*[- ]?\s*(\d{3})\b/i.exec(String(raw ?? ''));
-        }
-
-        function parseSection(raw, roomMatch) {
-            const s = String(raw ?? '').replace(/[–—]/g, '-');
-            const cut = roomMatch ? roomMatch.index : s.length;
-            const before = s.slice(0, cut);
-
-            const matches = [
-                ...before.matchAll(/[-]\s*(\d{1,2}\s*[Ll]?)\s*[-]\s*$/g)
-            ];
-
-            if (matches.length) {
-                return normalizeSpaces(matches[matches.length - 1][1])
-                    .replace(/\s+/g, '')
-                    .toUpperCase();
-            }
-
-            const fallback = [
-                ...before.matchAll(/(?:^|\s[-/]\s*|[-])\s*(\d{1,2}[Ll]?)\s*$/g)
-            ];
-
-            if (fallback.length) {
-                const candidate = fallback[fallback.length - 1][1]
-                    .replace(/\s/g, '')
-                    .toUpperCase();
-
-                if (/^\d{1,2}L?$/.test(candidate)) {
-                    return candidate;
-                }
-            }
-
-            return '';
-        }
-
-        function parseRoomAndTeacher(raw, roomMatch) {
-            if (!roomMatch) {
-                return { room: '', instructor: '' };
-            }
-
-            const text = String(raw ?? '');
-            const tail = text.slice(roomMatch.index);
-
-            const teacherSep = tail.match(
-                /\s*[-–]\s*([A-Za-z][A-Za-z0-9 .,&/()'+-]*?)\s*$/
-            );
-
-            if (teacherSep) {
-                const sepIndex = tail.lastIndexOf(teacherSep[0]);
-
-                const room = normalizeSpaces(
-                    tail.slice(0, sepIndex).replace(/[-–]+\s*$/, '')
-                ).trim();
-
-                const instructor = normalizeSpaces(teacherSep[1]).replace(/\s+$/, '');
-
-                return {
-                    room: room || `${roomMatch[1].toUpperCase()} ${roomMatch[2]}`,
-                    instructor
-                };
-            }
-
-            const afterBase = tail.slice(roomMatch[0].length).trim();
-
-            const room = normalizeSpaces(
-                `${roomMatch[1].toUpperCase()} ${roomMatch[2]}${
-                    afterBase.startsWith('(')
-                        ? ' ' + afterBase.split(/\s[-–]\s/)[0]
-                        : ''
-                }`
-            );
-
-            return { room, instructor: '' };
-        }
-
-        function timeStartMinutes(value) {
-            const m = String(value || '').match(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/i);
-
-            if (!m) {
-                return 9999;
-            }
-
-            let hours = Number(m[1]) % 12;
-
-            if (m[3].toUpperCase() === 'PM') {
-                hours += 12;
-            }
-
-            return hours * 60 + Number(m[2] || 0);
-        }
-
-        function parseTimeRange(text) {
-            const matches = [
-                ...String(text || '').matchAll(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/ig)
-            ];
-
-            if (matches.length < 2) {
-                return null;
-            }
-
-            const toMinutes = m => {
-                let hours = Number(m[1]) % 12;
-
-                if (m[3].toUpperCase() === 'PM') {
-                    hours += 12;
-                }
-
-                return hours * 60 + Number(m[2] || 0);
-            };
-
-            const start = toMinutes(matches[0]);
-            const end = toMinutes(matches[1]);
-
-            return end > start ? { start, end } : null;
-        }
-
-        function sortEntries(entries) {
-            return entries.sort(
-                (a, b) =>
-                    (a.date?.getTime() ?? 0) - (b.date?.getTime() ?? 0) ||
-                    timeStartMinutes(a.time) - timeStartMinutes(b.time) ||
-                    a.col - b.col ||
-                    a.rowNo - b.rowNo
-            );
-        }
-
-        function buildWorkbookRows(sheet) {
-            const range = window.XLSX.utils.decode_range(sheet['!ref'] || 'A1:E1');
-            const rows = [];
-
-            for (let r = range.s.r; r <= range.e.r; r++) {
-                const row = [];
-
-                for (let c = range.s.c; c <= range.e.c; c++) {
-                    const cell = sheet[window.XLSX.utils.encode_cell({ r, c })];
-                    let value = '';
-
-                    if (cell) {
-                        if (cell.w !== undefined && cell.w !== null) {
-                            value = String(cell.w);
-                        } else if (cell.v !== undefined && cell.v !== null) {
-                            value = String(cell.v);
-                        }
-                    }
-
-                    row.push(value);
-                }
-
-                rows.push(row);
-            }
-
-            return { rows, startRow: range.s.r + 1 };
-        }
-
-        function parseWorkbook(rows, startRow = 1) {
-            const index = new Map();
-            const allEntries = [];
-
-            let activeDate = null;
-            let timeHeaders = [];
-
-            rows.forEach((row, localIndex) => {
-                const excelRow = startRow + localIndex;
-                const parsedDate = parseDateRow(row[0]);
-
-                if (parsedDate) {
-                    activeDate = parsedDate;
-                }
-
-                if (isHeaderRow(row)) {
-                    timeHeaders = row.map((value, i) =>
-                        i === 0 ? 'Day / Time' : cleanTimeRange(value)
-                    );
-                    return;
-                }
-
-                if (!activeDate) {
-                    return;
-                }
-
-                for (let col = 1; col < row.length; col++) {
-                    const raw = cleanText(row[col]);
-
-                    if (!normalizeSpaces(raw)) {
-                        continue;
-                    }
-
-                    const aliases = extractAliases(raw);
-
-                    if (!aliases.length) {
-                        continue;
-                    }
-
-                    const roomMatch = findRoom(raw);
-                    const parsedRoom = parseRoomAndTeacher(raw, roomMatch);
-
-                    const event = {
-                        rowNo: excelRow,
-                        col,
-                        aliases,
-                        section: parseSection(raw, roomMatch),
-                        room: parsedRoom.room,
-                        instructor: parsedRoom.instructor,
-                        date: new Date(activeDate.date.getTime()),
-                        time: timeHeaders[col] || ''
-                    };
-
-                    allEntries.push(event);
-
-                    aliases.forEach(alias => {
-                        if (!index.has(alias)) {
-                            index.set(alias, []);
-                        }
-
-                        index.get(alias).push(event);
-                    });
-                }
-            });
-
-            for (const [code, entries] of index) {
-                index.set(code, sortEntries(entries));
-            }
-
-            state.courses = index;
-
-            return {
-                courseCount: index.size,
-                entryCount: allEntries.length
-            };
-        }
-
-        /* State and persistence */
-        const state = {
-            loaded: false,
-            courses: new Map(),
-            selected: [],
-            selectedSections: new Map(),
-            view: 'table',
-            picker: {
-                items: [],
-                active: -1,
-                checked: new Set()
-            }
+        loadBuiltIn();
+        return {
+          compact,
+          loadBuiltIn,
+          loadData,
+          nameFor: code => names.get(code) || '',
+          idsFor: code => idsByCode.get(code) || [],
+          codeForId: id => codeById.get(compact(id)) || null
         };
+      })();
 
-        const Store = {
-            read() {
-                try {
-                    const raw = localStorage.getItem(STORAGE_KEY);
-                    const saved = raw ? JSON.parse(raw) : null;
+      function icon(name) {
+        return `<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-${name}"/></svg>`;
+      }
 
-                    return saved && typeof saved === 'object' ? saved : null;
-                } catch (error) {
-                    console.warn('Could not read saved exam finder state', error);
-                    return null;
-                }
-            },
+      function extractAliases(raw) {
+        const s = String(raw ?? '').toUpperCase().replace(/[–—]/g, '-')
+          .replace(/[   ]/g, ' ');
+        const aliases = new Set();
+        const roomPrefixes = new Set(['PA', 'PB', 'PC', 'PD']);
+        const direct = /\b([A-Z]{2,6})\s*[- ]?\s*(\d{3,5})\b/g;
+        let m;
+        while ((m = direct.exec(s)) !== null) {
+          if (!roomPrefixes.has(m[1])) {
+            aliases.add(`${m[1]} ${m[2]}`);
+          }
+        }
+        const prefix = s.match(/^\s*([A-Z]{2,6})\b/);
+        const encoded = s.match(
+        /\b\d{3,5}\s*[-]\s*\d{2,4}\s*[-]\s*(\d{4})\b/);
+        const prefixAlreadyNamed = prefix && [...aliases].some(alias => alias
+          .startsWith(`${prefix[1]} `));
+        if (prefix && encoded && !prefixAlreadyNamed) {
+          aliases.add(`${prefix[1]} ${encoded[1]}`);
+        }
+        return [...aliases].map(normalizeCode).filter(code =>
+          /^[A-Z]{2,6} \d{3,5}$/.test(code));
+      }
 
-            write(payload) {
-                try {
-                    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
-                } catch (error) {
-                    console.warn('Could not save saved exam finder state', error);
-                }
-            }
+      function isHeaderRow(row) {
+        const a = normalizeSpaces(row?.[0]).toLowerCase();
+        const b = normalizeSpaces(row?.[1]).toLowerCase();
+        return ((a.includes('day') && a.includes('time')) || (b.includes(
+          'am') && normalizeSpaces(row?.[2]).toLowerCase().includes(
+          'pm') && a === ''));
+      }
+
+      function parseDateRow(value) {
+        const s = normalizeSpaces(value);
+        if (!s || /day\s*\/?\s*time/i.test(s)) {
+          return null;
+        }
+        const m = s.match(
+          /\b(\d{1,2})\s*[/.-]\s*(\d{1,2})\s*[/.-]\s*(\d{4})\b/);
+        if (!m) {
+          return null;
+        }
+        const day = Number(m[1]);
+        const month = Number(m[2]);
+        const year = Number(m[3]);
+        const date = new Date(year, month - 1, day, 12, 0, 0);
+        if (Number.isNaN(date.getTime()) || date.getFullYear() !== year ||
+          date.getMonth() !== month - 1 || date.getDate() !== day) {
+          return null;
+        }
+        return {
+          date
         };
+      }
 
-        function applySavedState(saved) {
-            if (!saved) {
-                return;
+      function to12Hour(value) {
+        const m = String(value).match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i);
+        if (!m) {
+          return null;
+        }
+        return `${Number(m[1])}:${m[2] || '00'} ${m[3].toUpperCase()}`;
+      }
+
+      function cleanTimeRange(value) {
+        const s = normalizeSpaces(value).replace(/[：]/g, ':').replace(
+          /\s*:\s*(?=\d{1,2}:\d{2})/g, ' - ');
+        const parts = [...s.matchAll(/\d{1,2}(?::\d{2})?\s*(?:am|pm)/ig)].map(
+          x => to12Hour(x[0])).filter(Boolean);
+        if (parts.length >= 2) {
+          return `${parts[0]} – ${parts[1]}`;
+        }
+        return s;
+      }
+
+      function findRoom(raw) {
+        return /\b(P[A-Z]{0,2})\s*[- ]?\s*(\d{3})\b/i.exec(String(raw ?? ''));
+      }
+
+      function parseSection(raw, roomMatch) {
+        const s = String(raw ?? '').replace(/[–—]/g, '-');
+        const cut = roomMatch ? roomMatch.index : s.length;
+        const before = s.slice(0, cut);
+        const matches = [...before.matchAll(
+          /[-]\s*(\d{1,2}\s*[Ll]?)\s*[-]\s*$/g)];
+        if (matches.length) {
+          return normalizeSpaces(matches[matches.length - 1][1]).replace(
+            /\s+/g, '').toUpperCase();
+        }
+        const fallback = [...before.matchAll(
+          /(?:^|\s[-/]\s*|[-])\s*(\d{1,2}[Ll]?)\s*$/g)];
+        if (fallback.length) {
+          const candidate = fallback[fallback.length - 1][1].replace(/\s/g,
+            '').toUpperCase();
+          if (/^\d{1,2}L?$/.test(candidate)) {
+            return candidate;
+          }
+        }
+        return '';
+      }
+
+      function parseRoomAndTeacher(raw, roomMatch) {
+        if (!roomMatch) {
+          return {
+            room: '',
+            instructor: ''
+          };
+        }
+        const text = String(raw ?? '');
+        const tail = text.slice(roomMatch.index);
+        const teacherSep = tail.match(
+          /\s*[-–]\s*([A-Za-z][A-Za-z0-9 .,&/()'+-]*?)\s*$/);
+        if (teacherSep) {
+          const sepIndex = tail.lastIndexOf(teacherSep[0]);
+          const room = normalizeSpaces(tail.slice(0, sepIndex).replace(
+            /[-–]+\s*$/, '')).trim();
+          const instructor = normalizeSpaces(teacherSep[1]).replace(/\s+$/,
+            '');
+          return {
+            room: room || `${roomMatch[1].toUpperCase()} ${roomMatch[2]}`,
+            instructor
+          };
+        }
+        const afterBase = tail.slice(roomMatch[0].length).trim();
+        const room = normalizeSpaces(
+          `${roomMatch[1].toUpperCase()} ${roomMatch[2]}${afterBase.startsWith('(') ? ' ' + afterBase.split(/\s[-–]\s/)[0] : ''}`
+          );
+        return {
+          room,
+          instructor: ''
+        };
+      }
+
+      function timeStartMinutes(value) {
+        const m = String(value || '').match(
+          /(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/i);
+        if (!m) {
+          return 9999;
+        }
+        let hours = Number(m[1]) % 12;
+        if (m[3].toUpperCase() === 'PM') {
+          hours += 12;
+        }
+        return hours * 60 + Number(m[2] || 0);
+      }
+
+      function parseTimeRange(text) {
+        const matches = [...String(text || '').matchAll(
+          /(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/ig)];
+        if (matches.length < 2) {
+          return null;
+        }
+        const toMinutes = m => {
+          let hours = Number(m[1]) % 12;
+          if (m[3].toUpperCase() === 'PM') {
+            hours += 12;
+          }
+          return hours * 60 + Number(m[2] || 0);
+        };
+        const start = toMinutes(matches[0]);
+        const end = toMinutes(matches[1]);
+        return end > start ? {
+          start,
+          end
+        } : null;
+      }
+
+      function sortEntries(entries) {
+        return entries.sort((a, b) => (a.date?.getTime() ?? 0) - (b.date
+            ?.getTime() ?? 0) || timeStartMinutes(a.time) -
+          timeStartMinutes(b.time) || a.col - b.col || a.rowNo - b.rowNo);
+      }
+
+      function buildWorkbookRows(sheet) {
+        const range = window.XLSX.utils.decode_range(sheet['!ref'] ||
+        'A1:E1');
+        const rows = [];
+        for (let r = range.s.r; r <= range.e.r; r++) {
+          const row = [];
+          for (let c = range.s.c; c <= range.e.c; c++) {
+            const cell = sheet[window.XLSX.utils.encode_cell({
+              r,
+              c
+            })];
+            let value = '';
+            if (cell) {
+              if (cell.w !== undefined && cell.w !== null) {
+                value = String(cell.w);
+              } else if (cell.v !== undefined && cell.v !== null) {
+                value = String(cell.v);
+              }
             }
+            row.push(value);
+          }
+          rows.push(row);
+        }
+        return {
+          rows,
+          startRow: range.s.r + 1
+        };
+      }
 
-            const savedView =
-                saved.currentView === 'list' ? 'cards' : saved.currentView;
-
-            if (VIEWS.includes(savedView)) {
-                state.view = savedView;
+      function parseWorkbook(rows, startRow = 1) {
+        const index = new Map();
+        const allEntries = [];
+        let activeDate = null;
+        let timeHeaders = [];
+        rows.forEach((row, localIndex) => {
+          const excelRow = startRow + localIndex;
+          const parsedDate = parseDateRow(row[0]);
+          if (parsedDate) {
+            activeDate = parsedDate;
+          }
+          if (isHeaderRow(row)) {
+            timeHeaders = row.map((value, i) => i === 0 ? 'Day / Time' :
+              cleanTimeRange(value));
+            return;
+          }
+          if (!activeDate) {
+            return;
+          }
+          for (let col = 1; col < row.length; col++) {
+            const raw = cleanText(row[col]);
+            if (!normalizeSpaces(raw)) {
+              continue;
             }
-
-            if (Array.isArray(saved.selected)) {
-                state.selected = [
-                    ...new Set(
-                        saved.selected
-                            .filter(c => typeof c === 'string')
-                            .map(normalizeCode)
-                    )
-                ];
+            const aliases = extractAliases(raw);
+            if (!aliases.length) {
+              continue;
             }
-
-            const sections =
-                saved.selectedSections &&
-                typeof saved.selectedSections === 'object'
-                    ? saved.selectedSections
-                    : {};
-
-            Object.keys(sections).forEach(code => {
-                if (typeof sections[code] === 'string') {
-                    state.selectedSections.set(normalizeCode(code), sections[code]);
-                }
+            const roomMatch = findRoom(raw);
+            const parsedRoom = parseRoomAndTeacher(raw, roomMatch);
+            const event = {
+              rowNo: excelRow,
+              col,
+              aliases,
+              section: parseSection(raw, roomMatch),
+              room: parsedRoom.room,
+              instructor: parsedRoom.instructor,
+              date: new Date(activeDate.date.getTime()),
+              time: timeHeaders[col] || ''
+            };
+            allEntries.push(event);
+            aliases.forEach(alias => {
+              if (!index.has(alias)) {
+                index.set(alias, []);
+              }
+              index.get(alias).push(event);
             });
+          }
+        });
+        for (const [code, entries] of index) {
+          index.set(code, sortEntries(entries));
         }
-
-        function validateSelection() {
-            state.selected = state.selected.filter(code => state.courses.has(code));
-
-            for (const [code, key] of [...state.selectedSections]) {
-                if (
-                    !state.selected.includes(code) ||
-                    !getSectionGroups(code).some(group => group.key === key)
-                ) {
-                    state.selectedSections.delete(code);
-                }
-            }
+        state.courses = index;
+        return {
+          courseCount: index.size,
+          entryCount: allEntries.length
+        };
+      }
+      const state = {
+        loaded: false,
+        courses: new Map(),
+        selected: [],
+        selectedSections: new Map(),
+        view: 'table',
+        picker: {
+          items: [],
+          active: -1,
+          checked: new Set()
         }
-
-        function saveState() {
-            if (!state.loaded) {
-                return;
-            }
-
-            Store.write({
-                selected: state.selected,
-                selectedSections: Object.fromEntries(state.selectedSections),
-                currentView: state.view
-            });
-        }
-
-        /* Course lookup and sections */
-        function matchCourse(code, q) {
-            const c = CourseCatalog.compact(code);
-            const ids = CourseCatalog.idsFor(code);
-            const idKeys = ids.map(CourseCatalog.compact);
-
-            const nameKey = CourseCatalog.nameFor(code)
-                .toLowerCase()
-                .replace(/[^a-z0-9]/g, '');
-
-            if (c === q) return { rank: 0, via: '' };
-            if (c.startsWith(q)) return { rank: 1, via: '' };
-
-            let i = idKeys.findIndex(key => key.startsWith(q));
-
-            if (i >= 0) return { rank: 2, via: ids[i] };
-            if (c.includes(q)) return { rank: 3, via: '' };
-
-            if (q.length >= 3) {
-                i = idKeys.findIndex(key => key.includes(q));
-
-                if (i >= 0) return { rank: 4, via: ids[i] };
-                if (nameKey.includes(q.toLowerCase())) return { rank: 5, via: '' };
-            }
-
+      };
+      const Store = {
+        read() {
+          try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            const saved = raw ? JSON.parse(raw) : null;
+            return saved && typeof saved === 'object' ? saved : null;
+          } catch (error) {
+            console.warn('Could not read saved exam finder state', error);
             return null;
+          }
+        },
+        write(payload) {
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+          } catch (error) {
+            console.warn('Could not save saved exam finder state', error);
+          }
         }
+      };
 
-        function pickerItems() {
-            const q = CourseCatalog.compact(els.search.value);
-            const codes = [...state.courses.keys()];
-
-            if (!q) {
-                return codes.sort(compareCodes).map(code => ({ code, via: '' }));
-            }
-
-            const hits = [];
-
-            codes.forEach(code => {
-                const hit = matchCourse(code, q);
-
-                if (hit) {
-                    hits.push({ code, rank: hit.rank, via: hit.via });
-                }
-            });
-
-            hits.sort((a, b) => a.rank - b.rank || compareCodes(a.code, b.code));
-
-            return hits;
+      function applySavedState(saved) {
+        if (!saved) {
+          return;
         }
-
-        function resolveTypedCode(raw) {
-            const q = CourseCatalog.compact(raw);
-
-            if (!q) {
-                return null;
-            }
-
-            for (const code of state.courses.keys()) {
-                if (CourseCatalog.compact(code) === q) {
-                    return code;
-                }
-            }
-
-            const viaId = CourseCatalog.codeForId(raw);
-
-            return viaId && state.courses.has(viaId) ? viaId : null;
+        const savedView = saved.currentView === 'list' ? 'cards' : saved
+          .currentView;
+        if (VIEWS.includes(savedView)) {
+          state.view = savedView;
         }
-
-        function sectionOrder(section) {
-            const m = String(section || '').match(/^(\d+)(L?)$/i);
-
-            return m
-                ? [parseInt(m[1], 10), m[2] ? 1 : 0]
-                : [9999, 0];
+        if (Array.isArray(saved.selected)) {
+          state.selected = [...new Set(saved.selected.filter(c => typeof c ===
+            'string').map(normalizeCode))];
         }
-
-        function getSectionGroups(code) {
-            const entries = state.courses.get(code) || [];
-            const groups = new Map();
-
-            entries.forEach(event => {
-                const key = event.section
-                    ? `section:${event.section}`
-                    : `unknown:${event.rowNo}:${event.col}`;
-
-                if (!groups.has(key)) {
-                    groups.set(key, {
-                        key,
-                        section: event.section,
-                        events: []
-                    });
-                }
-
-                groups.get(key).events.push(event);
-            });
-
-            const list = [...groups.values()];
-
-            list.forEach(group => sortEntries(group.events));
-
-            list.sort((a, b) => {
-                const [an, al] = sectionOrder(a.section);
-                const [bn, bl] = sectionOrder(b.section);
-
-                return (
-                    an - bn ||
-                    al - bl ||
-                    a.events[0].date - b.events[0].date ||
-                    a.key.localeCompare(b.key)
-                );
-            });
-
-            return list;
-        }
-
-        function enrichEvent(event, code, section) {
-            return {
-                ...event,
-                courseCode: code,
-                courseName: CourseCatalog.nameFor(code),
-                selectedSection: section ?? event.section
-            };
-        }
-
-        function getScheduleEvents() {
-            const output = [];
-
-            state.selected.forEach(code => {
-                const key = state.selectedSections.get(code);
-
-                if (!key) {
-                    return;
-                }
-
-                const group = getSectionGroups(code).find(item => item.key === key);
-
-                if (group) {
-                    group.events.forEach(event =>
-                        output.push(enrichEvent(event, code, group.section))
-                    );
-                }
-            });
-
-            return sortEntries(output);
-        }
-
-        const timeLabel = event => event.time || 'Time not stated';
-
-        function startTimeLabel(event) {
-            const m = String(event.time || '').match(/\d{1,2}(?::\d{2})?\s*(?:AM|PM)/i);
-
-            return m ? m[0] : '';
-        }
-
-        function metaParts(event) {
-            return [
-                `Section ${event.selectedSection || 'not listed'}`,
-                `Room ${event.room || 'not listed'}`,
-                `Teacher ${event.instructor || 'not listed'}`
-            ];
-        }
-
-        /* Google Calendar */
-        function formatGCalDate(date, minutes) {
-            const base = new Date(
-                Date.UTC(
-                    date.getFullYear(),
-                    date.getMonth(),
-                    date.getDate(),
-                    0,
-                    minutes,
-                    0
-                )
-            );
-
-            return `${base.getUTCFullYear()}${pad2(base.getUTCMonth() + 1)}${pad2(base.getUTCDate())}T${pad2(base.getUTCHours())}${pad2(base.getUTCMinutes())}00`;
-        }
-
-        function googleCalendarURL(event) {
-            const code = event.courseCode;
-            const times = parseTimeRange(event.time);
-
-            const title =
-                `${code}${event.courseName ? ' ' + event.courseName : ''} – Midterm Exam`;
-
-            const details = [
-                `Course: ${code}${event.courseName ? ' – ' + event.courseName : ''}`,
-                `Section: ${event.selectedSection || 'not listed'}`,
-                `Room: ${event.room || 'not listed'}`,
-                `Teacher / invigilator: ${event.instructor || 'not listed'}`,
-                times
-                    ? ''
-                    : `Time slot: ${event.time || 'not stated'} (could not be read reliably, so this is an all-day event)`,
-                'Added from YouRMS Exam Finder'
-            ]
-                .filter(Boolean)
-                .join('\n');
-
-            let dates;
-
-            if (times) {
-                dates =
-                    `${formatGCalDate(event.date, times.start)}/${formatGCalDate(event.date, times.end)}`;
-            } else {
-                const next = new Date(
-                    event.date.getFullYear(),
-                    event.date.getMonth(),
-                    event.date.getDate() + 1
-                );
-
-                const ymd = d =>
-                    `${d.getFullYear()}${pad2(d.getMonth() + 1)}${pad2(d.getDate())}`;
-
-                dates = `${ymd(event.date)}/${ymd(next)}`;
-            }
-
-            const params = new URLSearchParams({
-                action: 'TEMPLATE',
-                text: title,
-                dates,
-                details,
-                location: event.room || '',
-                ctz: TIME_ZONE
-            });
-
-            return `https://calendar.google.com/calendar/render?${params.toString()}`;
-        }
-
-        function calendarLink(event, { className = 'cal-link', text = true } = {}) {
-            const note = parseTimeRange(event.time)
-                ? ''
-                : ' (all-day: time not readable)';
-
-            return `<a class="${className}" href="${esc(googleCalendarURL(event))}" target="_blank" rel="noopener noreferrer" aria-label="Add ${esc(event.courseCode)} exam to Google Calendar" title="Add to Google Calendar${esc(note)}">${icon('calendar-plus')}${text ? '<span>Calendar</span>' : ''}</a>`;
-        }
-
-        /* DOM references and UI helpers */
-        const $ = id => document.getElementById(id);
-
-        const els = {
-            courseCount: $('courseCount'),
-            addRow: $('addRow'),
-            search: $('courseSearch'),
-            add: $('addBtn'),
-            picker: $('picker'),
-            pickerList: $('pickerList'),
-            pickerCount: $('pickerCount'),
-            pickerAll: $('pickerAll'),
-            pickerClear: $('pickerClear'),
-            courseList: $('courseList'),
-            schedulePanel: $('schedulePanel'),
-            download: $('downloadBtn'),
-            toast: $('toastStack')
-        };
-
-        function toast(message, kind = 'info') {
-            while (els.toast.children.length >= 3) {
-                els.toast.firstChild.remove();
-            }
-
-            const node = document.createElement('div');
-
-            node.className = `toast ${kind}`;
-            node.textContent = message;
-
-            els.toast.appendChild(node);
-
-            window.setTimeout(() => node.remove(), 3600);
-        }
-
-        /* Adding courses */
-        function optionHTML(item, index) {
-            const added = state.selected.includes(item.code);
-            const checked = added || state.picker.checked.has(item.code);
-            const name = CourseCatalog.nameFor(item.code);
-
-            return `<div class="opt${added ? ' is-added' : ''}" role="option" id="opt-${index}" data-code="${esc(item.code)}" aria-selected="${checked}"${added ? ' aria-disabled="true"' : ''}><span class="box">${icon('check')}</span><span class="code">${esc(item.code)}</span><span class="oname">${name ? esc(name) : '<span class="muted">Name not listed</span>'}${item.via ? `<small>ID ${esc(item.via)}</small>` : ''}</span>${added ? '<span class="tag">Added</span>' : ''}</div>`;
-        }
-
-        function openPicker() {
-            els.picker.hidden = false;
-            els.search.setAttribute('aria-expanded', 'true');
-        }
-
-        function closePicker() {
-            els.picker.hidden = true;
-            els.search.setAttribute('aria-expanded', 'false');
-            els.search.removeAttribute('aria-activedescendant');
-            state.picker.active = -1;
-        }
-
-        function renderPicker() {
-            const items = pickerItems();
-
-            state.picker.items = items;
-            state.picker.active = -1;
-
-            els.search.removeAttribute('aria-activedescendant');
-
-            els.pickerList.innerHTML = items.length
-                ? items.map(optionHTML).join('')
-                : '<div class="picker-empty">No matching course.</div>';
-
-            els.pickerList.scrollTop = 0;
-
-            openPicker();
-            updatePickerBar();
-        }
-
-        function updatePickerBar() {
-            const { items, checked } = state.picker;
-            const selectable = items.filter(item => !state.selected.includes(item.code));
-
-            els.pickerCount.textContent = checked.size
-                ? `${checked.size} selected`
-                : `${items.length} ${items.length === 1 ? 'course' : 'courses'}`;
-
-            els.pickerAll.disabled =
-                !selectable.length ||
-                selectable.every(item => checked.has(item.code));
-
-            els.pickerClear.disabled = checked.size === 0;
-
-            els.add.textContent = checked.size ? `Add ${checked.size}` : 'Add';
-        }
-
-        function findOption(code) {
-            return [...els.pickerList.children].find(
-                node => node.dataset.code === code
-            ) || null;
-        }
-
-        function toggleCode(code) {
-            if (state.selected.includes(code)) {
-                return;
-            }
-
-            const { checked } = state.picker;
-
-            if (checked.has(code)) {
-                checked.delete(code);
-            } else {
-                checked.add(code);
-            }
-
-            findOption(code)?.setAttribute(
-                'aria-selected',
-                String(checked.has(code))
-            );
-
-            updatePickerBar();
-        }
-
-        function setActiveOption(index) {
-            const options = [...els.pickerList.querySelectorAll('.opt')];
-
-            if (!options.length) {
-                return;
-            }
-
-            state.picker.active = (index + options.length) % options.length;
-
-            options.forEach((option, i) => {
-                const active = i === state.picker.active;
-
-                option.classList.toggle('active', active);
-
-                if (active) {
-                    els.search.setAttribute('aria-activedescendant', option.id);
-                    option.scrollIntoView({ block: 'nearest' });
-                }
-            });
-        }
-
-        function addCourses(codes) {
-            const added = [];
-            const duplicates = [];
-
-            codes.forEach(code => {
-                if (!state.courses.has(code)) {
-                    return;
-                }
-
-                if (state.selected.includes(code) || added.includes(code)) {
-                    duplicates.push(code);
-                } else {
-                    added.push(code);
-                }
-            });
-
-            if (added.length) {
-                state.selected.push(...added);
-                saveState();
-                renderCourseList();
-                renderSchedule();
-                highlightCourse(added[0]);
-            }
-
-            return { added, duplicates };
-        }
-
-        function commitAdd(extraCode) {
-            const codes = new Set(state.picker.checked);
-            const raw = els.search.value.trim();
-            const missing = [];
-
-            if (extraCode && !state.selected.includes(extraCode)) {
-                codes.add(extraCode);
-            }
-
-            if (!codes.size && raw) {
-                const parts = raw
-                    .split(/[,;\n]+/)
-                    .map(part => part.trim())
-                    .filter(Boolean);
-
-                parts.forEach(part => {
-                    let code = resolveTypedCode(part);
-
-                    if (!code && parts.length === 1) {
-                        const items = pickerItems();
-
-                        if (items.length === 1) {
-                            code = items[0].code;
-                        }
-                    }
-
-                    if (code) {
-                        codes.add(code);
-                    } else {
-                        missing.push(part);
-                    }
-                });
-            }
-
-            if (!codes.size) {
-                if (missing.length) {
-                    const partial =
-                        missing.length === 1 && pickerItems().length > 0;
-
-                    toast(
-                        partial
-                            ? 'Pick a course from the list.'
-                            : `Not in the schedule: ${missing.join(', ').toUpperCase()}.`,
-                        'error'
-                    );
-                }
-
-                renderPicker();
-                els.search.focus();
-
-                return;
-            }
-
-            const { added, duplicates } = addCourses([...codes]);
-
-            if (!added.length) {
-                toast('Already added.', 'error');
-                return;
-            }
-
-            state.picker.checked.clear();
-            els.search.value = '';
-
-            closePicker();
-            updatePickerBar();
-
-            const notes = [];
-
-            if (added.length > 1) {
-                notes.push(`Added ${added.length} courses`);
-            }
-
-            if (duplicates.length) {
-                notes.push(`${duplicates.length} already added`);
-            }
-
-            if (missing.length) {
-                notes.push(`not found: ${missing.join(', ').toUpperCase()}`);
-            }
-
-            if (notes.length) {
-                toast(notes.join(' · ') + '.');
-            }
-        }
-
-        function removeCourse(code) {
-            state.selected = state.selected.filter(item => item !== code);
+        const sections = saved.selectedSections && typeof saved
+          .selectedSections === 'object' ? saved.selectedSections : {};
+        Object.keys(sections).forEach(code => {
+          if (typeof sections[code] === 'string') {
+            state.selectedSections.set(normalizeCode(code), sections[
+              code]);
+          }
+        });
+      }
+
+      function validateSelection() {
+        state.selected = state.selected.filter(code => state.courses.has(
+          code));
+        for (const [code, key] of [...state.selectedSections]) {
+          if (!state.selected.includes(code) || !getSectionGroups(code).some(
+              group => group.key === key)) {
             state.selectedSections.delete(code);
-
-            saveState();
-            renderCourseList();
-            renderSchedule();
+          }
         }
+      }
 
-        /* Selected courses */
-        function sectionTitle(group) {
-            const first = group.events[0];
-
-            if (!first) {
-                return '';
-            }
-
-            const more =
-                group.events.length > 1
-                    ? ` (+${group.events.length - 1} more)`
-                    : '';
-
-            return `${fmtDateShort.format(first.date)}${first.time ? ' · ' + first.time : ''}${more}`;
+      function saveState() {
+        if (!state.loaded) {
+          return;
         }
+        Store.write({
+          selected: state.selected,
+          selectedSections: Object.fromEntries(state.selectedSections),
+          currentView: state.view
+        });
+      }
 
-        function renderExamLine(event) {
-            return `<p class="exam"><strong>${esc(fmtDateShort.format(event.date))}</strong><span>${esc(timeLabel(event))}</span><span class="soft">${event.room ? 'Room ' + esc(event.room) : 'Room not listed'}</span><span class="soft">${event.instructor ? esc(event.instructor) : 'Teacher not listed'}</span></p>`;
-        }
-
-        function renderCourse(code) {
-            const name = CourseCatalog.nameFor(code);
-            const groups = getSectionGroups(code);
-            const selectedKey = state.selectedSections.get(code) || '';
-            const group = groups.find(item => item.key === selectedKey);
-
-            return `<li class="course" data-code="${esc(code)}"><div class="c-head"><div class="c-title"><span class="code">${esc(code)}</span><span class="cname">${name ? esc(name) : 'Name not listed'}</span></div><button class="icon-btn" type="button" data-remove="${esc(code)}" aria-label="Remove ${esc(code)}" title="Remove">${icon('x')}</button></div><div class="sections" role="group" aria-label="Section for ${esc(code)}"><span class="lbl">Section</span>${groups.map(item => `<button class="chip" type="button" data-section-for="${esc(code)}" data-key="${esc(item.key)}" aria-pressed="${item.key === selectedKey}" title="${esc(sectionTitle(item))}">${esc(item.section || 'N/A')}</button>`).join('')}</div>${group ? group.events.map(renderExamLine).join('') : ''}</li>`;
-        }
-
-        function renderCourseList() {
-            els.courseCount.textContent = state.selected.length
-                ? `(${state.selected.length})`
-                : '';
-
-            els.courseList.innerHTML = state.selected.length
-                ? state.selected.map(renderCourse).join('')
-                : '<li class="empty">No courses added.</li>';
-        }
-
-        function findCourseItem(code) {
-            return [...els.courseList.children].find(
-                item => item.dataset.code === code
-            ) || null;
-        }
-
-        function updateCourseItem(code, focusKey) {
-            const item = findCourseItem(code);
-
-            if (!item) {
-                return;
-            }
-
-            item.outerHTML = renderCourse(code);
-
-            const next = findCourseItem(code);
-
-            if (next && focusKey) {
-                [...next.querySelectorAll('.chip')]
-                    .find(chip => chip.dataset.key === focusKey)
-                    ?.focus();
-            }
-        }
-
-        function highlightCourse(code) {
-            const item = findCourseItem(code);
-
-            if (!item) {
-                return;
-            }
-
-            item.classList.add('is-new');
-            item.scrollIntoView({ block: 'nearest' });
-
-            window.setTimeout(() => item.classList.remove('is-new'), 1500);
-        }
-
-        /* Schedule views */
-        function groupByDay(events) {
-            const groups = [];
-
-            events.forEach(event => {
-                const key = dateKey(event.date);
-                let group = groups[groups.length - 1];
-
-                if (!group || group.key !== key) {
-                    group = {
-                        key,
-                        date: event.date,
-                        events: []
-                    };
-
-                    groups.push(group);
-                }
-
-                group.events.push(event);
-            });
-
-            return groups;
-        }
-
-        function renderCards(events) {
-            return `<div class="cards">${events.map(event => `<article class="card"><div class="card-date"><strong>${esc(fmtDateShort.format(event.date))}</strong><span class="muted">${esc(event.date.getFullYear())}</span></div><p class="card-time">${esc(timeLabel(event))}</p><p class="card-course"><span class="code">${esc(event.courseCode)}</span>${event.courseName ? ` <span class="cname">${esc(event.courseName)}</span>` : ''}</p><div class="card-meta">${metaParts(event).map(part => `<div>${esc(part)}</div>`).join('')}</div><div class="card-foot">${calendarLink(event)}</div></article>`).join('')}</div>`;
-        }
-
-        /*
-         * Responsive table rendering.
-         * data-label attributes supply mobile labels. The same exam
-         * information, ordering, and calendar action are preserved.
-         */
-        function renderTable(events) {
-            const missing = '<span class="muted">Not listed</span>';
-
-            return `<div class="table-wrap" tabindex="0" role="region" aria-label="Exam schedule table"><table><thead><tr><th scope="col">Date</th><th scope="col">Time</th><th scope="col">Course</th><th scope="col">Section</th><th scope="col">Room</th><th scope="col">Teacher</th><th scope="col"><span class="sr-only">Add to calendar</span></th></tr></thead><tbody>${events.map(event => `<tr><td class="nowrap" data-label="Date">${esc(fmtDateCompact.format(event.date))}</td><td class="nowrap" data-label="Time">${esc(timeLabel(event))}</td><td data-label="Course"><span class="code">${esc(event.courseCode)}</span>${event.courseName ? `<span class="cname">${esc(event.courseName)}</span>` : ''}</td><td data-label="Section">${event.selectedSection ? esc(event.selectedSection) : missing}</td><td class="nowrap" data-label="Room">${event.room ? esc(event.room) : missing}</td><td data-label="Teacher">${event.instructor ? esc(event.instructor) : missing}</td><td data-label="Calendar">${calendarLink(event, { text: false })}</td></tr>`).join('')}</tbody></table></div>`;
-        }
-
-        function buildCalendarWeeks(events) {
-            const first = events[0].date;
-            const last = events[events.length - 1].date;
-
-            const start = new Date(
-                first.getFullYear(),
-                first.getMonth(),
-                first.getDate() - first.getDay()
-            );
-
-            const end = new Date(
-                last.getFullYear(),
-                last.getMonth(),
-                last.getDate() + (6 - last.getDay())
-            );
-
-            const total = Math.round((end - start) / 86400000) + 1;
-            const byDay = new Map();
-
-            events.forEach(event => {
-                const key = dateKey(event.date);
-
-                if (!byDay.has(key)) {
-                    byDay.set(key, []);
-                }
-
-                byDay.get(key).push(event);
-            });
-
-            const firstKey = dateKey(first);
-            const lastKey = dateKey(last);
-            const weeks = [];
-
-            for (let i = 0; i < total; i++) {
-                const date = new Date(
-                    start.getFullYear(),
-                    start.getMonth(),
-                    start.getDate() + i
-                );
-
-                const key = dateKey(date);
-
-                if (i % 7 === 0) {
-                    weeks.push([]);
-                }
-
-                weeks[weeks.length - 1].push({
-                    date,
-                    key,
-                    events: byDay.get(key) || [],
-                    extra: key < firstKey || key > lastKey
-                });
-            }
-
-            return weeks;
-        }
-
-        function renderCalendar(events) {
-            const todayKey = dateKey(new Date());
-
-            const cells = buildCalendarWeeks(events)
-                .flat()
-                .map((cell, index) => {
-                    const withMonth =
-                        index === 0 || cell.date.getDate() === 1;
-
-                    const label = withMonth
-                        ? `${cell.date.getDate()} ${fmtMonthShort.format(cell.date)}`
-                        : String(cell.date.getDate());
-
-                    return `<div class="cal-day${cell.extra ? ' extra' : ''}${cell.key === todayKey ? ' today' : ''}"><div class="d${withMonth ? ' first' : ''}">${esc(label)}</div>${cell.events.map(event => `<div class="ev"><div class="ev-top"><span title="${esc(timeLabel(event))}">${esc(startTimeLabel(event) || 'No time')}</span>${calendarLink(event, { className: 'ev-cal', text: false })}</div><div class="ev-code">${esc(event.courseCode)}${event.selectedSection ? ` · ${esc(event.selectedSection)}` : ''}</div>${event.room ? `<div class="ev-room">${esc(event.room)}</div>` : ''}</div>`).join('')}</div>`;
-                })
-                .join('');
-
-            return `<div class="cal"><div class="cal-wd">${WEEKDAY_LABELS.map(day => `<div>${day}</div>`).join('')}</div><div class="cal-grid">${cells}</div></div>`;
-        }
-
-        function updateViewButtons() {
-            document.querySelectorAll('[data-view]').forEach(button => {
-                button.setAttribute(
-                    'aria-pressed',
-                    String(button.dataset.view === state.view)
-                );
-            });
-        }
-
-        function renderSchedule() {
-            updateViewButtons();
-
-            const panel = els.schedulePanel;
-
-            if (!state.loaded) {
-                return;
-            }
-
-            const events = state.selected.length
-                ? getScheduleEvents()
-                : [];
-
-            els.download.disabled = !events.length;
-
-            if (!state.selected.length) {
-                panel.innerHTML =
-                    '<p class="note">Add a course to see its exam schedule.</p>';
-                return;
-            }
-
-            if (!events.length) {
-                panel.innerHTML =
-                    '<p class="note">Choose a section to see its exams.</p>';
-                return;
-            }
-
-            if (state.view === 'table') {
-                panel.innerHTML = renderTable(events);
-            } else if (state.view === 'calendar') {
-                panel.innerHTML = renderCalendar(events);
-            } else {
-                panel.innerHTML = renderCards(events);
-            }
-        }
-
-        function setView(view) {
-            if (!VIEWS.includes(view) || view === state.view) {
-                return;
-            }
-
-            state.view = view;
-            saveState();
-            renderSchedule();
-        }
-
-        /* Download current view as a PNG, without calendar buttons */
-        const IMG_FONT =
-            '"Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif';
-
-        const IMG_SERIF =
-            '"Iowan Old Style", "Palatino Linotype", Palatino, Charter, Georgia, serif';
-
-        const IMG = {
-            paper: '#f7f4ee',
-            raised: '#fffdf9',
-            ink: '#1d1a16',
-            soft: '#6b6458',
-            line: '#e6e0d2',
-            lineStrong: '#d7cfba',
-            accent: '#b14323',
-            accentSoft: '#f3e3d6',
-            blueInk: '#20558f',
-            head: '#e6e0d2',
-            extra: '#f2eee5',
-            extraText: '#9a9385'
+      function matchCourse(code, q) {
+        const c = CourseCatalog.compact(code);
+        const ids = CourseCatalog.idsFor(code);
+        const idKeys = ids.map(CourseCatalog.compact);
+        const nameKey = CourseCatalog.nameFor(code).toLowerCase().replace(
+          /[^a-z0-9]/g, '');
+        if (c === q) return {
+          rank: 0,
+          via: ''
         };
-
-        function setFont(ctx, size, weight = 400, serif = false) {
-            ctx.font = `${weight} ${size}px ${serif ? IMG_SERIF : IMG_FONT}`;
+        if (c.startsWith(q)) return {
+          rank: 1,
+          via: ''
+        };
+        let i = idKeys.findIndex(key => key.startsWith(q));
+        if (i >= 0) return {
+          rank: 2,
+          via: ids[i]
+        };
+        if (c.includes(q)) return {
+          rank: 3,
+          via: ''
+        };
+        if (q.length >= 3) {
+          i = idKeys.findIndex(key => key.includes(q));
+          if (i >= 0) return {
+            rank: 4,
+            via: ids[i]
+          };
+          if (nameKey.includes(q.toLowerCase())) return {
+            rank: 5,
+            via: ''
+          };
         }
+        return null;
+      }
 
-        function wrapLines(ctx, text, maxWidth) {
-            const words = String(text ?? '').split(/\s+/).filter(Boolean);
-            const lines = [];
-            let line = '';
-
-            words.forEach(word => {
-                const test = line ? `${line} ${word}` : word;
-
-                if (!line || ctx.measureText(test).width <= maxWidth) {
-                    line = test;
-                } else {
-                    lines.push(line);
-                    line = word;
-                }
+      function pickerItems() {
+        const q = CourseCatalog.compact(els.search.value);
+        const codes = [...state.courses.keys()];
+        if (!q) {
+          return codes.sort(compareCodes).map(code => ({
+            code,
+            via: ''
+          }));
+        }
+        const hits = [];
+        codes.forEach(code => {
+          const hit = matchCourse(code, q);
+          if (hit) {
+            hits.push({
+              code,
+              rank: hit.rank,
+              via: hit.via
             });
+          }
+        });
+        hits.sort((a, b) => a.rank - b.rank || compareCodes(a.code, b.code));
+        return hits;
+      }
 
-            if (line) {
-                lines.push(line);
-            }
-
-            return lines.length ? lines : [''];
+      function resolveTypedCode(raw) {
+        const q = CourseCatalog.compact(raw);
+        if (!q) {
+          return null;
         }
-
-        function fitText(ctx, text, maxWidth) {
-            let value = String(text ?? '');
-
-            if (ctx.measureText(value).width <= maxWidth) {
-                return value;
-            }
-
-            while (
-                value.length > 1 &&
-                ctx.measureText(value + '…').width > maxWidth
-            ) {
-                value = value.slice(0, -1);
-            }
-
-            return value + '…';
+        for (const code of state.courses.keys()) {
+          if (CourseCatalog.compact(code) === q) {
+            return code;
+          }
         }
+        const viaId = CourseCatalog.codeForId(raw);
+        return viaId && state.courses.has(viaId) ? viaId : null;
+      }
 
-        function hLine(ctx, x1, x2, y, color) {
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(x1, y + 0.5);
-            ctx.lineTo(x2, y + 0.5);
-            ctx.stroke();
-        }
+      function sectionOrder(section) {
+        const m = String(section || '').match(/^(\d+)(L?)$/i);
+        return m ? [parseInt(m[1], 10), m[2] ? 1 : 0] : [9999, 0];
+      }
 
-        function vLine(ctx, x, y1, y2, color) {
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(x + 0.5, y1);
-            ctx.lineTo(x + 0.5, y2);
-            ctx.stroke();
-        }
-
-        function renderToCanvas(width, draw) {
-            const height = Math.ceil(
-                draw(document.createElement('canvas').getContext('2d'))
-            );
-
-            const scale = 2;
-            const canvas = document.createElement('canvas');
-
-            canvas.width = width * scale;
-            canvas.height = height * scale;
-
-            const ctx = canvas.getContext('2d');
-
-            ctx.scale(scale, scale);
-            ctx.fillStyle = IMG.paper;
-            ctx.fillRect(0, 0, width, height);
-            ctx.textBaseline = 'alphabetic';
-
-            draw(ctx);
-
-            return canvas;
-        }
-
-        function drawImageHeader(ctx, events, width, pad) {
-            ctx.textBaseline = 'alphabetic';
-
-            setFont(ctx, 14, 600, true);
-            ctx.fillStyle = IMG.blueInk;
-            ctx.fillText('YouRMS Exam Finder', pad, pad + 10);
-
-            setFont(ctx, 26, 600, true);
-            ctx.fillStyle = IMG.blueInk;
-            ctx.fillText('Exam Schedule', pad, pad + 42);
-
-            setFont(ctx, 13);
-            ctx.fillStyle = IMG.soft;
-            ctx.fillText(
-                'This routine is generated by YouRMS Exam Finder.',
-                pad,
-                pad + 62
-            );
-
-            setFont(ctx, 12);
-            ctx.fillStyle = IMG.blueInk;
-            ctx.fillText(
-                'Use it online: https://yourms.github.io/exam',
-                pad,
-                pad + 80
-            );
-
-            return pad + 100;
-        }
-
-        function drawCardsImage(ctx, events, width) {
-            const pad = 32;
-            const gap = 14;
-            const cols = 3;
-            const cardW = (width - pad * 2 - gap * (cols - 1)) / cols;
-            const inner = cardW - 28;
-
-            let y = drawImageHeader(ctx, events, width, pad);
-
-            const measured = events.map(event => {
-                setFont(ctx, 14, 600);
-
-                const course = wrapLines(
-                    ctx,
-                    `${event.courseCode}${event.courseName ? '  ' + event.courseName : ''}`,
-                    inner
-                );
-
-                setFont(ctx, 13);
-
-                const meta = metaParts(event).flatMap(part =>
-                    wrapLines(ctx, part, inner)
-                );
-
-                return {
-                    event,
-                    course,
-                    meta,
-                    height:
-                        14 + 22 + 12 + 20 +
-                        course.length * 19 + 6 +
-                        meta.length * 17 + 14
-                };
+      function getSectionGroups(code) {
+        const entries = state.courses.get(code) || [];
+        const groups = new Map();
+        entries.forEach(event => {
+          const key = event.section ? `section:${event.section}` :
+            `unknown:${event.rowNo}:${event.col}`;
+          if (!groups.has(key)) {
+            groups.set(key, {
+              key,
+              section: event.section,
+              events: []
             });
+          }
+          groups.get(key).events.push(event);
+        });
+        const list = [...groups.values()];
+        list.forEach(group => sortEntries(group.events));
+        list.sort((a, b) => {
+          const [an, al] = sectionOrder(a.section);
+          const [bn, bl] = sectionOrder(b.section);
+          return an - bn || al - bl || a.events[0].date - b.events[0]
+            .date || a.key.localeCompare(b.key);
+        });
+        return list;
+      }
 
-            for (let i = 0; i < measured.length; i += cols) {
-                const row = measured.slice(i, i + cols);
-                const rowH = Math.max(...row.map(card => card.height));
+      function enrichEvent(event, code, section) {
+        return {
+          ...event,
+          courseCode: code,
+          courseName: CourseCatalog.nameFor(code),
+          selectedSection: section ?? event.section
+        };
+      }
 
-                row.forEach((card, c) => {
-                    const x = pad + c * (cardW + gap);
+      function getScheduleEvents() {
+        const output = [];
+        state.selected.forEach(code => {
+          const key = state.selectedSections.get(code);
+          if (!key) {
+            return;
+          }
+          const group = getSectionGroups(code).find(item => item.key ===
+            key);
+          if (group) {
+            group.events.forEach(event => output.push(enrichEvent(event,
+              code, group.section)));
+          }
+        });
+        return sortEntries(output);
+      }
+      const timeLabel = event => event.time || 'Time not stated';
 
-                    ctx.fillStyle = IMG.raised;
-                    ctx.fillRect(x, y, cardW, rowH);
+      function startTimeLabel(event) {
+        const m = String(event.time || '').match(
+          /\d{1,2}(?::\d{2})?\s*(?:AM|PM)/i);
+        return m ? m[0] : '';
+      }
 
-                    ctx.strokeStyle = IMG.lineStrong;
-                    ctx.lineWidth = 1;
-                    ctx.strokeRect(x + 0.5, y + 0.5, cardW - 1, rowH - 1);
+      function metaParts(event) {
+        return [`Section ${event.selectedSection || 'not listed'}`,
+          `Room ${event.room || 'not listed'}`,
+          `Teacher ${event.instructor || 'not listed'}`
+        ];
+      }
 
-                    setFont(ctx, 17, 600, true);
-                    ctx.fillStyle = IMG.ink;
-                    ctx.fillText(
-                        fmtDateShort.format(card.event.date),
-                        x + 14,
-                        y + 30
-                    );
+      function formatGCalDate(date, minutes) {
+        const base = new Date(Date.UTC(date.getFullYear(), date.getMonth(),
+          date.getDate(), 0, minutes, 0));
+        return `${base.getUTCFullYear()}${pad2(base.getUTCMonth() + 1)}${pad2(base.getUTCDate())}T${pad2(base.getUTCHours())}${pad2(base.getUTCMinutes())}00`;
+      }
 
-                    setFont(ctx, 13);
-                    ctx.fillStyle = IMG.soft;
+      function googleCalendarURL(event) {
+        const code = event.courseCode;
+        const times = parseTimeRange(event.time);
+        const title =
+          `${code}${event.courseName ? ' ' + event.courseName : ''} – Midterm Exam`;
+        const details = [
+          `Course: ${code}${event.courseName ? ' – ' + event.courseName : ''}`,
+          `Section: ${event.selectedSection || 'not listed'}`,
+          `Room: ${event.room || 'not listed'}`,
+          `Teacher / invigilator: ${event.instructor || 'not listed'}`,
+          times ? '' :
+          `Time slot: ${event.time || 'not stated'} (could not be read reliably, so this is an all-day event)`,
+          'Added from YouRMS Exam Finder'
+        ].filter(Boolean).join('\n');
+        let dates;
+        if (times) {
+          dates =
+            `${formatGCalDate(event.date, times.start)}/${formatGCalDate(event.date, times.end)}`;
+        } else {
+          const next = new Date(event.date.getFullYear(), event.date
+          .getMonth(), event.date.getDate() + 1);
+          const ymd = d =>
+            `${d.getFullYear()}${pad2(d.getMonth() + 1)}${pad2(d.getDate())}`;
+          dates = `${ymd(event.date)}/${ymd(next)}`;
+        }
+        const params = new URLSearchParams({
+          action: 'TEMPLATE',
+          text: title,
+          dates,
+          details,
+          location: event.room || '',
+          ctz: TIME_ZONE
+        });
+        return `https://calendar.google.com/calendar/render?${params.toString()}`;
+      }
 
-                    const yr = String(card.event.date.getFullYear());
+      function calendarLink(event, {
+        className = 'cal-link',
+        text = true
+      } = {}) {
+        const note = parseTimeRange(event.time) ? '' :
+          ' (all-day: time not readable)';
+        return `<a class="${className}" href="${esc(googleCalendarURL(event))}" target="_blank" rel="noopener noreferrer" aria-label="Add ${esc(event.courseCode)} exam to Google Calendar" title="Add to Google Calendar${esc(note)}">${icon('calendar-plus')}${text ? '<span>Calendar</span>' : ''}</a>`;
+      }
+      const $ = id => document.getElementById(id);
+      const els = {
+        courseCount: $('courseCount'),
+        addRow: $('addRow'),
+        search: $('courseSearch'),
+        add: $('addBtn'),
+        picker: $('picker'),
+        pickerList: $('pickerList'),
+        pickerCount: $('pickerCount'),
+        pickerAll: $('pickerAll'),
+        pickerClear: $('pickerClear'),
+        courseList: $('courseList'),
+        schedulePanel: $('schedulePanel'),
+        download: $('downloadBtn'),
+        toast: $('toastStack')
+      };
 
-                    ctx.fillText(
-                        yr,
-                        x + cardW - 14 - ctx.measureText(yr).width,
-                        y + 30
-                    );
+      function toast(message, kind = 'info') {
+        while (els.toast.children.length >= 3) {
+          els.toast.firstChild.remove();
+        }
+        const node = document.createElement('div');
+        node.className = `toast ${kind}`;
+        node.textContent = message;
+        els.toast.appendChild(node);
+        window.setTimeout(() => node.remove(), 3600);
+      }
 
-                    hLine(ctx, x + 14, x + cardW - 14, y + 40, IMG.line);
+      function optionHTML(item, index) {
+        const added = state.selected.includes(item.code);
+        const checked = added || state.picker.checked.has(item.code);
+        const name = CourseCatalog.nameFor(item.code);
+        return `<div class="opt${added ? ' is-added' : ''}" role="option" id="opt-${index}" data-code="${esc(item.code)}" aria-selected="${checked}"${added ? ' aria-disabled="true"' : ''}><span class="box">${icon('check')}</span><span class="code">${esc(item.code)}</span><span class="oname">${name ? esc(name) : '<span class="muted">Name not listed</span>'}${item.via ? `<small>ID ${esc(item.via)}</small>` : ''}</span>${added ? '<span class="tag">Added</span>' : ''}</div>`;
+      }
 
-                    setFont(ctx, 14);
-                    ctx.fillStyle = IMG.ink;
-                    ctx.fillText(timeLabel(card.event), x + 14, y + 62);
+      function openPicker() {
+        els.picker.hidden = false;
+        els.search.setAttribute('aria-expanded', 'true');
+      }
 
-                    let ty = y + 62;
+      function closePicker() {
+        els.picker.hidden = true;
+        els.search.setAttribute('aria-expanded', 'false');
+        els.search.removeAttribute('aria-activedescendant');
+        state.picker.active = -1;
+      }
 
-                    card.course.forEach((line, l) => {
-                        ty += 19;
+      function renderPicker() {
+        const items = pickerItems();
+        state.picker.items = items;
+        state.picker.active = -1;
+        els.search.removeAttribute('aria-activedescendant');
+        els.pickerList.innerHTML = items.length ? items.map(optionHTML).join(
+          '') : '<div class="picker-empty">No matching course.</div>';
+        els.pickerList.scrollTop = 0;
+        openPicker();
+        updatePickerBar();
+      }
 
-                        setFont(ctx, 14, l === 0 ? 600 : 400);
-                        ctx.fillStyle = IMG.ink;
-                        ctx.fillText(line, x + 14, ty);
-                    });
+      function updatePickerBar() {
+        const {
+          items,
+          checked
+        } = state.picker;
+        const selectable = items.filter(item => !state.selected.includes(item
+          .code));
+        els.pickerCount.textContent = checked.size ?
+          `${checked.size} selected` :
+          `${items.length} ${items.length === 1 ? 'course' : 'courses'}`;
+        els.pickerAll.disabled = !selectable.length || selectable.every(
+          item => checked.has(item.code));
+        els.pickerClear.disabled = checked.size === 0;
+        els.add.textContent = checked.size ? `Add ${checked.size}` : 'Add';
+      }
 
-                    ty += 6;
+      function findOption(code) {
+        return [...els.pickerList.children].find(node => node.dataset.code ===
+          code) || null;
+      }
 
-                    setFont(ctx, 13);
-                    ctx.fillStyle = IMG.soft;
+      function toggleCode(code) {
+        if (state.selected.includes(code)) {
+          return;
+        }
+        const {
+          checked
+        } = state.picker;
+        if (checked.has(code)) {
+          checked.delete(code);
+        } else {
+          checked.add(code);
+        }
+        findOption(code)?.setAttribute('aria-selected', String(checked.has(
+          code)));
+        updatePickerBar();
+      }
 
-                    card.meta.forEach(line => {
-                        ty += 17;
-                        ctx.fillText(line, x + 14, ty);
-                    });
-                });
+      function setActiveOption(index) {
+        const options = [...els.pickerList.querySelectorAll('.opt')];
+        if (!options.length) {
+          return;
+        }
+        state.picker.active = (index + options.length) % options.length;
+        options.forEach((option, i) => {
+          const active = i === state.picker.active;
+          option.classList.toggle('active', active);
+          if (active) {
+            els.search.setAttribute('aria-activedescendant', option.id);
+            option.scrollIntoView({
+              block: 'nearest'
+            });
+          }
+        });
+      }
 
-                y += rowH + gap;
+      function addCourses(codes) {
+        const added = [];
+        const duplicates = [];
+        codes.forEach(code => {
+          if (!state.courses.has(code)) {
+            return;
+          }
+          if (state.selected.includes(code) || added.includes(code)) {
+            duplicates.push(code);
+          } else {
+            added.push(code);
+          }
+        });
+        if (added.length) {
+          state.selected.push(...added);
+          saveState();
+          renderCourseList();
+          renderSchedule();
+          highlightCourse(added[0]);
+        }
+        return {
+          added,
+          duplicates
+        };
+      }
+
+      function commitAdd(extraCode) {
+        const codes = new Set(state.picker.checked);
+        const raw = els.search.value.trim();
+        const missing = [];
+        if (extraCode && !state.selected.includes(extraCode)) {
+          codes.add(extraCode);
+        }
+        if (!codes.size && raw) {
+          const parts = raw.split(/[,;\n]+/).map(part => part.trim()).filter(
+            Boolean);
+          parts.forEach(part => {
+            let code = resolveTypedCode(part);
+            if (!code && parts.length === 1) {
+              const items = pickerItems();
+              if (items.length === 1) {
+                code = items[0].code;
+              }
             }
-
-            return y - gap + pad;
+            if (code) {
+              codes.add(code);
+            } else {
+              missing.push(part);
+            }
+          });
         }
-
-        function drawTableImage(ctx, events, width) {
-            const pad = 32;
-            const fixed = [130, 150, 250, 64, 100];
-
-            const widths = [
-                ...fixed,
-                width - pad * 2 - fixed.reduce((a, b) => a + b, 0)
-            ];
-
-            const heads = ['Date', 'Time', 'Course', 'Section', 'Room', 'Teacher'];
-
-            let y = drawImageHeader(ctx, events, width, pad) + 4;
-
-            const xs = widths.reduce((list, w, i) => {
-                list.push(i ? list[i - 1] + widths[i - 1] : pad);
-                return list;
-            }, []);
-
-            setFont(ctx, 12, 600);
-            ctx.fillStyle = IMG.soft;
-
-            heads.forEach((head, i) => {
-                ctx.fillText(head, xs[i] + 8, y + 18);
-            });
-
-            y += 28;
-
-            hLine(ctx, pad, width - pad, y, IMG.lineStrong);
-
-            events.forEach((event, index) => {
-                setFont(ctx, 13);
-
-                const cells = [
-                    wrapLines(ctx, fmtDateCompact.format(event.date), widths[0] - 16),
-                    wrapLines(ctx, timeLabel(event), widths[1] - 16),
-                    [
-                        event.courseCode,
-                        ...(event.courseName
-                            ? wrapLines(ctx, event.courseName, widths[2] - 16)
-                            : [])
-                    ],
-                    [event.selectedSection || 'Not listed'],
-                    wrapLines(ctx, event.room || 'Not listed', widths[4] - 16),
-                    wrapLines(ctx, event.instructor || 'Not listed', widths[5] - 16)
-                ];
-
-                const lines = Math.max(...cells.map(cell => cell.length));
-                const rowHeight = lines * 18 + 18;
-
-                cells.forEach((cell, c) => {
-                    cell.forEach((line, l) => {
-                        const isCode = c === 2 && l === 0;
-
-                        setFont(ctx, 13, isCode ? 600 : 400);
-
-                        ctx.fillStyle =
-                            isCode || c < 2
-                                ? IMG.ink
-                                : c === 2
-                                    ? IMG.soft
-                                    : IMG.ink;
-
-                        ctx.fillText(line, xs[c] + 8, y + 22 + l * 18);
-                    });
-                });
-
-                y += rowHeight;
-
-                if (index < events.length - 1) {
-                    hLine(ctx, pad, width - pad, y, IMG.line);
-                }
-            });
-
-            return y + pad;
+        if (!codes.size) {
+          if (missing.length) {
+            const partial = missing.length === 1 && pickerItems().length > 0;
+            toast(partial ? 'Pick a course from the list.' :
+              `Not in the schedule: ${missing.join(', ').toUpperCase()}.`,
+              'error');
+          }
+          renderPicker();
+          els.search.focus();
+          return;
         }
+        const {
+          added,
+          duplicates
+        } = addCourses([...codes]);
+        if (!added.length) {
+          toast('Already added.', 'error');
+          return;
+        }
+        state.picker.checked.clear();
+        els.search.value = '';
+        closePicker();
+        updatePickerBar();
+        const notes = [];
+        if (added.length > 1) {
+          notes.push(`Added ${added.length} courses`);
+        }
+        if (duplicates.length) {
+          notes.push(`${duplicates.length} already added`);
+        }
+        if (missing.length) {
+          notes.push(`not found: ${missing.join(', ').toUpperCase()}`);
+        }
+        if (notes.length) {
+          toast(notes.join(' · ') + '.');
+        }
+      }
 
-        function drawCalendarImage(ctx, events, width) {
-            const pad = 32;
-            const weeks = buildCalendarWeeks(events);
-            const colW = (width - pad * 2) / 7;
-            const innerW = colW - 8 - 14;
+      function removeCourse(code) {
+        state.selected = state.selected.filter(item => item !== code);
+        state.selectedSections.delete(code);
+        saveState();
+        renderCourseList();
+        renderSchedule();
+      }
 
-            const blockFor = event => {
-                setFont(ctx, 12, 600);
+      function sectionTitle(group) {
+        const first = group.events[0];
+        if (!first) {
+          return '';
+        }
+        const more = group.events.length > 1 ?
+          ` (+${group.events.length - 1} more)` : '';
+        return `${fmtDateShort.format(first.date)}${first.time ? ' · ' + first.time : ''}${more}`;
+      }
 
-                const codeLines = wrapLines(
-                    ctx,
-                    `${event.courseCode}${event.selectedSection ? ' · ' + event.selectedSection : ''}`,
-                    innerW
-                );
+      function renderExamLine(event) {
+        return `<p class="exam"><strong>${esc(fmtDateShort.format(event.date))}</strong><span>${esc(timeLabel(event))}</span><span class="soft">${event.room ? 'Room ' + esc(event.room) : 'Room not listed'}</span><span class="soft">${event.instructor ? esc(event.instructor) : 'Teacher not listed'}</span></p>`;
+      }
 
-                setFont(ctx, 11);
+      function renderCourse(code) {
+        const name = CourseCatalog.nameFor(code);
+        const groups = getSectionGroups(code);
+        const selectedKey = state.selectedSections.get(code) || '';
+        const group = groups.find(item => item.key === selectedKey);
+        return `<li class="course" data-code="${esc(code)}"><div class="c-head"><div class="c-title"><span class="code">${esc(code)}</span><span class="cname">${name ? esc(name) : 'Name not listed'}</span></div><button class="icon-btn" type="button" data-remove="${esc(code)}" aria-label="Remove ${esc(code)}" title="Remove">${icon('x')}</button></div><div class="sections" role="group" aria-label="Section for ${esc(code)}"><span class="lbl">Section</span>${groups.map(item => `<button class="chip" type="button" data-section-for="${esc(code)}" data-key="${esc(item.key)}" aria-pressed="${item.key === selectedKey}" title="${esc(sectionTitle(item))}">${esc(item.section || 'N/A')}</button>`).join('')}</div>${group ? group.events.map(renderExamLine).join('') : ''}</li>`;
+      }
 
-                const roomLines = event.room
-                    ? wrapLines(ctx, event.room, innerW)
-                    : [];
+      function renderCourseList() {
+        els.courseCount.textContent = state.selected.length ?
+          `(${state.selected.length})` : '';
+        els.courseList.innerHTML = state.selected.length ? state.selected.map(
+            renderCourse).join('') :
+          '<li class="empty">No courses added.</li>';
+      }
 
-                return {
-                    event,
-                    codeLines,
-                    roomLines,
-                    height: 8 + 14 + codeLines.length * 15 + roomLines.length * 14
-                };
+      function findCourseItem(code) {
+        return [...els.courseList.children].find(item => item.dataset.code ===
+          code) || null;
+      }
+
+      function updateCourseItem(code, focusKey) {
+        const item = findCourseItem(code);
+        if (!item) {
+          return;
+        }
+        item.outerHTML = renderCourse(code);
+        const next = findCourseItem(code);
+        if (next && focusKey) {
+          [...next.querySelectorAll('.chip')].find(chip => chip.dataset
+            .key === focusKey)?.focus();
+        }
+      }
+
+      function highlightCourse(code) {
+        const item = findCourseItem(code);
+        if (!item) {
+          return;
+        }
+        item.classList.add('is-new');
+        item.scrollIntoView({
+          block: 'nearest'
+        });
+        window.setTimeout(() => item.classList.remove('is-new'), 1500);
+      }
+
+      function groupByDay(events) {
+        const groups = [];
+        events.forEach(event => {
+          const key = dateKey(event.date);
+          let group = groups[groups.length - 1];
+          if (!group || group.key !== key) {
+            group = {
+              key,
+              date: event.date,
+              events: []
             };
+            groups.push(group);
+          }
+          group.events.push(event);
+        });
+        return groups;
+      }
 
-            let y = drawImageHeader(ctx, events, width, pad);
-            const gridTop = y;
+      function renderCards(events) {
+        return `<div class="cards">${events.map(event => `<article class="card"><div class="card-date"><strong>${esc(fmtDateShort.format(event.date))}</strong><span class="muted">${esc(event.date.getFullYear())}</span></div><p class="card-time">${esc(timeLabel(event))}</p><p class="card-course"><span class="code">${esc(event.courseCode)}</span>${event.courseName ? ` <span class="cname">${esc(event.courseName)}</span>` : ''}</p><div class="card-meta">${metaParts(event).map(part => `<div>${esc(part)}</div>`).join('')}</div><div class="card-foot">${calendarLink(event)}</div></article>`).join('')}</div>`;
+      }
 
-            ctx.fillStyle = IMG.head;
-            ctx.fillRect(pad, y, width - pad * 2, 28);
+      function renderTable(events) {
+        const missing = '<span class="muted">Not listed</span>';
+        return `<div class="table-wrap" tabindex="0" role="region" aria-label="Exam schedule table"><table><thead><tr><th scope="col">Date</th><th scope="col">Time</th><th scope="col">Course</th><th scope="col">Section</th><th scope="col">Room</th><th scope="col">Teacher</th><th scope="col"><span class="sr-only">Add to calendar</span></th></tr></thead><tbody>${events.map(event => `<tr><td class="nowrap" data-label="Date">${esc(fmtDateCompact.format(event.date))}</td><td class="nowrap" data-label="Time">${esc(timeLabel(event))}</td><td data-label="Course"><span class="code">${esc(event.courseCode)}</span>${event.courseName ? `<span class="cname">${esc(event.courseName)}</span>` : ''}</td><td data-label="Section">${event.selectedSection ? esc(event.selectedSection) : missing}</td><td class="nowrap" data-label="Room">${event.room ? esc(event.room) : missing}</td><td data-label="Teacher">${event.instructor ? esc(event.instructor) : missing}</td><td data-label="Calendar">${calendarLink(event, { text: false })}</td></tr>`).join('')}</tbody></table></div>`;
+      }
 
-            setFont(ctx, 12);
-            ctx.fillStyle = IMG.soft;
+      function buildCalendarWeeks(events) {
+        const first = events[0].date;
+        const last = events[events.length - 1].date;
+        const start = new Date(first.getFullYear(), first.getMonth(), first
+          .getDate() - first.getDay());
+        const end = new Date(last.getFullYear(), last.getMonth(), last
+          .getDate() + (6 - last.getDay()));
+        const total = Math.round((end - start) / 86400000) + 1;
+        const byDay = new Map();
+        events.forEach(event => {
+          const key = dateKey(event.date);
+          if (!byDay.has(key)) {
+            byDay.set(key, []);
+          }
+          byDay.get(key).push(event);
+        });
+        const firstKey = dateKey(first);
+        const lastKey = dateKey(last);
+        const weeks = [];
+        for (let i = 0; i < total; i++) {
+          const date = new Date(start.getFullYear(), start.getMonth(), start
+            .getDate() + i);
+          const key = dateKey(date);
+          if (i % 7 === 0) {
+            weeks.push([]);
+          }
+          weeks[weeks.length - 1].push({
+            date,
+            key,
+            events: byDay.get(key) || [],
+            extra: key < firstKey || key > lastKey
+          });
+        }
+        return weeks;
+      }
 
-            WEEKDAY_LABELS.forEach((label, i) => {
-                ctx.fillText(label, pad + i * colW + 8, y + 18);
-            });
+      function renderCalendar(events) {
+        const todayKey = dateKey(new Date());
+        const cells = buildCalendarWeeks(events).flat().map((cell, index) => {
+          const withMonth = index === 0 || cell.date.getDate() === 1;
+          const label = withMonth ?
+            `${cell.date.getDate()} ${fmtMonthShort.format(cell.date)}` :
+            String(cell.date.getDate());
+          return `<div class="cal-day${cell.extra ? ' extra' : ''}${cell.key === todayKey ? ' today' : ''}"><div class="d${withMonth ? ' first' : ''}">${esc(label)}</div>${cell.events.map(event => `<div class="ev"><div class="ev-top"><span title="${esc(timeLabel(event))}">${esc(startTimeLabel(event) || 'No time')}</span>${calendarLink(event, { className: 'ev-cal', text: false })}</div><div class="ev-code">${esc(event.courseCode)}${event.selectedSection ? ` · ${esc(event.selectedSection)}` : ''}</div>${event.room ? `<div class="ev-room">${esc(event.room)}</div>` : ''}</div>`).join('')}</div>`;
+        }).join('');
+        return `<div class="cal"><div class="cal-wd">${WEEKDAY_LABELS.map(day => `<div>${day}</div>`).join('')}</div><div class="cal-grid">${cells}</div></div>`;
+      }
 
-            y += 28;
+      function updateViewButtons() {
+        document.querySelectorAll('[data-view]').forEach(button => {
+          button.setAttribute('aria-pressed', String(button.dataset
+            .view === state.view));
+        });
+      }
 
-            hLine(ctx, pad, width - pad, y, IMG.lineStrong);
+      function renderSchedule() {
+        updateViewButtons();
+        const panel = els.schedulePanel;
+        if (!state.loaded) {
+          return;
+        }
+        const events = state.selected.length ? getScheduleEvents() : [];
+        els.download.disabled = !events.length;
+        if (!state.selected.length) {
+          panel.innerHTML =
+            '<p class="note">Add a course to see its exam schedule.</p>';
+          return;
+        }
+        if (!events.length) {
+          panel.innerHTML =
+            '<p class="note">Choose a section to see its exams.</p>';
+          return;
+        }
+        if (state.view === 'table') {
+          panel.innerHTML = renderTable(events);
+        } else if (state.view === 'calendar') {
+          panel.innerHTML = renderCalendar(events);
+        } else {
+          panel.innerHTML = renderCards(events);
+        }
+      }
 
-            weeks.forEach((week, weekIndex) => {
-                const blocks = week.map(cell =>
-                    cell.events.map(blockFor)
-                );
+      function setView(view) {
+        if (!VIEWS.includes(view) || view === state.view) {
+          return;
+        }
+        state.view = view;
+        saveState();
+        renderSchedule();
+      }
+      const IMG_FONT =
+        '"Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif';
+      const IMG_SERIF =
+        '"Iowan Old Style", "Palatino Linotype", Palatino, Charter, Georgia, serif';
+      const IMG = {
+        paper: '#f7f4ee',
+        raised: '#fffdf9',
+        ink: '#1d1a16',
+        soft: '#6b6458',
+        line: '#e6e0d2',
+        lineStrong: '#d7cfba',
+        accent: '#b14323',
+        accentSoft: '#f3e3d6',
+        blueInk: '#20558f',
+        head: '#e6e0d2',
+        extra: '#f2eee5',
+        extraText: '#9a9385'
+      };
 
-                const rowHeight = Math.max(
-                    76,
-                    ...blocks.map(
-                        list =>
-                            28 +
-                            list.reduce(
-                                (sum, block) => sum + block.height + 6,
-                                0
-                            ) +
-                            4
-                    )
-                );
+      function setFont(ctx, size, weight = 400, serif = false) {
+        ctx.font = `${weight} ${size}px ${serif ? IMG_SERIF : IMG_FONT}`;
+      }
 
-                week.forEach((cell, i) => {
-                    const x = pad + i * colW;
+      function wrapLines(ctx, text, maxWidth) {
+        const words = String(text ?? '').split(/\s+/).filter(Boolean);
+        const lines = [];
+        let line = '';
+        words.forEach(word => {
+          const test = line ? `${line} ${word}` : word;
+          if (!line || ctx.measureText(test).width <= maxWidth) {
+            line = test;
+          } else {
+            lines.push(line);
+            line = word;
+          }
+        });
+        if (line) {
+          lines.push(line);
+        }
+        return lines.length ? lines : [''];
+      }
 
-                    if (cell.extra) {
-                        ctx.fillStyle = IMG.extra;
-                        ctx.fillRect(x, y + 1, colW, rowHeight - 1);
-                    }
+      function hLine(ctx, x1, x2, y, color) {
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(x1, y + 0.5);
+        ctx.lineTo(x2, y + 0.5);
+        ctx.stroke();
+      }
 
-                    const withMonth =
-                        (weekIndex === 0 && i === 0) ||
-                        cell.date.getDate() === 1;
+      function vLine(ctx, x, y1, y2, color) {
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(x + 0.5, y1);
+        ctx.lineTo(x + 0.5, y2);
+        ctx.stroke();
+      }
 
-                    setFont(ctx, 12, withMonth ? 600 : 400);
+      function renderToCanvas(width, draw) {
+        const height = Math.ceil(draw(document.createElement('canvas')
+          .getContext('2d')));
+        const scale = 2;
+        const canvas = document.createElement('canvas');
+        canvas.width = width * scale;
+        canvas.height = height * scale;
+        const ctx = canvas.getContext('2d');
+        ctx.scale(scale, scale);
+        ctx.fillStyle = IMG.paper;
+        ctx.fillRect(0, 0, width, height);
+        ctx.textBaseline = 'alphabetic';
+        draw(ctx);
+        return canvas;
+      }
 
-                    ctx.fillStyle = withMonth
-                        ? IMG.ink
-                        : cell.extra
-                            ? IMG.extraText
-                            : IMG.ink;
+      function drawImageHeader(ctx, events, width, pad) {
+        ctx.textBaseline = 'alphabetic';
+        setFont(ctx, 14, 600, true);
+        ctx.fillStyle = IMG.blueInk;
+        ctx.fillText('YouRMS Exam Finder', pad, pad + 10);
+        setFont(ctx, 26, 600, true);
+        ctx.fillStyle = IMG.blueInk;
+        ctx.fillText('Exam Schedule', pad, pad + 42);
+        setFont(ctx, 13);
+        ctx.fillStyle = IMG.soft;
+        ctx.fillText('This routine is generated by YouRMS Exam Finder.', pad,
+          pad + 62);
+        setFont(ctx, 12);
+        ctx.fillStyle = IMG.blueInk;
+        ctx.fillText('Use it online: https://yourms.github.io/exam', pad,
+          pad + 80);
+        return pad + 100;
+      }
 
-                    ctx.fillText(
-                        withMonth
-                            ? `${cell.date.getDate()} ${fmtMonthShort.format(cell.date)}`
-                            : String(cell.date.getDate()),
-                        x + 8,
-                        y + 18
-                    );
-
-                    let by = y + 26;
-
-                    blocks[i].forEach(block => {
-                        ctx.fillStyle = IMG.accentSoft;
-                        ctx.fillRect(x + 4, by, colW - 8, block.height);
-
-                        ctx.fillStyle = IMG.accent;
-                        ctx.fillRect(x + 4, by, 2, block.height);
-
-                        let ty = by + 14;
-
-                        setFont(ctx, 11);
-                        ctx.fillStyle = IMG.soft;
-
-                        ctx.fillText(
-                            startTimeLabel(block.event) || 'No time',
-                            x + 12,
-                            ty
-                        );
-
-                        setFont(ctx, 12, 600);
-                        ctx.fillStyle = IMG.ink;
-
-                        block.codeLines.forEach(line => {
-                            ty += 15;
-                            ctx.fillText(line, x + 12, ty);
-                        });
-
-                        setFont(ctx, 11);
-                        ctx.fillStyle = IMG.soft;
-
-                        block.roomLines.forEach(line => {
-                            ty += 14;
-                            ctx.fillText(line, x + 12, ty);
-                        });
-
-                        by += block.height + 6;
-                    });
-
-                    if (i > 0) {
-                        vLine(ctx, x, y, y + rowHeight, IMG.line);
-                    }
-                });
-
-                y += rowHeight;
-
-                hLine(
-                    ctx,
-                    pad,
-                    width - pad,
-                    y,
-                    weekIndex === weeks.length - 1
-                        ? IMG.lineStrong
-                        : IMG.line
-                );
-            });
-
+      function drawCardsImage(ctx, events, width) {
+        const pad = 32;
+        const gap = 14;
+        const cols = 3;
+        const cardW = (width - pad * 2 - gap * (cols - 1)) / cols;
+        const inner = cardW - 28;
+        let y = drawImageHeader(ctx, events, width, pad);
+        const measured = events.map(event => {
+          setFont(ctx, 14, 600);
+          const course = wrapLines(ctx,
+            `${event.courseCode}${event.courseName ? '  ' + event.courseName : ''}`,
+            inner);
+          setFont(ctx, 13);
+          const meta = metaParts(event).flatMap(part => wrapLines(ctx,
+            part, inner));
+          return {
+            event,
+            course,
+            meta,
+            height: 14 + 22 + 12 + 20 + course.length * 19 + 6 + meta
+              .length * 17 + 14
+          };
+        });
+        for (let i = 0; i < measured.length; i += cols) {
+          const row = measured.slice(i, i + cols);
+          const rowH = Math.max(...row.map(card => card.height));
+          row.forEach((card, c) => {
+            const x = pad + c * (cardW + gap);
+            ctx.fillStyle = IMG.raised;
+            ctx.fillRect(x, y, cardW, rowH);
             ctx.strokeStyle = IMG.lineStrong;
             ctx.lineWidth = 1;
-
-            ctx.strokeRect(
-                pad + 0.5,
-                gridTop + 0.5,
-                width - pad * 2 - 1,
-                y - gridTop - 1
-            );
-
-            return y + pad;
+            ctx.strokeRect(x + 0.5, y + 0.5, cardW - 1, rowH - 1);
+            setFont(ctx, 17, 600, true);
+            ctx.fillStyle = IMG.ink;
+            ctx.fillText(fmtDateShort.format(card.event.date), x + 14, y +
+              30);
+            setFont(ctx, 13);
+            ctx.fillStyle = IMG.soft;
+            const yr = String(card.event.date.getFullYear());
+            ctx.fillText(yr, x + cardW - 14 - ctx.measureText(yr).width,
+              y + 30);
+            hLine(ctx, x + 14, x + cardW - 14, y + 40, IMG.line);
+            setFont(ctx, 14);
+            ctx.fillStyle = IMG.ink;
+            ctx.fillText(timeLabel(card.event), x + 14, y + 62);
+            let ty = y + 62;
+            card.course.forEach((line, l) => {
+              ty += 19;
+              setFont(ctx, 14, l === 0 ? 600 : 400);
+              ctx.fillStyle = IMG.ink;
+              ctx.fillText(line, x + 14, ty);
+            });
+            ty += 6;
+            setFont(ctx, 13);
+            ctx.fillStyle = IMG.soft;
+            card.meta.forEach(line => {
+              ty += 17;
+              ctx.fillText(line, x + 14, ty);
+            });
+          });
+          y += rowH + gap;
         }
+        return y - gap + pad;
+      }
 
-        function downloadSchedule() {
-            const events = state.selected.length
-                ? getScheduleEvents()
-                : [];
+      function drawTableImage(ctx, events, width) {
+        const pad = 32;
+        const fixed = [130, 150, 250, 64, 100];
+        const widths = [...fixed, width - pad * 2 - fixed.reduce((a, b) => a +
+          b, 0)];
+        const heads = ['Date', 'Time', 'Course', 'Section', 'Room',
+        'Teacher'];
+        let y = drawImageHeader(ctx, events, width, pad) + 4;
+        const xs = widths.reduce((list, w, i) => {
+          list.push(i ? list[i - 1] + widths[i - 1] : pad);
+          return list;
+        }, []);
+        setFont(ctx, 12, 600);
+        ctx.fillStyle = IMG.soft;
+        heads.forEach((head, i) => {
+          ctx.fillText(head, xs[i] + 8, y + 18);
+        });
+        y += 28;
+        hLine(ctx, pad, width - pad, y, IMG.lineStrong);
+        events.forEach((event, index) => {
+          setFont(ctx, 13);
+          const cells = [wrapLines(ctx, fmtDateCompact.format(event.date),
+              widths[0] - 16), wrapLines(ctx, timeLabel(event), widths[
+              1] - 16), [event.courseCode, ...(event.courseName ?
+              wrapLines(ctx, event.courseName, widths[2] - 16) : [])],
+            [event.selectedSection || 'Not listed'], wrapLines(ctx,
+              event.room || 'Not listed', widths[4] - 16), wrapLines(
+              ctx, event.instructor || 'Not listed', widths[5] - 16)
+          ];
+          const lines = Math.max(...cells.map(cell => cell.length));
+          const rowHeight = lines * 18 + 18;
+          cells.forEach((cell, c) => {
+            cell.forEach((line, l) => {
+              const isCode = c === 2 && l === 0;
+              setFont(ctx, 13, isCode ? 600 : 400);
+              ctx.fillStyle = isCode || c < 2 ? IMG.ink : c ===
+                2 ? IMG.soft : IMG.ink;
+              ctx.fillText(line, xs[c] + 8, y + 22 + l * 18);
+            });
+          });
+          y += rowHeight;
+          if (index < events.length - 1) {
+            hLine(ctx, pad, width - pad, y, IMG.line);
+          }
+        });
+        return y + pad;
+      }
 
-            if (!events.length) {
-                toast('Choose a section first.', 'error');
-                return;
+      function drawCalendarImage(ctx, events, width) {
+        const pad = 32;
+        const weeks = buildCalendarWeeks(events);
+        const colW = (width - pad * 2) / 7;
+        const innerW = colW - 8 - 14;
+        const blockFor = event => {
+          setFont(ctx, 12, 600);
+          const codeLines = wrapLines(ctx,
+            `${event.courseCode}${event.selectedSection ? ' · ' + event.selectedSection : ''}`,
+            innerW);
+          setFont(ctx, 11);
+          const roomLines = event.room ? wrapLines(ctx, event.room,
+            innerW) : [];
+          return {
+            event,
+            codeLines,
+            roomLines,
+            height: 8 + 14 + codeLines.length * 15 + roomLines.length * 14
+          };
+        };
+        let y = drawImageHeader(ctx, events, width, pad);
+        const gridTop = y;
+        ctx.fillStyle = IMG.head;
+        ctx.fillRect(pad, y, width - pad * 2, 28);
+        setFont(ctx, 12);
+        ctx.fillStyle = IMG.soft;
+        WEEKDAY_LABELS.forEach((label, i) => {
+          ctx.fillText(label, pad + i * colW + 8, y + 18);
+        });
+        y += 28;
+        hLine(ctx, pad, width - pad, y, IMG.lineStrong);
+        weeks.forEach((week, weekIndex) => {
+          const blocks = week.map(cell => cell.events.map(blockFor));
+          const rowHeight = Math.max(76, ...blocks.map(list => 28 + list
+            .reduce((sum, block) => sum + block.height + 6, 0) + 4));
+          week.forEach((cell, i) => {
+            const x = pad + i * colW;
+            if (cell.extra) {
+              ctx.fillStyle = IMG.extra;
+              ctx.fillRect(x, y + 1, colW, rowHeight - 1);
             }
-
-            try {
-                const canvas =
-                    state.view === 'table'
-                        ? renderToCanvas(960, ctx => drawTableImage(ctx, events, 960))
-                        : state.view === 'calendar'
-                            ? renderToCanvas(980, ctx => drawCalendarImage(ctx, events, 980))
-                            : renderToCanvas(900, ctx => drawCardsImage(ctx, events, 900));
-
-                canvas.toBlob(blob => {
-                    if (!blob) {
-                        toast('Could not create the image.', 'error');
-                        return;
-                    }
-
-                    const link = document.createElement('a');
-
-                    link.href = URL.createObjectURL(blob);
-                    link.download = `exam-schedule-${state.view}.png`;
-
-                    document.body.appendChild(link);
-                    link.click();
-                    link.remove();
-
-                    window.setTimeout(
-                        () => URL.revokeObjectURL(link.href),
-                        2000
-                    );
-                }, 'image/png');
-            } catch (error) {
-                console.error(error);
-                toast('Could not create the image.', 'error');
+            const withMonth = (weekIndex === 0 && i === 0) || cell
+              .date.getDate() === 1;
+            setFont(ctx, 12, withMonth ? 600 : 400);
+            ctx.fillStyle = withMonth ? IMG.ink : cell.extra ? IMG
+              .extraText : IMG.ink;
+            ctx.fillText(withMonth ?
+              `${cell.date.getDate()} ${fmtMonthShort.format(cell.date)}` :
+              String(cell.date.getDate()), x + 8, y + 18);
+            let by = y + 26;
+            blocks[i].forEach(block => {
+              ctx.fillStyle = IMG.accentSoft;
+              ctx.fillRect(x + 4, by, colW - 8, block.height);
+              ctx.fillStyle = IMG.accent;
+              ctx.fillRect(x + 4, by, 2, block.height);
+              let ty = by + 14;
+              setFont(ctx, 11);
+              ctx.fillStyle = IMG.soft;
+              ctx.fillText(startTimeLabel(block.event) ||
+                'No time', x + 12, ty);
+              setFont(ctx, 12, 600);
+              ctx.fillStyle = IMG.ink;
+              block.codeLines.forEach(line => {
+                ty += 15;
+                ctx.fillText(line, x + 12, ty);
+              });
+              setFont(ctx, 11);
+              ctx.fillStyle = IMG.soft;
+              block.roomLines.forEach(line => {
+                ty += 14;
+                ctx.fillText(line, x + 12, ty);
+              });
+              by += block.height + 6;
+            });
+            if (i > 0) {
+              vLine(ctx, x, y, y + rowHeight, IMG.line);
             }
+          });
+          y += rowHeight;
+          hLine(ctx, pad, width - pad, y, weekIndex === weeks.length - 1 ?
+            IMG.lineStrong : IMG.line);
+        });
+        ctx.strokeStyle = IMG.lineStrong;
+        ctx.lineWidth = 1;
+        ctx.strokeRect(pad + 0.5, gridTop + 0.5, width - pad * 2 - 1, y -
+          gridTop - 1);
+        return y + pad;
+      }
+
+      function downloadSchedule() {
+        const events = state.selected.length ? getScheduleEvents() : [];
+        if (!events.length) {
+          toast('Choose a section first.', 'error');
+          return;
         }
-
-        /* Workbook loading */
-        function loadScript(url) {
-            return new Promise((resolve, reject) => {
-                const script = document.createElement('script');
-
-                script.src = url;
-                script.async = true;
-
-                script.onload = () =>
-                    window.XLSX
-                        ? resolve()
-                        : reject(
-                            new Error(
-                                'The Excel parser loaded without exposing XLSX.'
-                            )
-                        );
-
-                script.onerror = () =>
-                    reject(
-                        new Error(
-                            'Could not load the Excel parser from ' + url
-                        )
-                    );
-
-                document.head.appendChild(script);
-            });
-        }
-
-        async function ensureXLSX() {
-            if (window.XLSX) {
-                return;
+        try {
+          const canvas = state.view === 'table' ? renderToCanvas(960, ctx =>
+              drawTableImage(ctx, events, 960)) : state.view === 'calendar' ?
+            renderToCanvas(980, ctx => drawCalendarImage(ctx, events, 980)) :
+            renderToCanvas(900, ctx => drawCardsImage(ctx, events, 900));
+          canvas.toBlob(blob => {
+            if (!blob) {
+              toast('Could not create the image.', 'error');
+              return;
             }
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `exam-schedule-${state.view}.png`;
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            window.setTimeout(() => URL.revokeObjectURL(link.href), 2000);
+          }, 'image/png');
+        } catch (error) {
+          console.error(error);
+          toast('Could not create the image.', 'error');
+        }
+      }
 
-            let lastError;
+      function loadScript(url) {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = url;
+          script.async = true;
+          script.onload = () => window.XLSX ? resolve() : reject(
+            new Error('The Excel parser loaded without exposing XLSX.'));
+          script.onerror = () => reject(new Error(
+            'Could not load the Excel parser from ' + url));
+          document.head.appendChild(script);
+        });
+      }
+      async function ensureXLSX() {
+        if (window.XLSX) {
+          return;
+        }
+        let lastError;
+        for (const url of SHEETJS_SOURCES) {
+          try {
+            await loadScript(url);
+            return;
+          } catch (error) {
+            lastError = error;
+          }
+        }
+        throw lastError || new Error('Excel parser unavailable.');
+      }
 
-            for (const url of SHEETJS_SOURCES) {
-                try {
-                    await loadScript(url);
-                    return;
-                } catch (error) {
-                    lastError = error;
-                }
+      function setControlsEnabled(enabled) {
+        els.search.disabled = !enabled;
+        els.add.disabled = !enabled;
+      }
+
+      function renderFailure(error) {
+        const message = String(error?.message || error || 'Unknown error');
+        els.courseList.innerHTML =
+          `<li><div class="alert" role="alert"><strong>Could not load the exam schedule.</strong><br>${esc(message)}<br>Check that <code>${esc(WORKBOOK_URL)}</code> is available.</div></li>`;
+        els.schedulePanel.innerHTML =
+          '<p class="note">The schedule is unavailable.</p>';
+        els.courseCount.textContent = '';
+      }
+
+      function parseCourseData(text) {
+        const data = {};
+        const body = text.replace(/\/\*[\s\S]*?\*\//g, '').split('\n').filter(
+          line => !/^\s*\/\//.test(line)).join('\n');
+        const pair = /"((?:[^"\\]|\\.)*)"\s*:\s*"((?:[^"\\]|\\.)*)"/g;
+        const unescape = value => {
+          try {
+            return JSON.parse(`"${value}"`);
+          } catch (_) {
+            return value;
+          }
+        };
+        let m;
+        while ((m = pair.exec(body)) !== null) {
+          data[unescape(m[1])] = unescape(m[2]);
+        }
+        return data;
+      }
+      async function loadCourseData() {
+        try {
+          const url = COURSE_DATA_URL + (COURSE_DATA_URL.includes('?') ?
+            '&' : '?') + 'v=' + Date.now();
+          const response = await fetch(url, {
+            cache: 'no-store'
+          });
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          const data = parseCourseData(await response.text());
+          CourseCatalog.loadBuiltIn();
+          if (!CourseCatalog.loadData(data)) {
+            throw new Error('no course names found');
+          }
+          return true;
+        } catch (error) {
+          console.warn('Could not load course names', error);
+          CourseCatalog.loadBuiltIn();
+          toast('Course names could not be loaded, so some may be missing.',
+            'error');
+          return false;
+        }
+      }
+      async function loadWorkbook() {
+        setControlsEnabled(false);
+        try {
+          await Promise.all([ensureXLSX(), loadCourseData()]);
+          const url = WORKBOOK_URL + (WORKBOOK_URL.includes('?') ? '&' :
+            '?') + 'v=' + Date.now();
+          const response = await fetch(url, {
+            cache: 'no-store'
+          });
+          if (!response.ok) {
+            throw new Error(
+              `Could not fetch ${WORKBOOK_URL} (HTTP ${response.status}).`
+              );
+          }
+          const buffer = await response.arrayBuffer();
+          const workbook = window.XLSX.read(buffer, {
+            type: 'array',
+            cellDates: true,
+            dense: false
+          });
+          if (!workbook.SheetNames || !workbook.SheetNames.length) {
+            throw new Error('The Excel file does not contain a worksheet.');
+          }
+          const sheetName = workbook.SheetNames.find(name =>
+            /midterm|schedule/i.test(name)) || workbook.SheetNames[0];
+          const built = buildWorkbookRows(workbook.Sheets[sheetName]);
+          const stats = parseWorkbook(built.rows, built.startRow);
+          if (!stats.courseCount || !stats.entryCount) {
+            throw new Error(
+              'The workbook opened, but no course entries could be recognized.'
+              );
+          }
+          state.loaded = true;
+          validateSelection();
+          renderCourseList();
+          renderSchedule();
+          if (!els.picker.hidden) {
+            renderPicker();
+          }
+          setControlsEnabled(true);
+        } catch (error) {
+          console.error(error);
+          renderFailure(error);
+          setControlsEnabled(false);
+        }
+      }
+
+      function wireAdd() {
+        els.search.addEventListener('input', renderPicker);
+        els.search.addEventListener('focus', () => {
+          if (els.picker.hidden) {
+            renderPicker();
+          }
+        });
+        els.search.addEventListener('click', () => {
+          if (els.picker.hidden) {
+            renderPicker();
+          }
+        });
+        els.search.addEventListener('keydown', event => {
+          const count = state.picker.items.length;
+          if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            if (els.picker.hidden) {
+              renderPicker();
             }
-
-            throw lastError || new Error('Excel parser unavailable.');
-        }
-
-        function setControlsEnabled(enabled) {
-            els.search.disabled = !enabled;
-            els.add.disabled = !enabled;
-        }
-
-        function renderFailure(error) {
-            const message = String(error?.message || error || 'Unknown error');
-
-            els.courseList.innerHTML =
-                `<li><div class="alert" role="alert"><strong>Could not load the exam schedule.</strong><br>${esc(message)}<br>Check that <code>${esc(WORKBOOK_URL)}</code> is available. Browsers usually block workbook loading when the page is opened directly from a file, so use GitHub Pages or a local web server.</div></li>`;
-
-            els.schedulePanel.innerHTML =
-                '<p class="note">The schedule is unavailable.</p>';
-
-            els.courseCount.textContent = '';
-        }
-
-        function parseCourseData(text) {
-            const data = {};
-
-            const body = text
-                .replace(/\/\*[\s\S]*?\*\//g, '')
-                .split('\n')
-                .filter(line => !/^\s*\/\//.test(line))
-                .join('\n');
-
-            const pair = /"((?:[^"\\]|\\.)*)"\s*:\s*"((?:[^"\\]|\\.)*)"/g;
-
-            const unescape = value => {
-                try {
-                    return JSON.parse(`"${value}"`);
-                } catch (_) {
-                    return value;
-                }
-            };
-
-            let m;
-
-            while ((m = pair.exec(body)) !== null) {
-                data[unescape(m[1])] = unescape(m[2]);
+            if (count) {
+              setActiveOption(state.picker.active + 1);
             }
-
-            return data;
-        }
-
-        async function loadCourseData() {
-            try {
-                const url =
-                    COURSE_DATA_URL +
-                    (COURSE_DATA_URL.includes('?') ? '&' : '?') +
-                    'v=' +
-                    Date.now();
-
-                const response = await fetch(url, { cache: 'no-store' });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-
-                const data = parseCourseData(await response.text());
-
-                CourseCatalog.loadBuiltIn();
-
-                if (!CourseCatalog.loadData(data)) {
-                    throw new Error('no course names found');
-                }
-
-                return true;
-            } catch (error) {
-                console.warn('Could not load course names', error);
-
-                CourseCatalog.loadBuiltIn();
-
-                toast(
-                    'Course names could not be loaded, so some may be missing.',
-                    'error'
-                );
-
-                return false;
+          } else if (event.key === 'ArrowUp') {
+            event.preventDefault();
+            if (count) {
+              setActiveOption(state.picker.active < 0 ? count - 1 : state
+                .picker.active - 1);
             }
-        }
-
-        async function loadWorkbook() {
-            setControlsEnabled(false);
-
-            try {
-                await Promise.all([ensureXLSX(), loadCourseData()]);
-
-                const url =
-                    WORKBOOK_URL +
-                    (WORKBOOK_URL.includes('?') ? '&' : '?') +
-                    'v=' +
-                    Date.now();
-
-                const response = await fetch(url, { cache: 'no-store' });
-
-                if (!response.ok) {
-                    throw new Error(
-                        `Could not fetch ${WORKBOOK_URL} (HTTP ${response.status}).`
-                    );
-                }
-
-                const buffer = await response.arrayBuffer();
-
-                const workbook = window.XLSX.read(buffer, {
-                    type: 'array',
-                    cellDates: true,
-                    dense: false
-                });
-
-                if (!workbook.SheetNames || !workbook.SheetNames.length) {
-                    throw new Error(
-                        'The Excel file does not contain a worksheet.'
-                    );
-                }
-
-                const sheetName =
-                    workbook.SheetNames.find(name =>
-                        /midterm|schedule/i.test(name)
-                    ) || workbook.SheetNames[0];
-
-                const built = buildWorkbookRows(workbook.Sheets[sheetName]);
-
-                const stats = parseWorkbook(
-                    built.rows,
-                    built.startRow
-                );
-
-                if (!stats.courseCount || !stats.entryCount) {
-                    throw new Error(
-                        'The workbook opened, but no course entries could be recognized.'
-                    );
-                }
-
-                state.loaded = true;
-
-                validateSelection();
-                renderCourseList();
-                renderSchedule();
-
-                if (!els.picker.hidden) {
-                    renderPicker();
-                }
-
-                setControlsEnabled(true);
-            } catch (error) {
-                console.error(error);
-                renderFailure(error);
-                setControlsEnabled(false);
+          } else if (event.key === 'Enter') {
+            event.preventDefault();
+            const item = state.picker.items[state.picker.active];
+            if (item && event.shiftKey) {
+              toggleCode(item.code);
+            } else if (item && state.selected.includes(item.code)) {
+              toast(`${item.code} is already added.`, 'error');
+            } else {
+              commitAdd(item?.code);
             }
-        }
+          } else if (event.key === 'Escape') {
+            closePicker();
+          }
+        });
+        els.picker.addEventListener('mousedown', event => event
+          .preventDefault());
+        els.pickerList.addEventListener('click', event => {
+          const option = event.target.closest('.opt');
+          if (!option) {
+            return;
+          }
+          if (option.classList.contains('is-added')) {
+            toast(`${option.dataset.code} is already added.`, 'error');
+            return;
+          }
+          toggleCode(option.dataset.code);
+        });
+        els.pickerAll.addEventListener('click', () => {
+          state.picker.items.filter(item => !state.selected.includes(item
+            .code)).forEach(item => state.picker.checked.add(item.code));
+          [...els.pickerList.querySelectorAll('.opt:not(.is-added)')]
+          .forEach(option => option.setAttribute('aria-selected',
+          'true'));
+          updatePickerBar();
+        });
+        els.pickerClear.addEventListener('click', () => {
+          state.picker.checked.clear();
+          [...els.pickerList.querySelectorAll('.opt:not(.is-added)')]
+          .forEach(option => option.setAttribute('aria-selected',
+            'false'));
+          updatePickerBar();
+        });
+        els.add.addEventListener('click', () => commitAdd());
+        document.addEventListener('pointerdown', event => {
+          if (!event.target.closest('#addRow')) {
+            closePicker();
+          }
+        });
+        els.addRow.addEventListener('focusout', event => {
+          if (!els.addRow.contains(event.relatedTarget)) {
+            closePicker();
+          }
+        });
+      }
 
-        /* Event wiring */
-        function wireAdd() {
-            els.search.addEventListener('input', renderPicker);
+      function wireCourseList() {
+        els.courseList.addEventListener('click', event => {
+          const remove = event.target.closest('[data-remove]');
+          if (remove) {
+            removeCourse(remove.dataset.remove);
+            return;
+          }
+          const chip = event.target.closest('[data-section-for]');
+          if (!chip) {
+            return;
+          }
+          const code = chip.dataset.sectionFor;
+          const key = chip.dataset.key;
+          if (state.selectedSections.get(code) === key) {
+            state.selectedSections.delete(code);
+          } else {
+            state.selectedSections.set(code, key);
+          }
+          saveState();
+          updateCourseItem(code, key);
+          renderSchedule();
+        });
+      }
 
-            els.search.addEventListener('focus', () => {
-                if (els.picker.hidden) {
-                    renderPicker();
-                }
-            });
-
-            els.search.addEventListener('click', () => {
-                if (els.picker.hidden) {
-                    renderPicker();
-                }
-            });
-
-            els.search.addEventListener('keydown', event => {
-                const count = state.picker.items.length;
-
-                if (event.key === 'ArrowDown') {
-                    event.preventDefault();
-
-                    if (els.picker.hidden) {
-                        renderPicker();
-                    }
-
-                    if (count) {
-                        setActiveOption(state.picker.active + 1);
-                    }
-                } else if (event.key === 'ArrowUp') {
-                    event.preventDefault();
-
-                    if (count) {
-                        setActiveOption(
-                            state.picker.active < 0
-                                ? count - 1
-                                : state.picker.active - 1
-                        );
-                    }
-                } else if (event.key === 'Enter') {
-                    event.preventDefault();
-
-                    const item = state.picker.items[state.picker.active];
-
-                    if (item && event.shiftKey) {
-                        toggleCode(item.code);
-                    } else if (item && state.selected.includes(item.code)) {
-                        toast(`${item.code} is already added.`, 'error');
-                    } else {
-                        commitAdd(item?.code);
-                    }
-                } else if (event.key === 'Escape') {
-                    closePicker();
-                }
-            });
-
-            els.picker.addEventListener('mousedown', event =>
-                event.preventDefault()
-            );
-
-            els.pickerList.addEventListener('click', event => {
-                const option = event.target.closest('.opt');
-
-                if (!option) {
-                    return;
-                }
-
-                if (option.classList.contains('is-added')) {
-                    toast(`${option.dataset.code} is already added.`, 'error');
-                    return;
-                }
-
-                toggleCode(option.dataset.code);
-            });
-
-            els.pickerAll.addEventListener('click', () => {
-                state.picker.items
-                    .filter(item => !state.selected.includes(item.code))
-                    .forEach(item => state.picker.checked.add(item.code));
-
-                [
-                    ...els.pickerList.querySelectorAll('.opt:not(.is-added)')
-                ].forEach(option =>
-                    option.setAttribute('aria-selected', 'true')
-                );
-
-                updatePickerBar();
-            });
-
-            els.pickerClear.addEventListener('click', () => {
-                state.picker.checked.clear();
-
-                [
-                    ...els.pickerList.querySelectorAll('.opt:not(.is-added)')
-                ].forEach(option =>
-                    option.setAttribute('aria-selected', 'false')
-                );
-
-                updatePickerBar();
-            });
-
-            els.add.addEventListener('click', () => commitAdd());
-
-            document.addEventListener('pointerdown', event => {
-                if (!event.target.closest('#addRow')) {
-                    closePicker();
-                }
-            });
-
-            els.addRow.addEventListener('focusout', event => {
-                if (!els.addRow.contains(event.relatedTarget)) {
-                    closePicker();
-                }
-            });
-        }
-
-        function wireCourseList() {
-            els.courseList.addEventListener('click', event => {
-                const remove = event.target.closest('[data-remove]');
-
-                if (remove) {
-                    removeCourse(remove.dataset.remove);
-                    return;
-                }
-
-                const chip = event.target.closest('[data-section-for]');
-
-                if (!chip) {
-                    return;
-                }
-
-                const code = chip.dataset.sectionFor;
-                const key = chip.dataset.key;
-
-                if (state.selectedSections.get(code) === key) {
-                    state.selectedSections.delete(code);
-                } else {
-                    state.selectedSections.set(code, key);
-                }
-
-                saveState();
-                updateCourseItem(code, key);
-                renderSchedule();
-            });
-        }
-
-        function wireSchedule() {
-            document.querySelectorAll('[data-view]').forEach(button => {
-                button.addEventListener('click', () =>
-                    setView(button.dataset.view)
-                );
-            });
-
-            els.download.addEventListener('click', downloadSchedule);
-        }
-
-        /* Start */
-        applySavedState(Store.read());
-        wireAdd();
-        wireCourseList();
-        wireSchedule();
-        updateViewButtons();
-        loadWorkbook();
+      function wireSchedule() {
+        document.querySelectorAll('[data-view]').forEach(button => {
+          button.addEventListener('click', () => setView(button.dataset
+            .view));
+        });
+        els.download.addEventListener('click', downloadSchedule);
+      }
+      applySavedState(Store.read());
+      wireAdd();
+      wireCourseList();
+      wireSchedule();
+      updateViewButtons();
+      loadWorkbook();
     })();
-</script>
+  </script>
 </body>
+
 </html>
